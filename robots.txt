@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://week3-2og.pages.dev/sitemap.xml
