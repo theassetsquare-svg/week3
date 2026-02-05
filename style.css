@@ -20,41 +20,55 @@ body {
 }
 
 .app {
+  width: min(520px, 90vw);
+}
+
+.card {
+  background: var(--card);
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(29, 79, 58, 0.15);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.lead {
+  margin: 0 0 20px;
+  color: #5b5b5b;
+}
+
+form {
   display: grid;
-  gap: 18px;
-  place-items: center;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+
+input,
+textarea {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
 }
 
 .btn {
   border: none;
-  padding: 16px 28px;
+  padding: 12px 22px;
   border-radius: 999px;
   background: var(--accent);
   color: #fff;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 14px 30px rgba(29, 79, 58, 0.2);
-}
-
-.result {
-  width: min(360px, 85vw);
-  background: var(--card);
-  border-radius: 18px;
-  box-shadow: 0 16px 36px rgba(29, 79, 58, 0.15);
-  overflow: hidden;
-  text-align: center;
-}
-
-.result-image {
-  width: 100%;
-  height: 200px;
-  background: #e7e1d7;
-  background-size: cover;
-  background-position: center;
-}
-
-.result-text {
-  padding: 14px 16px 18px;
-  font-size: 18px;
-  font-weight: 600;
 }
