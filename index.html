@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>제휴 문의</title>
+  <title>점심 메뉴 추천 + 제휴 문의</title>
   <link href="/style.css" rel="stylesheet" />
 </head>
 <body>
   <main class="app">
-    <section class="card">
-      <h1>제휴 문의</h1>
+    <section class="card" id="lunch">
+      <h1>점심 메뉴 추천</h1>
+      <p class="lead">버튼을 누르면 오늘의 점심 메뉴가 이미지와 함께 추천됩니다.</p>
+      <button id="pickBtn" class="btn" type="button">점심 메뉴 추천</button>
+      <div class="result" id="result">
+        <div class="result-image" id="resultImage"></div>
+        <div class="result-text" id="resultText">버튼을 눌러 추천을 받아보세요</div>
+      </div>
+    </section>
+
+    <section class="card" id="partner">
+      <h2>제휴 문의</h2>
       <p class="lead">간단히 남겨주시면 확인 후 연락드리겠습니다.</p>
       <form action="https://formspree.io/f/xkovwopv" method="POST">
         <label>
@@ -32,5 +42,6 @@
       </form>
     </section>
   </main>
+  <script defer src="/main.js"></script>
 </body>
 </html>
