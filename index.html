@@ -3,74 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="클릭하면 점심 메뉴를 추천해주는 사이트. 세련된 카드 UI와 음식 이미지 포함." />
   <title>점심 메뉴 추천</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
   <link href="/style.css" rel="stylesheet" />
 </head>
 <body>
-  <div class="bg">
-    <span class="glow glow-1"></span>
-    <span class="glow glow-2"></span>
-    <span class="glow glow-3"></span>
-  </div>
-
-  <header class="site-header">
-    <div class="container nav">
-      <div class="brand">
-        <span class="brand-mark">L</span>
-        <div>
-          <p class="brand-name">LUNCH PICKER</p>
-          <p class="brand-sub">클릭 한 번으로 점심 선택</p>
-        </div>
-      </div>
-      <button class="btn btn-outline" id="pickBtn" type="button">점심 메뉴 추천</button>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero container">
-      <div>
-        <p class="eyebrow">오늘 뭐 먹지?</p>
-        <h1>점심 고민 끝. <span>한 번 클릭</span>하면 추천 완료.</h1>
-        <p class="lead">맛/분위기/예산에 상관없이 바로 선택할 수 있도록 랜덤 추천을 제공합니다.</p>
-      </div>
-      <div class="result-card" id="result">
-        <div class="result-media" id="resultMedia"></div>
-        <div>
-          <p class="result-label">오늘의 추천</p>
-          <h2 id="resultTitle">버튼을 눌러 추천을 받아보세요</h2>
-          <p id="resultTags" class="result-tags">점심 메뉴 리스트에서 랜덤으로 선택됩니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="menu-section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Menu List</p>
-            <h2>오늘의 점심 메뉴 리스트</h2>
-          </div>
-          <p class="section-lead">버튼 클릭 시 아래 카드 중 하나가 선택됩니다.</p>
-        </div>
-        <div class="menu-grid" id="menuGrid"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <p>LUNCH PICKER · 점심 메뉴 추천</p>
-      <p>원하는 메뉴가 없으면 다시 클릭하세요.</p>
-    </div>
-  </footer>
-
+  <button id="pickBtn" class="btn" type="button">점심 메뉴 추천</button>
+  <div id="result" class="result" aria-live="polite"></div>
   <script defer src="/main.js"></script>
 </body>
 </html>
