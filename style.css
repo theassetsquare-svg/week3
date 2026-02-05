@@ -2,6 +2,7 @@
   --bg: #f6f2ea;
   --ink: #151515;
   --accent: #1d4f3a;
+  --card: #ffffff;
 }
 
 * {
@@ -18,6 +19,12 @@ body {
   font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
 }
 
+.app {
+  display: grid;
+  gap: 18px;
+  place-items: center;
+}
+
 .btn {
   border: none;
   padding: 16px 28px;
@@ -30,7 +37,24 @@ body {
 }
 
 .result {
-  margin-top: 18px;
+  width: min(360px, 85vw);
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(29, 79, 58, 0.15);
+  overflow: hidden;
+  text-align: center;
+}
+
+.result-image {
+  width: 100%;
+  height: 200px;
+  background: #e7e1d7;
+  background-size: cover;
+  background-position: center;
+}
+
+.result-text {
+  padding: 14px 16px 18px;
   font-size: 18px;
   font-weight: 600;
 }
