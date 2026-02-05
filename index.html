@@ -3,32 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="부동산 분양 사이드 문의를 빠르게 받고, 맞춤 안내를 제공하는 프리미엄 상담 사이트." />
-  <title>분양 사이드 문의 | 더에셋스퀘어</title>
+  <meta name="description" content="오늘 점심 뭐 먹지? 취향, 예산, 기분에 맞춰 점심 메뉴를 추천해주는 사이트." />
+  <title>점심메뉴 추천 | LUNCH LAB</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <div class="bg-shapes" aria-hidden="true">
-    <span class="shape shape-1"></span>
-    <span class="shape shape-2"></span>
-    <span class="shape shape-3"></span>
+  <div class="bg">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+    <span class="grid"></span>
   </div>
 
   <header class="site-header">
     <div class="container nav">
       <div class="brand">
-        <div class="brand-mark">A</div>
+        <span class="brand-mark">L</span>
         <div>
-          <p class="brand-name">The Asset Square</p>
-          <p class="brand-sub">분양 사이드 문의 센터</p>
+          <p class="brand-name">LUNCH LAB</p>
+          <p class="brand-sub">점심메뉴 추천 스튜디오</p>
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#program">분양 프로그램</a>
-        <a href="#process">진행 방식</a>
-        <a href="#faq">자주 묻는 질문</a>
+        <a href="#how">추천 방식</a>
+        <a href="#pick">오늘의 픽</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn-outline" href="#lead-form">빠른 상담</a>
+      <a class="btn btn-outline" href="#form">빠른 추천</a>
     </div>
   </header>
 
@@ -36,92 +37,91 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">분양 사이드 전담 / 24시간 접수</p>
-          <h1>문의가 들어오는 순간, <span>전환이 시작됩니다</span>.</h1>
+          <p class="eyebrow">점심 고민 해결 / 30초 추천</p>
+          <h1>오늘 점심은 <span>고민 없이</span> 고르자.</h1>
           <p class="lead">
-            상담 유입부터 실방문까지 동선이 끊기지 않도록, 분양 사이드 문의를
-            체계적으로 수집하고 즉시 대응합니다.
+            취향과 예산을 입력하면 지금 가장 현실적인 메뉴를 추천합니다.
+            배달부터 도보 점심까지 한 번에 정리해요.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#lead-form">지금 문의 남기기</a>
-            <button class="btn btn-ghost" id="previewBtn" type="button">상담 흐름 보기</button>
+            <a class="btn btn-primary" href="#form">추천 받기</a>
+            <button class="btn btn-ghost" id="previewBtn" type="button">추천 방식 보기</button>
           </div>
           <div class="hero-stats">
             <div>
-              <p class="stat">15분</p>
-              <p class="stat-label">내 피드백 평균 응답 시간</p>
+              <p class="stat">30초</p>
+              <p class="stat-label">평균 추천 소요</p>
             </div>
             <div>
-              <p class="stat">92%</p>
-              <p class="stat-label">문의 후 1차 연결 성공률</p>
+              <p class="stat">20+</p>
+              <p class="stat-label">메뉴 카테고리</p>
             </div>
             <div>
-              <p class="stat">30+</p>
-              <p class="stat-label">운영중인 분양 현장</p>
+              <p class="stat">4.7</p>
+              <p class="stat-label">만족도</p>
             </div>
           </div>
         </div>
         <div class="hero-card">
           <div class="card-top">
-            <p class="card-title">실시간 문의 보드</p>
-            <p class="card-sub">오늘 접수된 주요 리드</p>
+            <p class="card-title">실시간 추천 보드</p>
+            <p class="card-sub">오늘 많이 고른 메뉴</p>
           </div>
           <div class="card-body">
             <div class="lead-item">
               <div>
-                <p class="lead-name">김태윤</p>
-                <p class="lead-meta">서울 / 84㎡ / 즉시 방문</p>
+                <p class="lead-name">매콤제육 덮밥</p>
+                <p class="lead-meta">든든 / 매콤 / 9,000원대</p>
               </div>
-              <span class="pill">우선</span>
+              <span class="pill">인기</span>
             </div>
             <div class="lead-item">
               <div>
-                <p class="lead-name">박지혜</p>
-                <p class="lead-meta">수도권 / 59㎡ / 대출 상담</p>
+                <p class="lead-name">명란크림 파스타</p>
+                <p class="lead-meta">부드러움 / 양식 / 12,000원대</p>
               </div>
-              <span class="pill neutral">검토</span>
+              <span class="pill neutral">예약</span>
             </div>
             <div class="lead-item">
               <div>
-                <p class="lead-name">정민수</p>
-                <p class="lead-meta">광역시 / 74㎡ / 일정 조율</p>
+                <p class="lead-name">냉모밀 + 미니돈까스</p>
+                <p class="lead-meta">시원함 / 일식 / 10,000원대</p>
               </div>
-              <span class="pill">확정</span>
+              <span class="pill">추천</span>
             </div>
           </div>
           <div class="card-footer">
-            <p>누락 없는 분양 문의를 위해 실시간 알림을 운영합니다.</p>
+            <p>회사 근처 메뉴와 배달 추천까지 한눈에 제공합니다.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="program" class="section">
+    <section id="how" class="section">
       <div class="container">
         <div class="section-header">
-          <p class="eyebrow">분양 사이드 운영</p>
-          <h2>문의부터 계약까지, 흐름을 끊지 않는 설계</h2>
+          <p class="eyebrow">추천 로직</p>
+          <h2>점심 취향을 빠르게 잡아주는 4단계</h2>
           <p class="section-lead">
-            단순 문의 수집이 아닌, 분양 현장별 맞춤 분류와 재접촉까지 포함한
-            풀 사이드 운영을 제공합니다.
+            기분, 예산, 동선, 날씨까지 고려해 가장 현실적인 메뉴를 제안합니다.
           </p>
         </div>
         <div class="feature-grid">
           <article class="feature">
-            <h3>리드 분류 자동화</h3>
-            <p>관심 평형, 예산, 희망 입주시기 기준으로 우선순위를 자동 분류합니다.</p>
+            <h3>맛 성향 분석</h3>
+            <p>매운맛, 담백함, 기름짐 등 취향을 반영합니다.</p>
           </article>
           <article class="feature">
-            <h3>실시간 응대 스크립트</h3>
-            <p>분양 현장별 핵심 포인트를 반영해 상담 품질을 일정하게 유지합니다.</p>
+            <h3>거리 & 동선</h3>
+            <p>도보/배달 가능 범위에서 실용적인 옵션을 추천합니다.</p>
           </article>
           <article class="feature">
-            <h3>예약-방문 연동</h3>
-            <p>방문 일정 조율, 주차 안내, 준비서류까지 한 번에 전송합니다.</p>
+            <h3>예산 컨트롤</h3>
+            <p>오늘 예산에 맞춰 가성비 또는 프리미엄 메뉴를 구분합니다.</p>
           </article>
           <article class="feature">
-            <h3>재접촉 리마케팅</h3>
-            <p>미응답 리드에 대해 세일즈 타이밍에 맞춘 재안내를 진행합니다.</p>
+            <h3>날씨 반영</h3>
+            <p>추울 땐 국물, 더울 땐 면 요리처럼 상황별 추천을 추가합니다.</p>
           </article>
         </div>
       </div>
@@ -130,59 +130,59 @@
     <section class="section accent">
       <div class="container split">
         <div>
-          <p class="eyebrow">캠페인 운영 지표</p>
-          <h2>숫자로 확인하는 성과</h2>
+          <p class="eyebrow">추천 현황</p>
+          <h2>오늘의 점심 선택 지표</h2>
         </div>
         <div class="metric-grid">
           <div class="metric">
-            <p class="metric-value">+38%</p>
-            <p class="metric-label">상담 후 방문 전환율</p>
+            <p class="metric-value">+46%</p>
+            <p class="metric-label">즉시 선택률</p>
           </div>
           <div class="metric">
-            <p class="metric-value">-24%</p>
-            <p class="metric-label">미응답 리드 비율</p>
+            <p class="metric-value">12분</p>
+            <p class="metric-label">평균 주문 완료 시간</p>
           </div>
           <div class="metric">
-            <p class="metric-value">4.8/5</p>
-            <p class="metric-label">상담 만족도</p>
+            <p class="metric-value">1,200+</p>
+            <p class="metric-label">월간 추천 기록</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="process" class="section">
+    <section id="pick" class="section">
       <div class="container">
         <div class="section-header">
-          <p class="eyebrow">진행 방식</p>
-          <h2>처음 문의부터 계약 안내까지</h2>
+          <p class="eyebrow">오늘의 픽</p>
+          <h2>실제로 많이 고르는 점심</h2>
         </div>
         <div class="timeline">
           <div class="step">
             <span class="step-number">01</span>
             <div>
-              <h3>문의 접수</h3>
-              <p>웹, 전화, SNS 리드를 통합 수집하고 즉시 담당자를 배정합니다.</p>
+              <h3>속 편한 국물</h3>
+              <p>맑은 곰탕, 사골국밥, 얼큰순대국 등 든든한 국물 픽.</p>
             </div>
           </div>
           <div class="step">
             <span class="step-number">02</span>
             <div>
-              <h3>맞춤 상담</h3>
-              <p>예산과 평형대를 기준으로 추천군을 제시하고 방문을 예약합니다.</p>
+              <h3>상쾌한 면 요리</h3>
+              <p>냉모밀, 비빔국수, 쌀국수로 가볍고 빠른 점심.</p>
             </div>
           </div>
           <div class="step">
             <span class="step-number">03</span>
             <div>
-              <h3>현장 동행</h3>
-              <p>분양 현장 방문 전 안내 메시지와 체크리스트를 제공합니다.</p>
+              <h3>마음이 편한 덮밥</h3>
+              <p>제육덮밥, 규동, 오므라이스로 실패 없는 선택.</p>
             </div>
           </div>
           <div class="step">
             <span class="step-number">04</span>
             <div>
-              <h3>후속 케어</h3>
-              <p>계약 상담, 대출 안내, 추가 매물 안내까지 연계합니다.</p>
+              <h3>기분전환 양식</h3>
+              <p>파스타, 샐러드볼, 샌드위치로 가볍게 리프레시.</p>
             </div>
           </div>
         </div>
@@ -192,21 +192,21 @@
     <section class="section dark">
       <div class="container split">
         <div>
-          <p class="eyebrow">신뢰 포인트</p>
-          <h2>분양 사이드 전문 운영팀</h2>
+          <p class="eyebrow">LUNCH LAB</p>
+          <h2>점심 고민을 끝내는 간단한 원칙</h2>
           <p class="section-lead">
-            현장 담당자, 온라인 마케터, 상담 코디네이터가 한 팀으로 움직입니다.
-            문의만 받고 끝나는 흐름이 아니라, 계약 가능성이 높은 리드로 집중합니다.
+            매일 바뀌는 기분과 일정에 맞춰 추천을 바꾸는 것이 핵심입니다.
+            그래서 우리는 메뉴를 데이터로 정리하고, 빠르게 추천합니다.
           </p>
         </div>
         <div class="trust-cards">
           <div class="trust-card">
-            <h3>현장별 전담 인력</h3>
-            <p>분양 현장 수에 맞춰 전담 상담 인력을 배정해 응답 지연을 줄입니다.</p>
+            <h3>선호 기록 기반 추천</h3>
+            <p>이전에 고른 메뉴를 반영해 개인화된 점심 리스트를 제공합니다.</p>
           </div>
           <div class="trust-card">
-            <h3>고객 리포트 제공</h3>
-            <p>주간 리드 리포트, 상담 로그, 전환율 분석을 공유합니다.</p>
+            <h3>팀 점심 최적화</h3>
+            <p>팀원들의 메뉴 선택을 한 번에 정리해 회의 시간을 줄입니다.</p>
           </div>
         </div>
       </div>
@@ -220,85 +220,86 @@
         </div>
         <div class="faq-grid">
           <details>
-            <summary>상담 가능 시간은 언제인가요?</summary>
-            <p>평일 9시부터 21시까지, 주말은 10시부터 19시까지 상담이 가능합니다.</p>
+            <summary>추천은 어떻게 나오나요?</summary>
+            <p>기분, 예산, 거리, 날씨 기준으로 오늘 가장 현실적인 메뉴를 제안합니다.</p>
           </details>
           <details>
-            <summary>분양 현장이 여러 곳인데 관리가 가능한가요?</summary>
-            <p>현장별 담당자를 배정하여 3개 이상 현장도 병행 운영 가능합니다.</p>
+            <summary>팀 점심도 추천해주나요?</summary>
+            <p>팀 평균 예산과 선호도를 입력하면 회식/점심 메뉴를 추천합니다.</p>
           </details>
           <details>
-            <summary>문의 데이터는 어떻게 공유되나요?</summary>
-            <p>주간 리포트와 실시간 상담 로그를 메일 또는 대시보드로 제공합니다.</p>
+            <summary>추천 결과는 저장되나요?</summary>
+            <p>선택한 메뉴를 저장하면 다음 추천에 반영됩니다.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="lead-form" class="section contact">
+    <section id="form" class="section contact">
       <div class="container contact-grid">
         <div>
-          <p class="eyebrow">빠른 문의</p>
-          <h2>분양 사이드 문의 접수</h2>
+          <p class="eyebrow">빠른 추천</p>
+          <h2>점심 메뉴 추천 받기</h2>
           <p class="section-lead">
-            현장명과 희망 평형을 남겨주시면 15분 내 담당자가 연락드립니다.
+            오늘의 점심 취향을 입력하면 즉시 메뉴를 추천합니다.
           </p>
           <div class="contact-info">
             <div>
-              <p class="info-label">대표 상담 번호</p>
-              <p class="info-value">02-0000-0000</p>
+              <p class="info-label">추천 범주</p>
+              <p class="info-value">한식 · 양식 · 일식 · 분식</p>
             </div>
             <div>
-              <p class="info-label">카카오톡 문의</p>
-              <p class="info-value">@theassetsquare</p>
+              <p class="info-label">현재 날씨</p>
+              <p class="info-value">맑음 · 가벼운 바람</p>
             </div>
             <div>
-              <p class="info-label">위치</p>
-              <p class="info-value">서울 강남구 테헤란로</p>
+              <p class="info-label">추천 시간</p>
+              <p class="info-value">평균 30초 이내</p>
             </div>
           </div>
         </div>
-        <form class="form-card" id="inquiryForm">
+        <form class="form-card" id="lunchForm">
           <div class="form-row">
             <label>
-              성함
+              이름
               <input type="text" name="name" placeholder="홍길동" required />
             </label>
             <label>
-              연락처
-              <input type="tel" name="phone" placeholder="010-0000-0000" required />
+              예산
+              <input type="text" name="budget" placeholder="예: 8,000원" required />
             </label>
           </div>
           <label>
-            이메일
-            <input type="email" name="email" placeholder="example@email.com" />
-          </label>
-          <div class="form-row">
-            <label>
-              희망 평형
-              <input type="text" name="size" placeholder="59㎡ / 84㎡" />
-            </label>
-            <label>
-              예산 범위
-              <select name="budget">
-                <option>3억 이하</option>
-                <option>3억 ~ 6억</option>
-                <option>6억 ~ 9억</option>
-                <option>9억 이상</option>
-              </select>
-            </label>
-          </div>
-          <label>
-            관심 현장 / 지역
-            <input type="text" name="site" placeholder="예: 분당, 마곡, 송도" />
+            기분
+            <select name="mood">
+              <option>가벼운 점심</option>
+              <option>든든하게</option>
+              <option>매콤하게</option>
+              <option>깔끔하게</option>
+            </select>
           </label>
           <label>
-            문의 내용
-            <textarea name="message" rows="4" placeholder="상담을 원하시는 내용을 적어주세요."></textarea>
+            선호 메뉴
+            <input type="text" name="preference" placeholder="예: 국물, 덮밥, 샐러드" />
           </label>
-          <button class="btn btn-primary" type="submit">문의 접수</button>
-          <p class="form-note">접수 후 15분 이내 연락드립니다. 야간 문의는 다음 영업시간에 안내됩니다.</p>
+          <label>
+            제외하고 싶은 메뉴
+            <textarea name="avoid" rows="3" placeholder="예: 해산물, 밀가루"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">추천 받기</button>
+          <p class="form-note">입력 후 바로 추천 메뉴가 안내됩니다.</p>
         </form>
+      </div>
+    </section>
+
+    <section class="section result" id="result">
+      <div class="container result-grid">
+        <div>
+          <p class="eyebrow">추천 결과</p>
+          <h2>오늘의 추천 메뉴</h2>
+          <p class="section-lead">폼을 입력하면 추천 카드가 여기에 표시됩니다.</p>
+        </div>
+        <div class="result-cards" id="resultCards"></div>
       </div>
     </section>
   </main>
@@ -306,17 +307,17 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <p class="brand-name">The Asset Square</p>
-        <p class="brand-sub">분양 사이드 문의 전문</p>
+        <p class="brand-name">LUNCH LAB</p>
+        <p class="brand-sub">점심메뉴 추천</p>
       </div>
       <div>
-        <p class="footer-title">운영 시간</p>
-        <p>평일 09:00 - 21:00</p>
-        <p>주말 10:00 - 19:00</p>
+        <p class="footer-title">운영</p>
+        <p>월-금 10:30 - 13:30</p>
+        <p>실시간 추천 업데이트</p>
       </div>
       <div>
-        <p class="footer-title">이메일</p>
-        <p>hello@theassetsquare.co.kr</p>
+        <p class="footer-title">문의</p>
+        <p>hello@lunchlab.kr</p>
       </div>
     </div>
   </footer>
