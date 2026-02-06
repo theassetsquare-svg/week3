@@ -16,10 +16,8 @@ a{color:inherit;text-decoration:none}
 
 /* ── 히어로 ── */
 .hero{max-width:960px;margin:0 auto;overflow:hidden}
-.hero__img{width:100%;height:100%;object-fit:cover;max-height:400px;aspect-ratio:16/9}
-@media(max-width:768px){
-  .hero__img{max-height:300px}
-}
+.hero__img{width:100%;height:auto;object-fit:contain}
+
 
 /* ── 스텝퍼 내비 ── */
 .stepper{max-width:960px;margin:0 auto;padding:20px 16px 8px;overflow-x:auto}
