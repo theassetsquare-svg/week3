@@ -4,72 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="naver-site-verification" content="ea130562cd2a96bd8354a40ba30d448eaca19e78" />
-  <meta name="description" content="점심 메뉴 추천과 제휴 문의를 위한 간단한 웹페이지입니다." />
+  <meta name="description" content="2026 전국 룸 디렉토리 - 일산명월관, 강남, 부산, 대구, 인천, 수원, 대전, 광주, 전주, 울산, 제주 등 전국 프리미엄 룸 정보를 한눈에. 영업중인 업소만 엄선하여 제공합니다." />
+  <meta name="keywords" content="전국룸, 일산룸, 일산명월관, 강남룸, 부산룸, 대구룸, 인천룸, 수원룸, 대전룸, 광주룸, 전주룸, 울산룸, 제주룸, 룸디렉토리, 비즈니스룸" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://week3-2og.pages.dev/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://week3-2og.pages.dev/sitemap.xml" />
-  <title>점심 메뉴 추천 + 제휴 문의</title>
+  <meta property="og:title" content="전국 룸 디렉토리 2026 - NIGHTLIFE DIRECTORY" />
+  <meta property="og:description" content="전국 프리미엄 룸 정보를 한눈에. 일산명월관부터 강남, 부산, 대구까지 영업중인 업소만 엄선." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://week3-2og.pages.dev/" />
+  <title>전국 룸 디렉토리 2026 | NIGHTLIFE DIRECTORY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
   <link href="/style.css" rel="stylesheet" />
 </head>
 <body>
-  <main class="app">
-    <section class="card" id="lunch">
-      <h1>점심 메뉴 추천</h1>
-      <p class="lead">버튼을 누르면 오늘의 점심 메뉴가 이미지와 함께 추천됩니다.</p>
-      <button id="pickBtn" class="btn" type="button">점심 메뉴 추천</button>
-      <div class="result" id="result">
-        <div class="result-image" id="resultImage"></div>
-        <div class="result-text" id="resultText">버튼을 눌러 추천을 받아보세요</div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="hero-badge">2026 VERIFIED</p>
+      <h1 class="hero-title">전국 룸 디렉토리</h1>
+      <p class="hero-sub">NIGHTLIFE DIRECTORY</p>
+      <p class="hero-desc">전국 프리미엄 룸 정보를 한눈에 &mdash; 현재 영업중인 업소만 엄선하여 제공합니다.</p>
+      <div class="hero-search">
+        <input type="text" id="searchInput" placeholder="업소명 또는 지역으로 검색..." autocomplete="off" />
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section class="card" id="partner">
-      <h2>제휴 문의</h2>
-      <p class="lead">간단히 남겨주시면 확인 후 연락드리겠습니다.</p>
-      <form action="https://formspree.io/f/xkovwopv" method="POST">
-        <label>
-          회사명
-          <input type="text" name="company" required />
-        </label>
-        <label>
-          담당자명
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          이메일
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          문의 내용
-          <textarea name="message" rows="4" required></textarea>
-        </label>
-        <button class="btn" type="submit">문의 보내기</button>
-      </form>
-    </section>
+  <!-- FILTERS -->
+  <nav class="filters" id="filters">
+    <div class="filters-inner">
+      <button class="filter-btn active" data-region="all">전체</button>
+      <button class="filter-btn" data-region="일산">일산</button>
+      <button class="filter-btn" data-region="강남">강남</button>
+      <button class="filter-btn" data-region="홍대">홍대</button>
+      <button class="filter-btn" data-region="부산">부산</button>
+      <button class="filter-btn" data-region="대구">대구</button>
+      <button class="filter-btn" data-region="인천">인천</button>
+      <button class="filter-btn" data-region="수원">수원</button>
+      <button class="filter-btn" data-region="대전">대전</button>
+      <button class="filter-btn" data-region="광주">광주</button>
+      <button class="filter-btn" data-region="전주">전주</button>
+      <button class="filter-btn" data-region="울산">울산</button>
+      <button class="filter-btn" data-region="창원">창원</button>
+      <button class="filter-btn" data-region="김해">김해</button>
+      <button class="filter-btn" data-region="천안">천안</button>
+      <button class="filter-btn" data-region="청주">청주</button>
+      <button class="filter-btn" data-region="제주">제주</button>
+    </div>
+  </nav>
 
-    <section class="card" id="comments">
-      <h2>댓글</h2>
-      <div id="disqus_thread"></div>
-      <script>
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-        /*
-        var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://week3-2.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </section>
+  <!-- FEATURED -->
+  <section class="section featured-section">
+    <div class="section-inner">
+      <h2 class="section-title"><span class="accent-dot"></span> FEATURED</h2>
+      <div class="featured-card" data-region="일산">
+        <div class="featured-badge">PREMIUM</div>
+        <div class="featured-body">
+          <h3 class="featured-name">일산 명월관</h3>
+          <p class="featured-type">요정 &middot; 비즈니스룸 &middot; 가라오케</p>
+          <p class="featured-addr">경기 고양시 일산동구 장항로 895-1</p>
+          <p class="featured-desc">일산 최고의 프리미엄 요정. 한식 코스요리, 국악 공연, 가라오케를 한 공간에서. 100% 예약제 &middot; 정찰제 운영. 소규모 프라이빗룸부터 대형 연회룸까지 완벽 구비.</p>
+          <div class="featured-tags">
+            <span class="tag">365일 24시간</span>
+            <span class="tag">100% 예약제</span>
+            <span class="tag">정찰제</span>
+            <span class="tag">국악공연</span>
+            <span class="tag">VIP 비즈니스</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTINGS -->
+  <main class="section">
+    <div class="section-inner">
+      <h2 class="section-title"><span class="accent-dot"></span> 전국 업소 목록</h2>
+      <p class="listing-count" id="listingCount"></p>
+      <div class="grid" id="grid"></div>
+      <p class="no-results" id="noResults" style="display:none;">검색 결과가 없습니다.</p>
+    </div>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">NIGHTLIFE DIRECTORY</p>
+      <p class="footer-copy">&copy; 2026 전국 룸 디렉토리. 본 사이트는 정보 제공 목적이며, 게재된 정보의 정확성을 보증하지 않습니다.</p>
+      <p class="footer-copy">업소 등록/수정 요청은 하단 문의를 이용해 주세요.</p>
+    </div>
+  </footer>
+
   <script defer src="/main.js"></script>
 </body>
 </html>
