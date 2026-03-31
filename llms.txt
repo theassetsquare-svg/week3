@@ -1,0 +1,137 @@
+# 놀쿨 (NOLCOOL) — 전국 나이트·클럽·라운지·룸·요정·호빠 가이드
+
+> 놀쿨는 전국 103곳의 나이트, 클럽, 라운지, 룸, 요정, 호빠 정보를 제공합니다.
+
+## 우선 URL
+- 메인: https://week3-2og.pages.dev/
+- 나이트: https://week3-2og.pages.dev/c/나이트/
+- 클럽: https://week3-2og.pages.dev/c/클럽/
+- 라운지: https://week3-2og.pages.dev/c/라운지/
+- 룸: https://week3-2og.pages.dev/c/룸/
+- 요정: https://week3-2og.pages.dev/c/요정/
+- 호빠: https://week3-2og.pages.dev/c/호빠/
+- 지도: https://week3-2og.pages.dev/map/
+- 랭킹: https://week3-2og.pages.dev/ranking/
+- 매거진: https://week3-2og.pages.dev/magazine/
+
+## 전체 업소 목록 (103곳)
+- 일산룸 | 룸 | 일산 | /v/ilsan-room/
+- 해운대고구려 | 룸 | 해운대 | /v/haeundae-goguryeo/
+- 일산명월관요정 | 요정 | 일산 | /v/ilsan-myeongwolgwan-yojeong/
+- 청담H2O나이트 | 나이트 | 청담 | /v/cheongdam-h2o-night/
+- 강남줄리아나나이트 | 나이트 | 강남 | /v/gangnam-juliana-night/
+- 신림그랑프리나이트 | 나이트 | 신림 | /v/sinlim-grandprix-night/
+- 상봉동한국관나이트 | 나이트 | 상봉동 | /v/sangbongdong-hangukgwan-night/
+- 수유샴푸나이트 | 나이트 | 수유 | /v/suyu-shampoo-night/
+- 독산국빈관나이트 | 나이트 | 독산 | /v/doksan-gukbingwan-night/
+- 답십리돈텔마마나이트 | 나이트 | 답십리 | /v/dapsimni-dontellmama-night/
+- 강서나이트 | 나이트 | 강서 | /v/gangseo-night/
+- 영등포터미널나이트 | 나이트 | 영등포 | /v/yeongdeungpo-terminal-night/
+- 노원호박나이트 | 나이트 | 노원 | /v/nowon-hobak-night/
+- 노원스타나이트 | 나이트 | 노원 | /v/nowon-star-night/
+- 길동찬스나이트 | 나이트 | 길동 | /v/gildong-chance-night/
+- 일산샴푸나이트 | 나이트 | 일산 | /v/ilsan-shampoo-night/
+- 일산물나이트 | 나이트 | 일산 | /v/ilsan-mul-night/
+- 파주야당스카이돔나이트 | 나이트 | 파주 | /v/paju-yadang-skydome-night/
+- 화정한국관나이트 | 나이트 | 화정 | /v/hwajeong-hangukgwan-night/
+- 김포호박나이트 | 나이트 | 김포 | /v/gimpo-hobak-night/
+- 김포썸나이트 | 나이트 | 김포 | /v/gimpo-sseom-night/
+- 구리호박나이트 | 나이트 | 구리 | /v/guri-hobak-night/
+- 의정부한국관나이트 | 나이트 | 의정부 | /v/uijeongbu-hangukgwan-night/
+- 수원찬스돔나이트 | 나이트 | 수원 | /v/suwon-chancesdom-night/
+- 수원코리아나이트 | 나이트 | 수원 | /v/suwon-korea-night/
+- 오산호박나이트 | 나이트 | 오산 | /v/osan-hobak-night/
+- 성남국빈관나이트 | 나이트 | 성남 | /v/seongnam-gukbingwan-night/
+- 인덕원국빈관나이트 | 나이트 | 인덕원 | /v/indeogwon-gukbingwan-night/
+- 성남샴푸나이트 | 나이트 | 성남 | /v/seongnam-shampoo-night/
+- 분당퐁퐁나이트 | 나이트 | 분당 | /v/bundang-pongpong-night/
+- 평택호박나이트 | 나이트 | 평택 | /v/pyeongtaek-hobak-night/
+- 인천아라비안나이트 | 나이트 | 인천 | /v/incheon-arabian-night/
+- 부천메리트나이트 | 나이트 | 부천 | /v/bucheon-merit-night/
+- 부천고래나이트 | 나이트 | 부천 | /v/bucheon-gorae-night/
+- 안산히트나이트 | 나이트 | 안산 | /v/ansan-hit-night/
+- 안산돈텔마마나이트 | 나이트 | 안산 | /v/ansan-dontellmama-night/
+- 천안스타돔나이트 | 나이트 | 천안 | /v/cheonan-stardom-night/
+- 천안코리아나이트 | 나이트 | 천안 | /v/cheonan-korea-night/
+- 대전세븐나이트 | 나이트 | 대전 | /v/daejeon-seven-night/
+- 대전원나이트 | 나이트 | 대전 | /v/daejeon-won-night/
+- 대전봉명나이트 | 나이트 | 대전 | /v/daejeon-bongmyeong-night/
+- 대전한국관나이트 | 나이트 | 대전 | /v/daejeon-hangukgwan-night/
+- 청주돈텔마마나이트 | 나이트 | 청주 | /v/cheongju-dontellmama-night/
+- 청주호박나이트 | 나이트 | 청주 | /v/cheongju-hobak-night/
+- 서산호박나이트 | 나이트 | 서산 | /v/seosan-hobak-night/
+- 대구한국관나이트 | 나이트 | 대구 | /v/daegu-hangukgwan-night/
+- 대구호박나이트 | 나이트 | 대구 | /v/daegu-hobak-night/
+- 대구바밤바나이트 | 나이트 | 대구 | /v/daegu-babamba-night/
+- 대구토토가나이트 | 나이트 | 대구 | /v/daegu-totoga-night/
+- 구미호박나이트 | 나이트 | 구미 | /v/gumi-hobak-night/
+- 부산연산동물나이트 | 나이트 | 부산 | /v/busan-yeonsandong-mul-night/
+- 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night/
+- 부산물나이트 | 나이트 | 부산 | /v/busan-mul-night/
+- 울산뉴월드나이트 | 나이트 | 울산 | /v/ulsan-newworld-night/
+- 울산챔피언나이트 | 나이트 | 울산 | /v/ulsan-champion-night/
+- 광주상무나이트 | 나이트 | 광주 | /v/gwangju-sangmu-night/
+- 광주토토밤나이트 | 나이트 | 광주 | /v/gwangju-totobam-night/
+- 광주첨단엠파나이트 | 나이트 | 광주 | /v/gwangju-chemdan-empa-night/
+- 광주MGM나이트 | 나이트 | 광주 | /v/gwangju-mgm-night/
+- 광주올나이트 | 나이트 | 광주 | /v/gwangju-ol-night/
+- 제주나이트 | 나이트 | 제주 | /v/jeju-night/
+- 강남클럽 레이스 | 클럽 | 강남 | /v/gangnam-club-race/
+- 강남클럽 사운드 | 클럽 | 강남 | /v/gangnam-club-sound/
+- 강남클럽 Jack | 클럽 | 강남 | /v/gangnam-club-jack/
+- 강남클럽 피크 | 클럽 | 강남 | /v/gangnam-club-peak/
+- 강남클럽 미로 | 클럽 | 강남 | /v/gangnam-club-miro/
+- 강남클럽 유토피아 | 클럽 | 강남 | /v/gangnam-club-utopia/
+- 강남클럽 라퓨타 | 클럽 | 강남 | /v/gangnam-club-laputa/
+- 강남클럽 페이스 | 클럽 | 강남 | /v/gangnam-club-face/
+- 강남클럽 밤앤밤 | 클럽 | 강남 | /v/gangnam-club-bamnbam/
+- 강남클럽 아르떼 | 클럽 | 강남 | /v/gangnam-club-arte/
+- 압구정클럽 하입 | 클럽 | 압구정 | /v/apgujeong-club-haip/
+- 압구정클럽 인트로 | 클럽 | 압구정 | /v/apgujeong-club-intro/
+- 압구정클럽 컬러 | 클럽 | 압구정 | /v/apgujeong-club-color/
+- 압구정클럽 디브릿지 | 클럽 | 압구정 | /v/apgujeong-club-dbridge/
+- 압구정클럽 캔디맨 | 클럽 | 압구정 | /v/apgujeong-club-candyman/
+- 압구정클럽 무인 | 클럽 | 압구정 | /v/apgujeong-club-muin/
+- 청담클럽 아르쥬 | 클럽 | 청담 | /v/cheongdam-club-arjeu/
+- 이태원클럽 유토피아 | 클럽 | 이태원 | /v/itaewon-club-utopia/
+- 이태원클럽 메이드 | 클럽 | 이태원 | /v/itaewon-club-maid/
+- 이태원클럽 프리즘 | 클럽 | 이태원 | /v/itaewon-club-prism/
+- 이태원개판포차 | 클럽 | 이태원 | /v/itaewon-gaepan-pocha/
+- 홍대클럽 버뮤다 | 클럽 | 홍대 | /v/hongdae-club-bermuda/
+- 홍대클럽 퍼시픽 | 클럽 | 홍대 | /v/hongdae-club-pacific/
+- 홍대클럽 메이드 | 클럽 | 홍대 | /v/hongdae-club-maid/
+- 홍대클럽 도깨비 | 클럽 | 홍대 | /v/hongdae-club-dokkaebi/
+- 노원청춘포차 | 클럽 | 노원 | /v/nowon-cheongchun-pocha/
+- 용산드래곤시티 | 클럽 | 용산 | /v/yongsan-dragon-city/
+- 서울반얀트리 | 클럽 | 서울 | /v/seoul-banyan-tree/
+- 일산클럽 CJ | 클럽 | 일산 | /v/ilsan-club-cj/
+- 의정부아레나 | 클럽 | 의정부 | /v/uijeongbu-arena/
+- 용인사거리별밤 | 클럽 | 용인 | /v/yongin-byeolbam/
+- 부천클럽 파라곤 | 클럽 | 부천 | /v/bucheon-club-paragon/
+- 인천파라다이스씨티 | 클럽 | 인천 | /v/incheon-paradise-city/
+- 청주클럽 슈퍼문 | 클럽 | 청주 | /v/cheongju-club-supermoon/
+- 대전설탕클럽 | 클럽 | 대전 | /v/daejeon-seoltang-club/
+- 압구정코드라운지 | 라운지 | 압구정 | /v/apgujeong-code-lounge/
+- 압구정라운지 디엠 | 라운지 | 압구정 | /v/apgujeong-lounge-dm/
+- 압구정이디엇라운지 | 라운지 | 압구정 | /v/apgujeong-idiot-lounge/
+- 강남호빠 로얄 | 호빠 | 강남 | /v/gangnam-hoppa-royal/
+- 부산호빠 스타 | 호빠 | 부산 | /v/busan-hoppa-star/
+- 장안동호빠 빵빵 | 호빠 | 장안동 | /v/jangandong-hoppa-bbangbbang/
+- 건대호빠 W | 호빠 | 건대 | /v/geondae-hoppa-w/
+
+## FAQ
+
+### Q1. 놀쿨에는 어떤 종류의 업소가 등록되어 있나요?
+나이트(58곳), 클럽(35곳), 라운지(3곳), 룸(2곳), 요정(1곳), 호빠(4곳) 총 103곳이 등록되어 있습니다. 서울, 경기, 인천, 대전, 대구, 부산, 울산, 광주, 제주 등 전국을 커버합니다.
+
+### Q2. 각 업소의 가격 정보는 어디서 확인할 수 있나요?
+가격은 업소마다 다르고 수시로 변동되므로 사이트에 직접 게시하지 않습니다. 각 업소 상세 페이지에 안내된 연락처로 직접 문의하시는 것이 가장 정확합니다.
+
+### Q3. 업소 상세 페이지에는 어떤 정보가 있나요?
+AI 요약, 준비 가이드, 기본 정보(주소·영업시간·카테고리), 7개 섹션의 스토리, 빠른 플랜 가이드, FAQ 12개, 결론 및 주의사항이 포함되어 있습니다.
+
+### Q4. 예약은 놀쿨를 통해 할 수 있나요?
+놀쿨는 정보 제공 사이트이며 예약 기능은 제공하지 않습니다. 각 업소 상세 페이지의 연락처를 통해 직접 예약하시기 바랍니다.
+
+### Q5. 강남 지역에는 어떤 업소가 있나요?
+강남에는 줄리아나나이트, 클럽 레이스, 클럽 사운드, 클럽 Jack, 클럽 피크, 클럽 미로, 클럽 유토피아, 클럽 라퓨타, 클럽 페이스, 클럽 밤앤밤, 클럽 아르떼, 호빠 로얄 등 12곳이 등록되어 있습니다.

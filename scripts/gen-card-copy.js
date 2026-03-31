@@ -113,7 +113,7 @@ function generateOgSvg(venue) {
     '  <text x="600" y="260" text-anchor="middle" fill="#111111" font-family="sans-serif" font-size="'+fontSize+'" font-weight="900">'+safeName+'</text>',
     '  <text x="600" y="320" text-anchor="middle" fill="'+color+'" font-family="sans-serif" font-size="28" font-weight="600">'+safeType+'</text>',
     '  <text x="600" y="370" text-anchor="middle" fill="#555555" font-family="sans-serif" font-size="22">'+safeRegion+'</text>',
-    '  <text x="600" y="560" text-anchor="middle" fill="rgba(139,92,246,0.4)" font-family="sans-serif" font-size="14" font-weight="700" letter-spacing="6">밤키 NIGHTLIFE</text>',
+    '  <text x="600" y="560" text-anchor="middle" fill="rgba(139,92,246,0.4)" font-family="sans-serif" font-size="14" font-weight="700" letter-spacing="6">놀쿨 NIGHTLIFE</text>',
     '  <text x="600" y="590" text-anchor="middle" fill="rgba(6,182,212,0.5)" font-family="sans-serif" font-size="12" letter-spacing="3">도시의 밤을 지배하라</text>',
     '</svg>'
   ].join("\n");
@@ -121,7 +121,7 @@ function generateOgSvg(venue) {
 
 /* ══════════ NAV HTML ══════════ */
 function navHtml() {
-  return '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>밤키</strong>에서 &#9733; &rarr;</a></div>\n' +
+  return '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n' +
     '<nav class="top-nav"><div class="top-nav-inner">' +
     '<a href="/" class="top-nav-link" target="_blank" rel="noopener noreferrer">홈</a>' +
     '<a href="/c/나이트/" class="top-nav-link" target="_blank" rel="noopener noreferrer">나이트</a>' +
@@ -153,9 +153,9 @@ function generateDetailHtml(venue, slug, content, idx) {
   var tagsHtml = venue.tags.map(function(t){return'<span class="detail-tag">'+escapeHtml(t)+'</span>';}).join("");
   var today = new Date().toISOString().slice(0,10);
   var _p = function(a,s){return dtPick(a,idx,s);};
-  // 후킹 제목: 가게이름 — hookTitle | 밤키
+  // 후킹 제목: 가게이름 — hookTitle | 놀쿨
   var title = venue.hookTitle
-    ? escapeHtml(venue.name) + " — " + escapeHtml(venue.hookTitle) + " | 밤키"
+    ? escapeHtml(venue.name) + " — " + escapeHtml(venue.hookTitle) + " | 놀쿨"
     : HOOK_TITLES[idx%HOOK_TITLES.length].replace(/\$name/g,venue.name).replace(/\$region/g,venue.region);
   // 후킹 meta description: 150자 이내, 업소별 고유, 클릭 유도
   var hookDescs = [
@@ -232,7 +232,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     // Intro
     '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_INTRO,20)+'</h2>\n<div class="detail-body">'+content.intro+'</div>\n</div>\n'+
     // 후킹 #2: Mid CTA
-    '<div class="detail-section"><div class="mid-cta"><p>전체 리뷰 93개 + 실시간 순위</p><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">밤키에서 확인 &rarr;</a></div></div>\n'+
+    '<div class="detail-section"><div class="mid-cta"><p>전체 리뷰 93개 + 실시간 순위</p><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">놀쿨에서 확인 &rarr;</a></div></div>\n'+
     // Info Table
     '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_INFO,30)+'</h2>\n'+
     '<table class="info-table"><tr><th>주소</th><td>'+escapeHtml(venue.addr)+'</td></tr>'+
@@ -242,18 +242,18 @@ function generateDetailHtml(venue, slug, content, idx) {
     '</div>\n'+
     // Story
     '<div class="detail-section">\n<div class="detail-body">'+content.story+'</div>\n</div>\n'+
-    // 후킹 #9: Blur Lock (리뷰 → 밤키 유도)
+    // 후킹 #9: Blur Lock (리뷰 → 놀쿨 유도)
     '<div class="detail-section"><div class="blur-lock">'+
     '<div class="blur-content">방문자 후기가 궁금하세요?<br>'+
     '실제 방문자들의 솔직한 리뷰와 평점을<br>'+
-    '밤키에서 확인할 수 있습니다.</div>'+
+    '놀쿨에서 확인할 수 있습니다.</div>'+
     '<div class="blur-overlay"><p>전체 리뷰 보기</p>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="blur-btn">밤키에서 확인 &rarr;</a></div></div></div>\n'+
+    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="blur-btn">놀쿨에서 확인 &rarr;</a></div></div></div>\n'+
     // Quick Plan
     '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_QP,40)+'</h2>\n'+planHtml+'\n</div>\n'+
     // 후킹 #3: Similar Venues
     '<div class="similar-section"><p class="similar-title">비슷한 분위기 5곳 더 보기</p>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="similar-cta">밤키에서 비슷한 업소 찾기 &rarr;</a></div>\n'+
+    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="similar-cta">놀쿨에서 비슷한 업소 찾기 &rarr;</a></div>\n'+
     // Action Row (후킹 #11,#12,#14)
     '<div class="action-row">'+
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="action-btn"><span class="icon">&#9878;</span>다른 업소와 비교</a>'+
@@ -266,14 +266,14 @@ function generateDetailHtml(venue, slug, content, idx) {
     // Conclusion
     '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_CONC,60)+'</h2>\n<div class="detail-body"><p>'+escapeHtml(content.conclusion)+'</p></div>\n</div>\n'+
     // 후킹 #8: Large CTA
-    '<div class="large-cta"><div class="large-cta-title">&#9733; 103개 업소 실시간 순위<br>+AI추천+리뷰<br>밤키 바로가기 &#9733;</div>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">밤키 바로가기 &rarr;</a></div>\n'+
+    '<div class="large-cta"><div class="large-cta-title">&#9733; 103개 업소 실시간 순위<br>+AI추천+리뷰<br>놀쿨 바로가기 &#9733;</div>'+
+    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     // Footer
     '<footer class="detail-footer">'+
     '<a href="https://open.kakao.com/o/s0VwwVhh" target="_blank" rel="noopener noreferrer" style="display:block;padding:14px;background:#F9FAFB;border:1px solid #D1D5DB;border-radius:16px;text-align:center;text-decoration:none;margin-bottom:16px;"><span style="background:#8B5CF6;color:#fff;font-size:10px;font-weight:900;padding:3px 6px;border-radius:4px;">AD</span> <span style="font-size:16px;font-weight:800;color:#111;">광고문의</span> <span style="color:#8B5CF6;font-weight:700;">카톡 : besta12</span></a>'+
-    '<p class="detail-footer-slogan">밤키 — 도시의 밤을 지배하라</p>'+
-    '<p class="detail-footer-brand">BAMKEY NIGHTLIFE</p>'+
-    '<p class="detail-footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 밤키. 정보 제공 목적.</p>'+
+    '<p class="detail-footer-slogan">놀쿨 — 도시의 밤을 지배하라</p>'+
+    '<p class="detail-footer-brand">NOLCOOL NIGHTLIFE</p>'+
+    '<p class="detail-footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 놀쿨. 정보 제공 목적.</p>'+
     '<a href="/" class="back-link" target="_blank" rel="noopener noreferrer">&#8592; 전체 리스트 보기</a>'+
     '</footer>\n'+
     // 후킹 #6: Slide-up
@@ -281,9 +281,9 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<button class="close-btn" onclick="document.getElementById(\'slideupPopup\').classList.remove(\'show\')">&times;</button>'+
     '<div class="slideup-title">더 많은 정보가 기다리고 있습니다</div>'+
     '<div class="slideup-desc">103개 업소 실시간 순위+리뷰+AI추천</div>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="slideup-btn">밤키 바로가기 &rarr;</a></div>\n'+
+    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="slideup-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     // 후킹 #7: Scroll banner
-    '<div class="scroll-banner" id="scrollBanner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">여기서 끝이 아닙니다! 밤키에서 완벽한 밤 시작 &rarr;</a></div>\n'+
+    '<div class="scroll-banner" id="scrollBanner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">여기서 끝이 아닙니다! 놀쿨에서 완벽한 밤 시작 &rarr;</a></div>\n'+
     // Sticky Phone Bar (번호 있는 업소만 — 하단 네비 위)
     (venue.phone ?
       '<div style="position:fixed;bottom:56px;left:50%;transform:translateX(-50%);width:100%;max-width:400px;z-index:50;padding:8px 16px;">'+
@@ -303,12 +303,12 @@ function generateDetailHtml(venue, slug, content, idx) {
 
 /* ══════════ CATEGORY INTRO TEXTS (500자+ 고유) ══════════ */
 var CAT_INTROS = {
-  "나이트": "<p>나이트는 세대를 넘어 사람들이 모이는 곳입니다. 20대부터 60대까지, 라이브 밴드 앞에서 춤추는 그 순간만큼은 나이가 의미 없습니다. 전국 나이트를 하나하나 정리했습니다. 분위기는 어떤지, 어떤 음악이 나오는지, 주차는 되는지, 언제 가야 좋은지.</p><p>부킹 시스템이 있는 곳, 웨이터가 직접 안내하는 곳, 라이브 밴드가 무대에 서는 곳. 같은 나이트라도 분위기가 전부 다릅니다. 서울 강남부터 부산 해운대까지, 대전 은행동부터 광주 상무까지. 가기 전에 여기서 확인하세요.</p><p>밤키가 전국 나이트를 직접 정리했습니다. 드레스코드, 영업시간, 담당자 연락처까지 한눈에 비교할 수 있습니다.</p>",
-  "클럽": "<p>클럽은 단순한 춤추는 곳이 아닙니다. 조명이 바뀌는 순간, 음악이 몸을 감싸는 순간, 옆 사람과 눈이 마주치는 순간 — 그 경험은 다른 어디에서도 느낄 수 없습니다. 강남에서 홍대까지, 압구정에서 이태원까지.</p><p>하우스, 테크노, EDM, 힙합. DJ 라인업에 따라 밤의 색깔이 완전히 달라집니다. 드레스코드가 까다로운 곳부터 자유로운 곳까지. 직접 다녀본 사람들의 솔직한 이야기를 모았습니다.</p><p>어디가 진짜 좋은지, 처음 가는 사람은 뭘 알아야 하는지. 밤키가 전부 정리했습니다.</p>",
+  "나이트": "<p>나이트는 세대를 넘어 사람들이 모이는 곳입니다. 20대부터 60대까지, 라이브 밴드 앞에서 춤추는 그 순간만큼은 나이가 의미 없습니다. 전국 나이트를 하나하나 정리했습니다. 분위기는 어떤지, 어떤 음악이 나오는지, 주차는 되는지, 언제 가야 좋은지.</p><p>부킹 시스템이 있는 곳, 웨이터가 직접 안내하는 곳, 라이브 밴드가 무대에 서는 곳. 같은 나이트라도 분위기가 전부 다릅니다. 서울 강남부터 부산 해운대까지, 대전 은행동부터 광주 상무까지. 가기 전에 여기서 확인하세요.</p><p>놀쿨가 전국 나이트를 직접 정리했습니다. 드레스코드, 영업시간, 담당자 연락처까지 한눈에 비교할 수 있습니다.</p>",
+  "클럽": "<p>클럽은 단순한 춤추는 곳이 아닙니다. 조명이 바뀌는 순간, 음악이 몸을 감싸는 순간, 옆 사람과 눈이 마주치는 순간 — 그 경험은 다른 어디에서도 느낄 수 없습니다. 강남에서 홍대까지, 압구정에서 이태원까지.</p><p>하우스, 테크노, EDM, 힙합. DJ 라인업에 따라 밤의 색깔이 완전히 달라집니다. 드레스코드가 까다로운 곳부터 자유로운 곳까지. 직접 다녀본 사람들의 솔직한 이야기를 모았습니다.</p><p>어디가 진짜 좋은지, 처음 가는 사람은 뭘 알아야 하는지. 놀쿨가 전부 정리했습니다.</p>",
   "라운지": "<p>라운지는 시끄러운 곳이 싫은 사람들을 위한 곳입니다. 조용한 음악, 편안한 소파, 좋은 술. 대화가 가능한 밤을 원한다면 라운지가 정답입니다.</p><p>강남부터 청담, 압구정까지. 분위기 좋은 라운지만 골라 정리했습니다. 칵테일 바, 위스키 바, DJ라운지까지 스타일도 다양합니다. 프라이빗룸이 있는 곳, 루프탑이 있는 곳, 소규모 파티가 가능한 곳.</p><p>시끄러운 밤 대신 조용하고 세련된 시간을 보내고 싶다면, 여기서 찾아보세요.</p>",
-  "룸": "<p>룸은 프라이빗한 공간이 필요한 사람들의 선택입니다. 회식, 모임, 비즈니스 접대, 특별한 날. 다른 사람 신경 쓰지 않고 우리끼리 즐기고 싶을 때 룸만 한 곳이 없습니다.</p><p>전국 룸을 정리했습니다. 어디가 넓은지, 어디가 서비스 좋은지, 정찰제인지 아닌지. 일산룸부터 해운대고구려까지, 비즈니스 접대에 적합한 곳부터 친구 모임에 좋은 곳까지.</p><p>예산과 인원에 맞는 곳을 찾아보세요. 밤키가 정리한 정보로 실패 없는 선택을 하세요.</p>",
+  "룸": "<p>룸은 프라이빗한 공간이 필요한 사람들의 선택입니다. 회식, 모임, 비즈니스 접대, 특별한 날. 다른 사람 신경 쓰지 않고 우리끼리 즐기고 싶을 때 룸만 한 곳이 없습니다.</p><p>전국 룸을 정리했습니다. 어디가 넓은지, 어디가 서비스 좋은지, 정찰제인지 아닌지. 일산룸부터 해운대고구려까지, 비즈니스 접대에 적합한 곳부터 친구 모임에 좋은 곳까지.</p><p>예산과 인원에 맞는 곳을 찾아보세요. 놀쿨가 정리한 정보로 실패 없는 선택을 하세요.</p>",
   "요정": "<p>요정은 한국 전통 문화를 경험하는 특별한 곳입니다. 한정식에 국악 라이브, 고급스러운 분위기. 접대, 비즈니스, 특별한 모임에 요정만 한 곳이 없습니다.</p><p>프라이빗룸에서 한정식 코스를 즐기며 국악 공연을 감상하는 경험. 격식 있는 자리에서 품격을 보여줘야 할 때. 요정은 그런 순간을 위한 곳입니다.</p><p>전국 요정을 정리했습니다. 예약 방법, 코스 구성, 분위기까지 미리 확인하고 가세요.</p>",
-  "호빠": "<p>호빠는 여성들이 편하게 즐기는 프리미엄 공간입니다. 친절한 호스트가 대화 상대가 되어주고, 즐거운 시간을 만들어줍니다. 강남부터 부산까지, 분위기 좋은 곳만 모았습니다.</p><p>처음이라 걱정되시나요? 혼자 가도 괜찮은지, 예산은 얼마인지, 어떤 분위기인지. 궁금한 것들을 미리 확인하세요. 안전하고 깨끗한 곳만 선별했습니다.</p><p>특별한 밤을 보내고 싶은 여성분들을 위해 밤키가 정리했습니다.</p>"
+  "호빠": "<p>호빠는 여성들이 편하게 즐기는 프리미엄 공간입니다. 친절한 호스트가 대화 상대가 되어주고, 즐거운 시간을 만들어줍니다. 강남부터 부산까지, 분위기 좋은 곳만 모았습니다.</p><p>처음이라 걱정되시나요? 혼자 가도 괜찮은지, 예산은 얼마인지, 어떤 분위기인지. 궁금한 것들을 미리 확인하세요. 안전하고 깨끗한 곳만 선별했습니다.</p><p>특별한 밤을 보내고 싶은 여성분들을 위해 놀쿨가 정리했습니다.</p>"
 };
 
 var CAT_GUIDE = {
@@ -368,11 +368,11 @@ function generateCategoryHtml(catName, catVenues) {
 
   return '<!doctype html>\n<html lang="ko">\n<head>\n'+
     '<meta charset="UTF-8"/>\n<meta name="viewport" content="width=device-width,initial-scale=1.0"/>\n'+
-    '<title>'+escapeHtml(catName)+' TOP '+catVenues.length+'곳 — 가기 전 반드시 확인 | 밤키</title>\n'+
-    '<meta name="description" content="'+(catDesc[catName]||"")+' 밤키에서 확인."/>\n'+
+    '<title>'+escapeHtml(catName)+' TOP '+catVenues.length+'곳 — 가기 전 반드시 확인 | 놀쿨</title>\n'+
+    '<meta name="description" content="'+(catDesc[catName]||"")+' 놀쿨에서 확인."/>\n'+
     '<meta name="robots" content="index,follow"/>\n'+
     '<link rel="canonical" href="'+DEPLOY_URL+'/c/'+encodeURI(catName)+'/"/>\n'+
-    '<meta property="og:title" content="'+escapeHtml(catName)+' '+catVenues.length+'곳 완벽 비교 | 밤키"/>\n'+
+    '<meta property="og:title" content="'+escapeHtml(catName)+' '+catVenues.length+'곳 완벽 비교 | 놀쿨"/>\n'+
     '<meta property="og:description" content="'+(catDesc[catName]||"")+'"/>\n'+
     '<meta property="og:type" content="website"/>\n'+
     '<meta property="og:url" content="'+DEPLOY_URL+'/c/'+encodeURI(catName)+'/"/>\n'+
@@ -383,7 +383,7 @@ function generateCategoryHtml(catName, catVenues) {
     '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>\n'+
     '<link href="/style.css" rel="stylesheet"/>\n'+
     '</head>\n<body>\n'+
-    '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>밤키</strong>에서 &#9733; &rarr;</a></div>\n'+
+    '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n'+
     '<nav class="top-nav"><div class="top-nav-inner">'+
     '<a href="/" class="top-nav-link" target="_blank" rel="noopener noreferrer">홈</a>'+
     '<a href="/c/나이트/" class="top-nav-link'+(catName==="나이트"?' active':'')+'" target="_blank" rel="noopener noreferrer">나이트</a>'+
@@ -408,13 +408,13 @@ function generateCategoryHtml(catName, catVenues) {
     '<div class="section"><div class="section-inner"><div class="cta-box"><div class="cta-icon">&#9876;</div><div class="cta-title">VS 대결</div><div style="display:flex;gap:8px;margin-top:12px;"><a href="/v/'+encodeURI(va._slug)+'/" target="_blank" rel="noopener noreferrer" style="flex:1;padding:12px;border:2px solid #8B5CF6;border-radius:12px;background:#F8F7FF;text-align:center;text-decoration:none;color:#111;font-weight:700;">'+escapeHtml(va.name)+'</a><span style="display:flex;align-items:center;font-weight:900;color:#8B5CF6;">VS</span><a href="/v/'+encodeURI(vb._slug)+'/" target="_blank" rel="noopener noreferrer" style="flex:1;padding:12px;border:2px solid #06B6D4;border-radius:12px;background:#F0FDFA;text-align:center;text-decoration:none;color:#111;font-weight:700;">'+escapeHtml(vb.name)+'</a></div></div></div></div>\n' : '') +
     // Large CTA
     '<div class="large-cta"><div class="large-cta-title">&#9733; 103개 업소 전체 비교 &#9733;</div>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">밤키 바로가기 &rarr;</a></div>\n'+
+    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     // Footer
     '<footer class="footer">'+
     '<a href="https://open.kakao.com/o/s0VwwVhh" target="_blank" rel="noopener noreferrer" class="ad-banner"><span class="ad-badge">AD</span><span class="ad-title">광고문의</span><span class="ad-kakao">카톡 : besta12</span><span class="ad-btn">KakaoTalk</span></a>'+
-    '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">밤키 — 도시의 밤을 지배하라</p>'+
-    '<p class="footer-brand">BAMKEY NIGHTLIFE</p>'+
-    '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 밤키. 정보 제공 목적.</p></footer>\n'+
+    '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 도시의 밤을 지배하라</p>'+
+    '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
+    '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 놀쿨. 정보 제공 목적.</p></footer>\n'+
     '<script defer src="/engage.js"><\/script>\n'+
     '</body>\n</html>';
 }
@@ -460,7 +460,7 @@ function generateExtraPages(venues) {
     '인기 업소 TOP 20',
     '지금 가장 핫한 곳은? 전국 인기 업소 TOP 20 실시간 순위. 1위가 어딘지 확인해보세요.',
     '<p style="color:#555;margin-bottom:16px;">조회수 기반 인기 순위입니다. 매주 업데이트됩니다.</p>'+rankHtml+
-    '<div class="rank-cta" style="margin-top:16px;"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;font-weight:700;">21위~103위 전체 보기 &rarr; 밤키</a></div>'
+    '<div class="rank-cta" style="margin-top:16px;"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;font-weight:700;">21위~103위 전체 보기 &rarr; 놀쿨</a></div>'
   )});
 
   // ── MAGAZINE PAGE ──
@@ -470,7 +470,7 @@ function generateExtraPages(venues) {
     {title:'나이트 처음이라면 — 입문자를 위한 완벽 가이드',
      body:'<p>나이트에 처음 간다고요? 걱정 마세요. 모든 단골도 처음이 있었습니다. 여기서 꼭 알아야 할 것만 정리했습니다.</p><p>첫째, 옷. 슬리퍼, 반바지, 운동복은 안 됩니다. 깔끔한 캐주얼이면 충분합니다. 셔츠에 청바지, 깨끗한 운동화 정도면 어디든 입장 가능합니다.</p><p>둘째, 시간. 너무 일찍 가면 텅 빈 홀에서 혼자 앉아있게 됩니다. 밤 10시~11시에 도착하세요. 그때부터 사람이 차기 시작합니다.</p><p>셋째, 웨이터. 나이트의 웨이터는 서빙만 하는 게 아닙니다. 자리 안내, 분위기 조절, 파트너 매칭까지. 처음이라면 웨이터에게 먼저 인사하세요. 밤의 질이 달라집니다.</p><p>넷째, 귀가. 대리운전 앱 미리 깔아두세요. 새벽에 택시 잡기는 전쟁입니다.</p>'},
     {title:'호빠 완벽 가이드 — 여성이 알아야 할 모든 것',
-     body:'<p>호빠가 궁금하지만 선뜻 가기 어려운 분들을 위한 글입니다. 솔직하게, 있는 그대로 정리했습니다.</p><p>호빠는 여성 고객을 위한 유흥 공간입니다. 남성 호스트가 대화 상대가 되어주고, 즐거운 시간을 만들어줍니다. 불편한 상황이 생기면 바로 호스트를 바꿀 수 있습니다.</p><p>예산은 업소마다 다릅니다. 미리 전화해서 확인하세요. 처음이라고 하면 친절하게 안내해줍니다.</p><p>혼자 가도 됩니다. 실제로 혼자 오는 분이 꽤 많습니다. 친구와 함께 가면 더 재미있지만, 혼자라고 어색할 건 전혀 없습니다.</p><p>안전이 걱정되시나요? CCTV, 보안 요원이 상주하는 곳을 선택하세요. 밤키에서 검증된 곳만 소개합니다.</p>'}
+     body:'<p>호빠가 궁금하지만 선뜻 가기 어려운 분들을 위한 글입니다. 솔직하게, 있는 그대로 정리했습니다.</p><p>호빠는 여성 고객을 위한 유흥 공간입니다. 남성 호스트가 대화 상대가 되어주고, 즐거운 시간을 만들어줍니다. 불편한 상황이 생기면 바로 호스트를 바꿀 수 있습니다.</p><p>예산은 업소마다 다릅니다. 미리 전화해서 확인하세요. 처음이라고 하면 친절하게 안내해줍니다.</p><p>혼자 가도 됩니다. 실제로 혼자 오는 분이 꽤 많습니다. 친구와 함께 가면 더 재미있지만, 혼자라고 어색할 건 전혀 없습니다.</p><p>안전이 걱정되시나요? CCTV, 보안 요원이 상주하는 곳을 선택하세요. 놀쿨에서 검증된 곳만 소개합니다.</p>'}
   ];
   var magHtml = articles.map(function(a,i){
     return '<div style="background:#fff;border:1px solid #D1D5DB;border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08);">'+
@@ -482,7 +482,7 @@ function generateExtraPages(venues) {
     '매거진 — 밤문화 가이드',
     '강남 vs 홍대 어디가 나을까? 처음 가는 사람 완벽 가이드까지. 읽다 보면 3분 순삭.',
     magHtml+
-    '<div class="cta-box" style="margin-top:16px;"><div class="cta-icon">&#128218;</div><div class="cta-title">더 많은 매거진</div><div class="cta-desc">밤키에서 매주 새로운 매거진이 업데이트됩니다.</div><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="cta-btn">밤키에서 더 보기 &rarr;</a></div>'
+    '<div class="cta-box" style="margin-top:16px;"><div class="cta-icon">&#128218;</div><div class="cta-title">더 많은 매거진</div><div class="cta-desc">놀쿨에서 매주 새로운 매거진이 업데이트됩니다.</div><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="cta-btn">놀쿨에서 더 보기 &rarr;</a></div>'
   )});
 
   // ── EVENTS PAGE ──
@@ -502,7 +502,7 @@ function generateExtraPages(venues) {
     '<p style="font-size:15px;font-weight:700;color:#111;">주중 · 할인 이벤트</p>'+
     '<p style="font-size:13px;color:#555;">화~목 방문 시 입장료 할인, 웰컴 드링크 등 혜택이 있는 업소가 많습니다.</p></div>'+
     '</div>'+
-    '<div class="cta-box"><div class="cta-icon">&#128197;</div><div class="cta-title">최신 이벤트 정보</div><div class="cta-desc">업소별 실시간 이벤트는 밤키에서 확인하세요.</div><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="cta-btn">밤키에서 이벤트 보기 &rarr;</a></div>'
+    '<div class="cta-box"><div class="cta-icon">&#128197;</div><div class="cta-title">최신 이벤트 정보</div><div class="cta-desc">업소별 실시간 이벤트는 놀쿨에서 확인하세요.</div><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="cta-btn">놀쿨에서 이벤트 보기 &rarr;</a></div>'
   )});
 
   return pages;
@@ -631,7 +631,7 @@ function generateInteractivePages(venues) {
 function communityShell(title, desc, bodyHtml) {
   return '<!doctype html>\n<html lang="ko">\n<head>\n'+
     '<meta charset="UTF-8"/>\n<meta name="viewport" content="width=device-width,initial-scale=1.0"/>\n'+
-    '<title>'+escapeHtml(title)+' | 밤키</title>\n'+
+    '<title>'+escapeHtml(title)+' | 놀쿨</title>\n'+
     '<meta name="description" content="'+escapeHtml(desc)+'"/>\n'+
     '<meta name="robots" content="index,follow"/>\n'+
     '<meta name="theme-color" content="#FFFFFF"/>\n'+
@@ -641,17 +641,17 @@ function communityShell(title, desc, bodyHtml) {
     '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>\n'+
     '<link href="/style.css" rel="stylesheet"/>\n'+
     '</head>\n<body>\n'+
-    '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>밤키</strong>에서 &#9733; &rarr;</a></div>\n'+
+    '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n'+
     navHtml()+'\n'+
     '<header class="cat-hero"><h1 class="cat-hero-title">'+escapeHtml(title)+'</h1></header>\n'+
     '<main class="section"><div class="section-inner" style="font-size:16px;color:#333;line-height:1.8;">'+bodyHtml+'</div></main>\n'+
-    '<div class="large-cta"><div class="large-cta-title">더 많은 정보와 커뮤니티<br>밤키에서 참여하세요</div>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">밤키 바로가기 &rarr;</a></div>\n'+
+    '<div class="large-cta"><div class="large-cta-title">더 많은 정보와 커뮤니티<br>놀쿨에서 참여하세요</div>'+
+    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     '<footer class="footer">'+
     '<a href="https://open.kakao.com/o/s0VwwVhh" target="_blank" rel="noopener noreferrer" class="ad-banner"><span class="ad-badge">AD</span><span class="ad-title">광고문의</span><span class="ad-kakao">카톡 : besta12</span><span class="ad-btn">KakaoTalk</span></a>'+
-    '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">밤키 — 도시의 밤을 지배하라</p>'+
-    '<p class="footer-brand">BAMKEY NIGHTLIFE</p>'+
-    '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 밤키. 정보 제공 목적.</p></footer>\n'+
+    '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 도시의 밤을 지배하라</p>'+
+    '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
+    '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 놀쿨. 정보 제공 목적.</p></footer>\n'+
     '<script defer src="/engage.js"><\/script>\n'+
     '</body>\n</html>';
 }
@@ -666,9 +666,9 @@ function generateCommunityPages(venues) {
   }).join('');
   pages.push({file:'index.html', html: communityShell(
     '커뮤니티',
-    '밤문화 고수들의 실전 팁부터 패션 가이드까지. 처음 가는 사람 필수 확인. 밤키 커뮤니티.',
+    '밤문화 고수들의 실전 팁부터 패션 가이드까지. 처음 가는 사람 필수 확인. 놀쿨 커뮤니티.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">밤문화 커뮤니티</h2>'+
-    '<p>밤키 커뮤니티에서 다양한 정보를 나누세요. 후기, 팁, 패션, 파티 모집까지.</p>'+
+    '<p>놀쿨 커뮤니티에서 다양한 정보를 나누세요. 후기, 팁, 패션, 파티 모집까지.</p>'+
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px 0;">'+
     '<a href="/community/tips.html" target="_blank" rel="noopener noreferrer" class="cta-btn" style="text-align:center;display:block;padding:14px;border-radius:12px;">팁·노하우</a>'+
     '<a href="/community/fashion.html" target="_blank" rel="noopener noreferrer" class="cta-btn cyan" style="text-align:center;display:block;padding:14px;border-radius:12px;">패션·드레스코드</a>'+
@@ -676,7 +676,7 @@ function generateCommunityPages(venues) {
     '<a href="/community/guidelines.html" target="_blank" rel="noopener noreferrer" class="cta-btn purple" style="text-align:center;display:block;padding:14px;border-radius:12px;">이용 규칙</a>'+
     '</div>'+
     '<h3 style="font-size:18px;font-weight:700;margin:24px 0 12px;">이번 주 인기 업소</h3>'+topVenues+
-    '<div class="cta-box" style="margin-top:24px;"><div class="cta-icon">&#128172;</div><div class="cta-title">글쓰기·댓글·리뷰는 밤키에서</div><div class="cta-desc">서브사이트는 정보 열람만 가능합니다.<br>글쓰기, 댓글, 리뷰 작성은 밤키에서 참여하세요.</div><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="cta-btn">밤키에서 참여하기 &rarr;</a></div>'
+    '<div class="cta-box" style="margin-top:24px;"><div class="cta-icon">&#128172;</div><div class="cta-title">글쓰기·댓글·리뷰는 놀쿨에서</div><div class="cta-desc">서브사이트는 정보 열람만 가능합니다.<br>글쓰기, 댓글, 리뷰 작성은 놀쿨에서 참여하세요.</div><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="cta-btn">놀쿨에서 참여하기 &rarr;</a></div>'
   )});
 
   // Tips page
@@ -743,7 +743,7 @@ function generateCommunityPages(venues) {
   // Guidelines
   pages.push({file:'guidelines.html', html: communityShell(
     '커뮤니티 이용 규칙',
-    '밤키 커뮤니티 이용 규칙. 상호 존중·허위정보 금지·광고 금지·개인정보 보호.',
+    '놀쿨 커뮤니티 이용 규칙. 상호 존중·허위정보 금지·광고 금지·개인정보 보호.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">이용 규칙</h2>'+
     '<div style="background:#F9FAFB;border-radius:16px;padding:20px;line-height:2;">'+
     '<p><strong>1. 상호 존중</strong><br>다른 사용자를 존중하세요. 비하, 모욕, 차별적 발언은 금지입니다.</p>'+

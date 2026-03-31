@@ -114,7 +114,7 @@
     {sec:60, msg:'⏰ 1분 돌파! +10XP', xp:10, done:false},
     {sec:180, msg:'🔥 3분 체류! +20XP — 당신은 진짜 탐험가', xp:20, done:false},
     {sec:300, msg:'⭐ 5분 체류! +30XP — 파티피플 자질 충분', xp:30, done:false},
-    {sec:600, msg:'👑 10분! +50XP — 밤키 마스터 등극', xp:50, done:false}
+    {sec:600, msg:'👑 10분! +50XP — 놀쿨 마스터 등극', xp:50, done:false}
   ];
   var startTime = Date.now();
   setInterval(function(){
@@ -198,7 +198,7 @@
 
   // ══════════ [12] 첫 방문 환영 메시지 ══════════
   if(visits <= 1){
-    setTimeout(function(){showToast('👋 밤키에 오신 걸 환영합니다! 업소를 탐색하면 XP를 받아요');},2000);
+    setTimeout(function(){showToast('👋 놀쿨에 오신 걸 환영합니다! 업소를 탐색하면 XP를 받아요');},2000);
   } else if(streak >= 3){
     setTimeout(function(){showToast('🔥 '+streak+'일 연속 방문! 대단해요');},2000);
   }
