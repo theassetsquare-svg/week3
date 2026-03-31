@@ -1,548 +1,176 @@
-/* ======= 전국 룸 디렉토리 데이터 ======= */
-const listings = [
+var listings = [{"name":"일산룸","region":"일산","type":"룸","addr":"일산","hours":"PM 6:00 ~ AM 5:00","hook":"일산 프라이빗 룸의 정석.\n비즈니스든 모임이든 격에 맞게.","value":"프라이빗룸 · 정찰제 · 비즈니스 접대 · 픽업 서비스","tags":["일산룸","일산룸","일산","룸"],"_slug":"ilsan-room","nickname":"신실장","phone":"010-3695-4929"},{"name":"해운대고구려","region":"해운대","type":"룸","addr":"부산 해운대구 마린시티","hours":"PM 6:00 ~ AM 5:00","hook":"해운대 프라이빗 룸의 정석.\n정찰제, 픽업 서비스까지 빈틈없이.","value":"프라이빗룸 · 정찰제 · 비즈니스 접대 · 픽업 서비스","tags":["해운대룸","해운대고구려","해운대","룸"],"_slug":"haeundae-goguryeo","nickname":"","phone":""},{"name":"일산명월관요정","region":"일산","type":"요정","addr":"고양시 일산동구 장항로 895-1","hours":"PM 5:00 ~ AM 2:00","hook":"일산 전통 한정식과 국악의 어우러짐.\n접대의 끝판왕, 프라이빗룸 30개 이상.","value":"한정식 · 국악 라이브 · 프라이빗룸 30개+ · 정찰제","tags":["일산요정","일산명월관요","일산","요정"],"_slug":"ilsan-myeongwolgwan-yojeong","nickname":"신실장","phone":"010-3695-4929"},{"name":"청담H2O나이트","region":"청담","type":"나이트","addr":"청담","hours":"PM 8:00 ~ AM 5:00","hook":"청담역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["청담나이트","청담H2O나","청담","나이트"],"_slug":"cheongdam-h2o-night","nickname":"펩시맨","phone":"010-5655-4866"},{"name":"강남줄리아나나이트","region":"강남","type":"나이트","addr":"강남","hours":"PM 8:00 ~ AM 5:00","hook":"강남 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["강남나이트","강남줄리아나","강남","나이트"],"_slug":"gangnam-juliana-night","nickname":"","phone":""},{"name":"신림그랑프리나이트","region":"신림","type":"나이트","addr":"신림","hours":"PM 8:00 ~ AM 5:00","hook":"신림에서 밤을 즐기려면 여기부터.\n초보도 편하게 즐기는 분위기.","value":"최신 음향 · 무료 주차 · 초보 환영 · 대형 홀","tags":["신림나이트","신림그랑프리","신림","나이트"],"_slug":"sinlim-grandprix-night","nickname":"태양","phone":"010-4241-3748"},{"name":"상봉동한국관나이트","region":"상봉동","type":"나이트","addr":"상봉동","hours":"PM 8:00 ~ AM 5:00","hook":"상봉동 직장인들의 금요일 해방구.\n스트레스 풀기 딱 좋은 사운드.","value":"라이브 밴드 · 여유로운 홀 · 전통 스타일 · 역세권","tags":["상봉동나이트","상봉동한국관","상봉동","나이트"],"_slug":"sangbongdong-hangukgwan-night","nickname":"","phone":""},{"name":"수유샴푸나이트","region":"수유","type":"나이트","addr":"수유","hours":"PM 8:00 ~ AM 5:00","hook":"수유 최고의 파트너 매칭.\n혼자 와도 외롭지 않은 밤.","value":"특수 조명 · DJ 상주 · 주말 게스트 DJ · 도보권","tags":["수유나이트","수유샴푸나이","수유","나이트"],"_slug":"suyu-shampoo-night","nickname":"","phone":""},{"name":"독산국빈관나이트","region":"독산","type":"나이트","addr":"독산","hours":"PM 8:00 ~ AM 5:00","hook":"독산의 밤은 여기서 완성된다.\n한 번 와본 사람은 결국 단골이 된다.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["독산나이트","독산국빈관나","독산","나이트"],"_slug":"doksan-gukbingwan-night","nickname":"","phone":""},{"name":"답십리돈텔마마나이트","region":"답십리","type":"나이트","addr":"답십리","hours":"PM 8:00 ~ AM 5:00","hook":"답십리에서 밤이 가장 뜨거워지는 곳.\n주말이면 줄이 골목을 감싼다.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["답십리나이트","답십리돈텔마","답십리","나이트"],"_slug":"dapsimni-dontellmama-night","nickname":"","phone":""},{"name":"강서나이트","region":"강서","type":"나이트","addr":"강서","hours":"PM 8:00 ~ AM 5:00","hook":"강서 밤문화의 중심.\n사운드와 사람, 그 에너지가 다르다.","value":"대형 홀 · 파트너 시스템 · 주말 이벤트 · 단체석","tags":["강서나이트","강서나이트","강서","나이트"],"_slug":"gangseo-night","nickname":"","phone":""},{"name":"영등포터미널나이트","region":"영등포","type":"나이트","addr":"영등포","hours":"PM 8:00 ~ AM 5:00","hook":"영등포역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["영등포나이트","영등포터미널","영등포","나이트"],"_slug":"yeongdeungpo-terminal-night","nickname":"","phone":""},{"name":"노원호박나이트","region":"노원","type":"나이트","addr":"노원","hours":"PM 8:00 ~ AM 5:00","hook":"노원 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["노원나이트","노원호박나이","노원","나이트"],"_slug":"nowon-hobak-night","nickname":"","phone":""},{"name":"노원스타나이트","region":"노원","type":"나이트","addr":"노원","hours":"PM 8:00 ~ AM 5:00","hook":"노원에서 밤을 즐기려면 여기부터.\n초보도 편하게 즐기는 분위기.","value":"최신 음향 · 무료 주차 · 초보 환영 · 대형 홀","tags":["노원나이트","노원스타나이","노원","나이트"],"_slug":"nowon-star-night","nickname":"","phone":""},{"name":"길동찬스나이트","region":"길동","type":"나이트","addr":"길동","hours":"PM 8:00 ~ AM 5:00","hook":"길동 직장인들의 금요일 해방구.\n스트레스 풀기 딱 좋은 사운드.","value":"라이브 밴드 · 여유로운 홀 · 전통 스타일 · 역세권","tags":["길동나이트","길동찬스나이","길동","나이트"],"_slug":"gildong-chance-night","nickname":"","phone":""},{"name":"일산샴푸나이트","region":"일산","type":"나이트","addr":"일산","hours":"PM 8:00 ~ AM 5:00","hook":"일산 최고의 파트너 매칭.\n혼자 와도 외롭지 않은 밤.","value":"특수 조명 · DJ 상주 · 주말 게스트 DJ · 도보권","tags":["일산나이트","일산샴푸나이","일산","나이트"],"_slug":"ilsan-shampoo-night","nickname":"","phone":""},{"name":"일산물나이트","region":"일산","type":"나이트","addr":"일산","hours":"PM 8:00 ~ AM 5:00","hook":"일산의 밤은 여기서 완성된다.\n한 번 와본 사람은 결국 단골이 된다.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["일산나이트","일산물나이트","일산","나이트"],"_slug":"ilsan-mul-night","nickname":"","phone":""},{"name":"파주야당스카이돔나이트","region":"파주","type":"나이트","addr":"파주","hours":"PM 8:00 ~ AM 5:00","hook":"파주에서 밤이 가장 뜨거워지는 곳.\n주말이면 줄이 골목을 감싼다.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["파주나이트","파주야당스카","파주","나이트"],"_slug":"paju-yadang-skydome-night","nickname":"막내","phone":"010-8255-3509"},{"name":"화정한국관나이트","region":"화정","type":"나이트","addr":"화정","hours":"PM 8:00 ~ AM 5:00","hook":"화정 밤문화의 중심.\n사운드와 사람, 그 에너지가 다르다.","value":"대형 홀 · 파트너 시스템 · 주말 이벤트 · 단체석","tags":["화정나이트","화정한국관나","화정","나이트"],"_slug":"hwajeong-hangukgwan-night","nickname":"","phone":""},{"name":"김포호박나이트","region":"김포","type":"나이트","addr":"김포","hours":"PM 8:00 ~ AM 5:00","hook":"김포역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["김포나이트","김포호박나이","김포","나이트"],"_slug":"gimpo-hobak-night","nickname":"","phone":""},{"name":"김포썸나이트","region":"김포","type":"나이트","addr":"김포","hours":"PM 8:00 ~ AM 5:00","hook":"김포 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["김포나이트","김포썸나이트","김포","나이트"],"_slug":"gimpo-sseom-night","nickname":"","phone":""},{"name":"구리호박나이트","region":"구리","type":"나이트","addr":"구리","hours":"PM 8:00 ~ AM 5:00","hook":"구리에서 밤을 즐기려면 여기부터.\n초보도 편하게 즐기는 분위기.","value":"최신 음향 · 무료 주차 · 초보 환영 · 대형 홀","tags":["구리나이트","구리호박나이","구리","나이트"],"_slug":"guri-hobak-night","nickname":"","phone":""},{"name":"의정부한국관나이트","region":"의정부","type":"나이트","addr":"의정부","hours":"PM 8:00 ~ AM 5:00","hook":"의정부 직장인들의 금요일 해방구.\n스트레스 풀기 딱 좋은 사운드.","value":"라이브 밴드 · 여유로운 홀 · 전통 스타일 · 역세권","tags":["의정부나이트","의정부한국관","의정부","나이트"],"_slug":"uijeongbu-hangukgwan-night","nickname":"","phone":""},{"name":"수원찬스돔나이트","region":"수원","type":"나이트","addr":"수원","hours":"PM 8:00 ~ AM 5:00","hook":"수원 최고의 파트너 매칭.\n혼자 와도 외롭지 않은 밤.","value":"특수 조명 · DJ 상주 · 주말 게스트 DJ · 도보권","tags":["수원나이트","수원찬스돔나","수원","나이트"],"_slug":"suwon-chancesdom-night","nickname":"강호동","phone":"010-9354-1323"},{"name":"수원코리아나이트","region":"수원","type":"나이트","addr":"수원","hours":"PM 8:00 ~ AM 5:00","hook":"수원의 밤은 여기서 완성된다.\n한 번 와본 사람은 결국 단골이 된다.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["수원나이트","수원코리아나","수원","나이트"],"_slug":"suwon-korea-night","nickname":"","phone":""},{"name":"오산호박나이트","region":"오산","type":"나이트","addr":"오산","hours":"PM 8:00 ~ AM 5:00","hook":"오산에서 밤이 가장 뜨거워지는 곳.\n주말이면 줄이 골목을 감싼다.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["오산나이트","오산호박나이","오산","나이트"],"_slug":"osan-hobak-night","nickname":"","phone":""},{"name":"성남국빈관나이트","region":"성남","type":"나이트","addr":"성남","hours":"PM 8:00 ~ AM 5:00","hook":"성남 밤문화의 중심.\n사운드와 사람, 그 에너지가 다르다.","value":"대형 홀 · 파트너 시스템 · 주말 이벤트 · 단체석","tags":["성남나이트","성남국빈관나","성남","나이트"],"_slug":"seongnam-gukbingwan-night","nickname":"","phone":""},{"name":"인덕원국빈관나이트","region":"인덕원","type":"나이트","addr":"인덕원","hours":"PM 8:00 ~ AM 5:00","hook":"인덕원역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["인덕원나이트","인덕원국빈관","인덕원","나이트"],"_slug":"indeogwon-gukbingwan-night","nickname":"","phone":""},{"name":"성남샴푸나이트","region":"성남","type":"나이트","addr":"성남","hours":"PM 8:00 ~ AM 5:00","hook":"성남 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["성남나이트","성남샴푸나이","성남","나이트"],"_slug":"seongnam-shampoo-night","nickname":"박찬호","phone":"010-3987-6885"},{"name":"분당퐁퐁나이트","region":"분당","type":"나이트","addr":"분당","hours":"PM 8:00 ~ AM 5:00","hook":"분당에서 밤을 즐기려면 여기부터.\n초보도 편하게 즐기는 분위기.","value":"최신 음향 · 무료 주차 · 초보 환영 · 대형 홀","tags":["분당나이트","분당퐁퐁나이","분당","나이트"],"_slug":"bundang-pongpong-night","nickname":"","phone":""},{"name":"평택호박나이트","region":"평택","type":"나이트","addr":"평택","hours":"PM 8:00 ~ AM 5:00","hook":"평택 직장인들의 금요일 해방구.\n스트레스 풀기 딱 좋은 사운드.","value":"라이브 밴드 · 여유로운 홀 · 전통 스타일 · 역세권","tags":["평택나이트","평택호박나이","평택","나이트"],"_slug":"pyeongtaek-hobak-night","nickname":"","phone":""},{"name":"인천아라비안나이트","region":"인천","type":"나이트","addr":"인천","hours":"PM 8:00 ~ AM 5:00","hook":"인천 최고의 파트너 매칭.\n혼자 와도 외롭지 않은 밤.","value":"특수 조명 · DJ 상주 · 주말 게스트 DJ · 도보권","tags":["인천나이트","인천아라비안","인천","나이트"],"_slug":"incheon-arabian-night","nickname":"","phone":""},{"name":"부천메리트나이트","region":"부천","type":"나이트","addr":"부천","hours":"PM 8:00 ~ AM 5:00","hook":"부천의 밤은 여기서 완성된다.\n한 번 와본 사람은 결국 단골이 된다.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["부천나이트","부천메리트나","부천","나이트"],"_slug":"bucheon-merit-night","nickname":"","phone":""},{"name":"부천고래나이트","region":"부천","type":"나이트","addr":"부천","hours":"PM 8:00 ~ AM 5:00","hook":"부천에서 밤이 가장 뜨거워지는 곳.\n주말이면 줄이 골목을 감싼다.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["부천나이트","부천고래나이","부천","나이트"],"_slug":"bucheon-gorae-night","nickname":"","phone":""},{"name":"안산히트나이트","region":"안산","type":"나이트","addr":"안산","hours":"PM 8:00 ~ AM 5:00","hook":"안산 밤문화의 중심.\n사운드와 사람, 그 에너지가 다르다.","value":"대형 홀 · 파트너 시스템 · 주말 이벤트 · 단체석","tags":["안산나이트","안산히트나이","안산","나이트"],"_slug":"ansan-hit-night","nickname":"","phone":""},{"name":"안산돈텔마마나이트","region":"안산","type":"나이트","addr":"안산","hours":"PM 8:00 ~ AM 5:00","hook":"안산역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["안산나이트","안산돈텔마마","안산","나이트"],"_slug":"ansan-dontellmama-night","nickname":"","phone":""},{"name":"천안스타돔나이트","region":"천안","type":"나이트","addr":"천안","hours":"PM 8:00 ~ AM 5:00","hook":"천안 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["천안나이트","천안스타돔나","천안","나이트"],"_slug":"cheonan-stardom-night","nickname":"","phone":""},{"name":"천안코리아나이트","region":"천안","type":"나이트","addr":"천안","hours":"PM 8:00 ~ AM 5:00","hook":"천안에서 밤을 즐기려면 여기부터.\n초보도 편하게 즐기는 분위기.","value":"최신 음향 · 무료 주차 · 초보 환영 · 대형 홀","tags":["천안나이트","천안코리아나","천안","나이트"],"_slug":"cheonan-korea-night","nickname":"","phone":""},{"name":"대전세븐나이트","region":"대전","type":"나이트","addr":"대전","hours":"PM 8:00 ~ AM 5:00","hook":"대전 직장인들의 금요일 해방구.\n스트레스 풀기 딱 좋은 사운드.","value":"라이브 밴드 · 여유로운 홀 · 전통 스타일 · 역세권","tags":["대전나이트","대전세븐나이","대전","나이트"],"_slug":"daejeon-seven-night","nickname":"","phone":""},{"name":"대전원나이트","region":"대전","type":"나이트","addr":"대전","hours":"PM 8:00 ~ AM 5:00","hook":"대전 최고의 파트너 매칭.\n혼자 와도 외롭지 않은 밤.","value":"특수 조명 · DJ 상주 · 주말 게스트 DJ · 도보권","tags":["대전나이트","대전원나이트","대전","나이트"],"_slug":"daejeon-won-night","nickname":"","phone":""},{"name":"대전봉명나이트","region":"대전","type":"나이트","addr":"대전","hours":"PM 8:00 ~ AM 5:00","hook":"대전의 밤은 여기서 완성된다.\n한 번 와본 사람은 결국 단골이 된다.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["대전나이트","대전봉명나이","대전","나이트"],"_slug":"daejeon-bongmyeong-night","nickname":"","phone":""},{"name":"대전한국관나이트","region":"대전","type":"나이트","addr":"대전","hours":"PM 8:00 ~ AM 5:00","hook":"대전에서 밤이 가장 뜨거워지는 곳.\n주말이면 줄이 골목을 감싼다.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["대전나이트","대전한국관나","대전","나이트"],"_slug":"daejeon-hangukgwan-night","nickname":"","phone":""},{"name":"청주돈텔마마나이트","region":"청주","type":"나이트","addr":"청주","hours":"PM 8:00 ~ AM 5:00","hook":"청주 밤문화의 중심.\n사운드와 사람, 그 에너지가 다르다.","value":"대형 홀 · 파트너 시스템 · 주말 이벤트 · 단체석","tags":["청주나이트","청주돈텔마마","청주","나이트"],"_slug":"cheongju-dontellmama-night","nickname":"","phone":""},{"name":"청주호박나이트","region":"청주","type":"나이트","addr":"청주","hours":"PM 8:00 ~ AM 5:00","hook":"청주역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["청주나이트","청주호박나이","청주","나이트"],"_slug":"cheongju-hobak-night","nickname":"","phone":""},{"name":"서산호박나이트","region":"서산","type":"나이트","addr":"서산","hours":"PM 8:00 ~ AM 5:00","hook":"서산 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["서산나이트","서산호박나이","서산","나이트"],"_slug":"seosan-hobak-night","nickname":"","phone":""},{"name":"대구한국관나이트","region":"대구","type":"나이트","addr":"대구","hours":"PM 8:00 ~ AM 5:00","hook":"대구에서 밤을 즐기려면 여기부터.\n초보도 편하게 즐기는 분위기.","value":"최신 음향 · 무료 주차 · 초보 환영 · 대형 홀","tags":["대구나이트","대구한국관나","대구","나이트"],"_slug":"daegu-hangukgwan-night","nickname":"","phone":""},{"name":"대구호박나이트","region":"대구","type":"나이트","addr":"대구","hours":"PM 8:00 ~ AM 5:00","hook":"대구 직장인들의 금요일 해방구.\n스트레스 풀기 딱 좋은 사운드.","value":"라이브 밴드 · 여유로운 홀 · 전통 스타일 · 역세권","tags":["대구나이트","대구호박나이","대구","나이트"],"_slug":"daegu-hobak-night","nickname":"","phone":""},{"name":"대구바밤바나이트","region":"대구","type":"나이트","addr":"대구","hours":"PM 8:00 ~ AM 5:00","hook":"대구 최고의 파트너 매칭.\n혼자 와도 외롭지 않은 밤.","value":"특수 조명 · DJ 상주 · 주말 게스트 DJ · 도보권","tags":["대구나이트","대구바밤바나","대구","나이트"],"_slug":"daegu-babamba-night","nickname":"","phone":""},{"name":"대구토토가나이트","region":"대구","type":"나이트","addr":"대구","hours":"PM 8:00 ~ AM 5:00","hook":"대구의 밤은 여기서 완성된다.\n한 번 와본 사람은 결국 단골이 된다.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["대구나이트","대구토토가나","대구","나이트"],"_slug":"daegu-totoga-night","nickname":"","phone":""},{"name":"구미호박나이트","region":"구미","type":"나이트","addr":"구미","hours":"PM 8:00 ~ AM 5:00","hook":"구미에서 밤이 가장 뜨거워지는 곳.\n주말이면 줄이 골목을 감싼다.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["구미나이트","구미호박나이","구미","나이트"],"_slug":"gumi-hobak-night","nickname":"","phone":""},{"name":"부산연산동물나이트","region":"부산","type":"나이트","addr":"부산","hours":"PM 8:00 ~ AM 5:00","hook":"부산 밤문화의 중심.\n사운드와 사람, 그 에너지가 다르다.","value":"대형 홀 · 파트너 시스템 · 주말 이벤트 · 단체석","tags":["부산나이트","부산연산동물","부산","나이트"],"_slug":"busan-yeonsandong-mul-night","nickname":"따봉","phone":"010-7942-9076"},{"name":"부산아시아드나이트","region":"부산","type":"나이트","addr":"부산","hours":"PM 8:00 ~ AM 5:00","hook":"부산역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["부산나이트","부산아시아드","부산","나이트"],"_slug":"busan-asiad-night","nickname":"","phone":""},{"name":"부산물나이트","region":"부산","type":"나이트","addr":"부산","hours":"PM 8:00 ~ AM 5:00","hook":"부산 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["부산나이트","부산물나이트","부산","나이트"],"_slug":"busan-mul-night","nickname":"따봉","phone":"010-7942-9076"},{"name":"울산뉴월드나이트","region":"울산","type":"나이트","addr":"울산","hours":"PM 8:00 ~ AM 5:00","hook":"울산에서 밤을 즐기려면 여기부터.\n초보도 편하게 즐기는 분위기.","value":"최신 음향 · 무료 주차 · 초보 환영 · 대형 홀","tags":["울산나이트","울산뉴월드나","울산","나이트"],"_slug":"ulsan-newworld-night","nickname":"","phone":""},{"name":"울산챔피언나이트","region":"울산","type":"나이트","addr":"울산","hours":"PM 8:00 ~ AM 5:00","hook":"울산 직장인들의 금요일 해방구.\n스트레스 풀기 딱 좋은 사운드.","value":"라이브 밴드 · 여유로운 홀 · 전통 스타일 · 역세권","tags":["울산나이트","울산챔피언나","울산","나이트"],"_slug":"ulsan-champion-night","nickname":"춘자","phone":"010-5653-0069"},{"name":"광주상무나이트","region":"광주","type":"나이트","addr":"광주","hours":"PM 8:00 ~ AM 5:00","hook":"광주 최고의 파트너 매칭.\n혼자 와도 외롭지 않은 밤.","value":"특수 조명 · DJ 상주 · 주말 게스트 DJ · 도보권","tags":["광주나이트","광주상무나이","광주","나이트"],"_slug":"gwangju-sangmu-night","nickname":"","phone":""},{"name":"광주토토밤나이트","region":"광주","type":"나이트","addr":"광주","hours":"PM 8:00 ~ AM 5:00","hook":"광주의 밤은 여기서 완성된다.\n한 번 와본 사람은 결국 단골이 된다.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["광주나이트","광주토토밤나","광주","나이트"],"_slug":"gwangju-totobam-night","nickname":"","phone":""},{"name":"광주첨단엠파나이트","region":"광주","type":"나이트","addr":"광주","hours":"PM 8:00 ~ AM 5:00","hook":"광주에서 밤이 가장 뜨거워지는 곳.\n주말이면 줄이 골목을 감싼다.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["광주나이트","광주첨단엠파","광주","나이트"],"_slug":"gwangju-chemdan-empa-night","nickname":"","phone":""},{"name":"광주MGM나이트","region":"광주","type":"나이트","addr":"광주","hours":"PM 8:00 ~ AM 5:00","hook":"광주 밤문화의 중심.\n사운드와 사람, 그 에너지가 다르다.","value":"대형 홀 · 파트너 시스템 · 주말 이벤트 · 단체석","tags":["광주나이트","광주MGM나","광주","나이트"],"_slug":"gwangju-mgm-night","nickname":"","phone":""},{"name":"광주올나이트","region":"광주","type":"나이트","addr":"광주","hours":"PM 8:00 ~ AM 5:00","hook":"광주역 도보권, 접근성 최고.\n오후 8시부터 새벽까지 꺼지지 않는 밤.","value":"역세권 · 품격 인테리어 · 전담 매니저 · 발레파킹","tags":["광주나이트","광주올나이트","광주","나이트"],"_slug":"gwangju-ol-night","nickname":"","phone":""},{"name":"제주나이트","region":"제주","type":"나이트","addr":"제주","hours":"PM 8:00 ~ AM 5:00","hook":"제주 밤의 터줏대감.\n오래된 데는 이유가 있다.","value":"넓은 댄스홀 · 합리적 입장료 · 20·30대 특화 · 역세권","tags":["제주나이트","제주나이트","제주","나이트"],"_slug":"jeju-night","nickname":"","phone":""},{"name":"강남클럽 레이스","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["강남클럽","강남클럽레이","강남","클럽"],"_slug":"gangnam-club-race","nickname":"","phone":""},{"name":"강남클럽 사운드","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["강남클럽","강남클럽사운","강남","클럽"],"_slug":"gangnam-club-sound","nickname":"","phone":""},{"name":"강남클럽 Jack","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["강남클럽","강남클럽Ja","강남","클럽"],"_slug":"gangnam-club-jack","nickname":"","phone":""},{"name":"강남클럽 피크","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["강남클럽","강남클럽피크","강남","클럽"],"_slug":"gangnam-club-peak","nickname":"","phone":""},{"name":"강남클럽 미로","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["강남클럽","강남클럽미로","강남","클럽"],"_slug":"gangnam-club-miro","nickname":"","phone":""},{"name":"강남클럽 유토피아","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["강남클럽","강남클럽유토","강남","클럽"],"_slug":"gangnam-club-utopia","nickname":"","phone":""},{"name":"강남클럽 라퓨타","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["강남클럽","강남클럽라퓨","강남","클럽"],"_slug":"gangnam-club-laputa","nickname":"","phone":""},{"name":"강남클럽 페이스","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["강남클럽","강남클럽페이","강남","클럽"],"_slug":"gangnam-club-face","nickname":"","phone":""},{"name":"강남클럽 밤앤밤","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["강남클럽","강남클럽밤앤","강남","클럽"],"_slug":"gangnam-club-bamnbam","nickname":"","phone":""},{"name":"강남클럽 아르떼","region":"강남","type":"클럽","addr":"강남","hours":"PM 10:00 ~ AM 6:00","hook":"강남 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["강남클럽","강남클럽아르","강남","클럽"],"_slug":"gangnam-club-arte","nickname":"","phone":""},{"name":"압구정클럽 하입","region":"압구정","type":"클럽","addr":"압구정","hours":"PM 10:00 ~ AM 6:00","hook":"압구정 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["압구정클럽","압구정클럽하","압구정","클럽"],"_slug":"apgujeong-club-haip","nickname":"","phone":""},{"name":"압구정클럽 인트로","region":"압구정","type":"클럽","addr":"압구정","hours":"PM 10:00 ~ AM 6:00","hook":"압구정 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["압구정클럽","압구정클럽인","압구정","클럽"],"_slug":"apgujeong-club-intro","nickname":"","phone":""},{"name":"압구정클럽 컬러","region":"압구정","type":"클럽","addr":"압구정","hours":"PM 10:00 ~ AM 6:00","hook":"압구정에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["압구정클럽","압구정클럽컬","압구정","클럽"],"_slug":"apgujeong-club-color","nickname":"","phone":""},{"name":"압구정클럽 디브릿지","region":"압구정","type":"클럽","addr":"압구정","hours":"PM 10:00 ~ AM 6:00","hook":"압구정 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["압구정클럽","압구정클럽디","압구정","클럽"],"_slug":"apgujeong-club-dbridge","nickname":"","phone":""},{"name":"압구정클럽 캔디맨","region":"압구정","type":"클럽","addr":"압구정","hours":"PM 10:00 ~ AM 6:00","hook":"압구정 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["압구정클럽","압구정클럽캔","압구정","클럽"],"_slug":"apgujeong-club-candyman","nickname":"","phone":""},{"name":"압구정클럽 무인","region":"압구정","type":"클럽","addr":"압구정","hours":"PM 10:00 ~ AM 6:00","hook":"압구정 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["압구정클럽","압구정클럽무","압구정","클럽"],"_slug":"apgujeong-club-muin","nickname":"","phone":""},{"name":"청담클럽 아르쥬","region":"청담","type":"클럽","addr":"청담","hours":"PM 10:00 ~ AM 6:00","hook":"청담에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["청담클럽","청담클럽아르","청담","클럽"],"_slug":"cheongdam-club-arjeu","nickname":"","phone":""},{"name":"이태원클럽 유토피아","region":"이태원","type":"클럽","addr":"이태원","hours":"PM 10:00 ~ AM 6:00","hook":"이태원 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["이태원클럽","이태원클럽유","이태원","클럽"],"_slug":"itaewon-club-utopia","nickname":"","phone":""},{"name":"이태원클럽 메이드","region":"이태원","type":"클럽","addr":"이태원","hours":"PM 10:00 ~ AM 6:00","hook":"이태원 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["이태원클럽","이태원클럽메","이태원","클럽"],"_slug":"itaewon-club-maid","nickname":"","phone":""},{"name":"이태원클럽 프리즘","region":"이태원","type":"클럽","addr":"이태원","hours":"PM 10:00 ~ AM 6:00","hook":"이태원 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["이태원클럽","이태원클럽프","이태원","클럽"],"_slug":"itaewon-club-prism","nickname":"","phone":""},{"name":"이태원개판포차","region":"이태원","type":"클럽","addr":"이태원","hours":"PM 10:00 ~ AM 6:00","hook":"이태원에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["이태원클럽","이태원개판포","이태원","클럽"],"_slug":"itaewon-gaepan-pocha","nickname":"","phone":""},{"name":"홍대클럽 버뮤다","region":"홍대","type":"클럽","addr":"홍대","hours":"PM 10:00 ~ AM 6:00","hook":"홍대 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["홍대클럽","홍대클럽버뮤","홍대","클럽"],"_slug":"hongdae-club-bermuda","nickname":"","phone":""},{"name":"홍대클럽 퍼시픽","region":"홍대","type":"클럽","addr":"홍대","hours":"PM 10:00 ~ AM 6:00","hook":"홍대 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["홍대클럽","홍대클럽퍼시","홍대","클럽"],"_slug":"hongdae-club-pacific","nickname":"","phone":""},{"name":"홍대클럽 메이드","region":"홍대","type":"클럽","addr":"홍대","hours":"PM 10:00 ~ AM 6:00","hook":"홍대 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["홍대클럽","홍대클럽메이","홍대","클럽"],"_slug":"hongdae-club-maid","nickname":"","phone":""},{"name":"홍대클럽 도깨비","region":"홍대","type":"클럽","addr":"홍대","hours":"PM 10:00 ~ AM 6:00","hook":"홍대에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["홍대클럽","홍대클럽도깨","홍대","클럽"],"_slug":"hongdae-club-dokkaebi","nickname":"","phone":""},{"name":"노원청춘포차","region":"노원","type":"클럽","addr":"노원","hours":"PM 10:00 ~ AM 6:00","hook":"노원 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["노원클럽","노원청춘포차","노원","클럽"],"_slug":"nowon-cheongchun-pocha","nickname":"","phone":""},{"name":"용산드래곤시티","region":"용산","type":"클럽","addr":"용산","hours":"PM 10:00 ~ AM 6:00","hook":"용산 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["용산클럽","용산드래곤시","용산","클럽"],"_slug":"yongsan-dragon-city","nickname":"","phone":""},{"name":"서울반얀트리","region":"","type":"클럽","addr":"","hours":"PM 10:00 ~ AM 6:00","hook":" 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["클럽","서울반얀트리","클럽"],"_slug":"seoul-banyan-tree","nickname":"","phone":""},{"name":"일산클럽 CJ","region":"일산","type":"클럽","addr":"일산","hours":"PM 10:00 ~ AM 6:00","hook":"일산에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["일산클럽","일산클럽CJ","일산","클럽"],"_slug":"ilsan-club-cj","nickname":"","phone":""},{"name":"의정부아레나","region":"의정부","type":"클럽","addr":"의정부","hours":"PM 10:00 ~ AM 6:00","hook":"의정부 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["의정부클럽","의정부아레나","의정부","클럽"],"_slug":"uijeongbu-arena","nickname":"","phone":""},{"name":"용인사거리별밤","region":"용인","type":"클럽","addr":"용인","hours":"PM 10:00 ~ AM 6:00","hook":"용인 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["용인클럽","용인사거리별","용인","클럽"],"_slug":"yongin-byeolbam","nickname":"","phone":""},{"name":"부천클럽 파라곤","region":"부천","type":"클럽","addr":"부천","hours":"PM 10:00 ~ AM 6:00","hook":"부천 클럽신의 자존심.\n금토 밤, 사운드에 몸을 맡겨봐.","value":"하우스·테크노 · 해외 DJ · 드레스코드 · 2층 플로어","tags":["부천클럽","부천클럽파라","부천","클럽"],"_slug":"bucheon-club-paragon","nickname":"","phone":""},{"name":"인천파라다이스씨티","region":"인천","type":"클럽","addr":"인천","hours":"PM 10:00 ~ AM 6:00","hook":"인천에서 가장 핫한 플로어.\n베이스가 발끝부터 올라온다.","value":"EDM 특화 · 초대형 스피커 · 레이저쇼 · VIP테이블","tags":["인천클럽","인천파라다이","인천","클럽"],"_slug":"incheon-paradise-city","nickname":"","phone":""},{"name":"청주클럽 슈퍼문","region":"청주","type":"클럽","addr":"청주","hours":"PM 10:00 ~ AM 6:00","hook":"청주 파티의 완성.\nDJ 라인업이 매주 바뀐다.","value":"글로벌 바이브 · 라틴·힙합 · 루프탑 · 다국적 DJ","tags":["청주클럽","청주클럽슈퍼","청주","클럽"],"_slug":"cheongju-club-supermoon","nickname":"","phone":""},{"name":"대전설탕클럽","region":"대전","type":"클럽","addr":"대전","hours":"PM 10:00 ~ AM 6:00","hook":"대전 밤을 지배하는 사운드.\n여기 한 번 오면 다른 곳이 심심해진다.","value":"럭셔리 · 셀럽 출몰 · 샴페인 서비스 · 멤버십","tags":["대전클럽","대전설탕클럽","대전","클럽"],"_slug":"daejeon-seoltang-club","nickname":"","phone":""},{"name":"압구정코드라운지","region":"압구정","type":"라운지","addr":"압구정","hours":"PM 7:00 ~ AM 3:00","hook":"압구정에서 가장 조용한 밤.\n칵테일 한 잔으로 하루를 마감하는 곳.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["압구정라운지","압구정코드라","압구정","라운지"],"_slug":"apgujeong-code-lounge","nickname":"","phone":""},{"name":"압구정라운지 디엠","region":"압구정","type":"라운지","addr":"압구정","hours":"PM 7:00 ~ AM 3:00","hook":"시끄러운 밤이 싫다면.\n프라이빗하게, 여유롭게.","value":"프리미엄 사운드 · 전담 웨이터 · 단체석 · 주차 가능","tags":["압구정라운지","압구정라운지","압구정","라운지"],"_slug":"apgujeong-lounge-dm","nickname":"","phone":""},{"name":"압구정이디엇라운지","region":"압구정","type":"라운지","addr":"압구정","hours":"PM 7:00 ~ AM 3:00","hook":"압구정에서 가장 조용한 밤.\n칵테일 한 잔으로 하루를 마감하는 곳.","value":"라이브 DJ · 넓은 홀 · 파트너 매칭 · 댄스 퍼포먼스","tags":["압구정라운지","압구정이디엇","압구정","라운지"],"_slug":"apgujeong-idiot-lounge","nickname":"","phone":""},{"name":"강남호빠 로얄","region":"강남","type":"호빠","addr":"강남","hours":"PM 8:00 ~ AM 5:00","hook":"강남에서 가장 인기 있는 호빠.\n깨끗하고 친절한 서비스가 기본.","value":"호스트 에스코트 · 프리미엄 서비스 · 깨끗한 시설 · 예약 추천","tags":["강남호빠","강남호빠로얄","강남"],"_slug":"gangnam-hoppa-royal","nickname":"","phone":""},{"name":"부산호빠 스타","region":"부산","type":"호빠","addr":"부산","hours":"PM 8:00 ~ AM 5:00","hook":"부산 여성들의 여성들의 밤.\n호스트가 직접 에스코트하는 특별한 시간.","value":"호스트 에스코트 · 프리미엄 서비스 · 깨끗한 시설 · 예약 추천","tags":["부산호빠","부산호빠스타","부산"],"_slug":"busan-hoppa-star","nickname":"","phone":""},{"name":"장안동호빠 빵빵","region":"장안동","type":"호빠","addr":"장안동","hours":"PM 8:00 ~ AM 5:00","hook":"장안동에서 가장 인기 있는 호빠.\n깨끗하고 친절한 서비스가 기본.","value":"호스트 에스코트 · 프리미엄 서비스 · 깨끗한 시설 · 예약 추천","tags":["장안동호빠","장안동호빠빵","장안동"],"_slug":"jangandong-hoppa-bbangbbang","nickname":"","phone":""},{"name":"건대호빠 W","region":"건대","type":"호빠","addr":"건대","hours":"PM 8:00 ~ AM 5:00","hook":"건대 여성들의 여성들의 밤.\n호스트가 직접 에스코트하는 특별한 시간.","value":"호스트 에스코트 · 프리미엄 서비스 · 깨끗한 시설 · 예약 추천","tags":["건대호빠","건대호빠W","건대"],"_slug":"geondae-hoppa-w","nickname":"","phone":""}];
 
-  // ──────────── 일산 ────────────
-  {
-    name: "일산 명월관",
-    region: "일산",
-    type: "요정 · 비즈니스룸 · 가라오케",
-    addr: "경기 고양시 일산동구 장항로 895-1",
-    hours: "365일 24시간 · 100% 예약제",
-    tags: ["정찰제", "국악공연", "한식코스", "VIP접대", "프라이빗룸"]
-  },
-  {
-    name: "일산룸 야당점",
-    region: "일산",
-    type: "퍼블릭룸 · 가라오케",
-    addr: "경기 고양시 일산서구 야당동",
-    hours: "365일 영업 · 무료픽업",
-    tags: ["20대매니저", "무료픽업", "No.1"]
-  },
-  {
-    name: "일산룸 유상무",
-    region: "일산",
-    type: "비즈니스룸 · 프라이빗",
-    addr: "경기 고양시 일산동구",
-    hours: "매일 영업",
-    tags: ["프라이빗", "편안한분위기", "비즈니스"]
-  },
+(function(){
+  var grid=document.getElementById('grid');
+  var noResults=document.getElementById('noResults');
+  var listingCount=document.getElementById('listingCount');
+  var searchInput=document.getElementById('searchInput');
+  var searchDropdown=document.getElementById('searchDropdown');
+  var premiumEl=document.getElementById('premiumCards');
+  var rankEl=document.getElementById('rankCards');
+  var currentRegion='all';
 
-  // ──────────── 강남 ────────────
-  {
-    name: "달토",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구 역삼동",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭", "인기업소", "초이스"]
-  },
-  {
-    name: "유앤미 (YOU&ME)",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구 역삼동",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭", "대형", "초이스"]
-  },
-  {
-    name: "사라있네",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구 역삼동",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭", "인기", "초이스"]
-  },
-  {
-    name: "다소다",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭", "초이스"]
-  },
-  {
-    name: "도파민",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭", "신규"]
-  },
-  {
-    name: "엘리트",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭", "초이스"]
-  },
-  {
-    name: "115",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭"]
-  },
-  {
-    name: "방탄",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭"]
-  },
-  {
-    name: "워라벨",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭"]
-  },
-  {
-    name: "퍼펙트",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭"]
-  },
-  {
-    name: "수목원",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭"]
-  },
-  {
-    name: "런닝래빗",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭"]
-  },
-  {
-    name: "트렌드",
-    region: "강남",
-    type: "하이퍼블릭",
-    addr: "서울 강남구",
-    hours: "매일 저녁영업",
-    tags: ["하이퍼블릭"]
-  },
-  {
-    name: "CNN 셔츠룸",
-    region: "강남",
-    type: "셔츠룸",
-    addr: "서울 강남구 선릉",
-    hours: "매일 저녁영업",
-    tags: ["셔츠룸", "선릉유일", "프리미엄"]
-  },
-  {
-    name: "강남GOOD",
-    region: "강남",
-    type: "셔츠룸 · 하이퍼블릭 · 레깅스룸",
-    addr: "서울 강남구",
-    hours: "365일 연중무휴 · 일요일 정상영업",
-    tags: ["종합", "365일", "연중무휴"]
-  },
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function normalize(s){return s.replace(/\s/g,'').toLowerCase();}
 
-  // ──────────── 홍대 ────────────
-  {
-    name: "홍대룸싸롱",
-    region: "홍대",
-    type: "퍼블릭룸 · 가라오케",
-    addr: "서울 마포구 홍대입구역 인근",
-    hours: "매일 저녁영업",
-    tags: ["퍼블릭", "가라오케", "홍대"]
-  },
-
-  // ──────────── 부산 ────────────
-  {
-    name: "해운대 고구려",
-    region: "부산",
-    type: "정통룸싸롱 · 비즈니스룸",
-    addr: "부산 해운대구 마린시티",
-    hours: "오후 7시 ~ 새벽 5시",
-    tags: ["10년전통", "룸60개+", "해운대1등", "대형"]
-  },
-  {
-    name: "해운대 오션",
-    region: "부산",
-    type: "룸싸롱",
-    addr: "부산 해운대구",
-    hours: "오후 7시 ~ 새벽 5시",
-    tags: ["해운대", "대형"]
-  },
-  {
-    name: "서면 갤러리",
-    region: "부산",
-    type: "룸싸롱",
-    addr: "부산 부산진구 부전동 서면역 인근",
-    hours: "오후 7시 ~ 새벽",
-    tags: ["서면", "대형"]
-  },
-  {
-    name: "서면 카카오",
-    region: "부산",
-    type: "룸싸롱",
-    addr: "부산 부산진구 부전동",
-    hours: "오후 7시 ~ 새벽",
-    tags: ["서면"]
-  },
-  {
-    name: "서면 신세계",
-    region: "부산",
-    type: "룸싸롱",
-    addr: "부산 부산진구 부전동",
-    hours: "오후 7시 ~ 새벽",
-    tags: ["서면"]
-  },
-  {
-    name: "서면 인스타",
-    region: "부산",
-    type: "룸싸롱",
-    addr: "부산 부산진구 부전동",
-    hours: "오후 7시 ~ 새벽",
-    tags: ["서면"]
-  },
-  {
-    name: "서면 아우토반",
-    region: "부산",
-    type: "룸싸롱",
-    addr: "부산 부산진구 부전동",
-    hours: "오후 7시 ~ 새벽",
-    tags: ["서면"]
-  },
-  {
-    name: "서면 보물섬",
-    region: "부산",
-    type: "룸싸롱",
-    addr: "부산 부산진구 부전동",
-    hours: "오후 7시 ~ 새벽",
-    tags: ["서면"]
-  },
-
-  // ──────────── 대구 ────────────
-  {
-    name: "더대구룸",
-    region: "대구",
-    type: "1종유흥 · 프리미엄 룸",
-    addr: "대구 수성구",
-    hours: "오후 6시 ~ 새벽",
-    tags: ["수성구", "1종유흥", "고급인테리어"]
-  },
-  {
-    name: "대구 투데이",
-    region: "대구",
-    type: "프리미엄 비즈니스룸",
-    addr: "대구 수성구 황금동 · 동대구역",
-    hours: "오후 6시 ~ 새벽",
-    tags: ["룸62개", "대구최초", "프리미엄"]
-  },
-  {
-    name: "대구 넘버원",
-    region: "대구",
-    type: "프리미엄 룸싸롱",
-    addr: "대구 동대구 신천동",
-    hours: "오후 6시 ~ 새벽",
-    tags: ["동대구", "프리미엄"]
-  },
-  {
-    name: "대구 2NE1",
-    region: "대구",
-    type: "풀싸롱 · 룸",
-    addr: "대구 수성구",
-    hours: "오후 6시 ~ 새벽",
-    tags: ["수성구", "풀싸롱"]
-  },
-
-  // ──────────── 인천 ────────────
-  {
-    name: "인천 텐프로룸",
-    region: "인천",
-    type: "텐프로 · 룸싸롱",
-    addr: "인천 정자역 인근",
-    hours: "24시간 예약 가능",
-    tags: ["텐프로", "예약제"]
-  },
-  {
-    name: "대식이 (쓰리노)",
-    region: "인천",
-    type: "쓰리노 · 퍼블릭",
-    addr: "인천 연수동 · 동인천 · 삼산동",
-    hours: "오후 7시~ · 100분제",
-    tags: ["쓰리노", "다지점", "100분제"]
-  },
-  {
-    name: "MU퍼블릭",
-    region: "인천",
-    type: "셔츠룸 · 하이퍼블릭 · 쓰리노",
-    addr: "인천 · 부천 4개 지점",
-    hours: "매일 저녁영업",
-    tags: ["4개지점", "인천부천"]
-  },
-  {
-    name: "인천 엘로우",
-    region: "인천",
-    type: "가라오케 · 노래방",
-    addr: "인천",
-    hours: "100% 예약제 · 정찰제",
-    tags: ["예약제", "정찰제"]
-  },
-
-  // ──────────── 수원 ────────────
-  {
-    name: "수원룸싸롱 이수근",
-    region: "수원",
-    type: "퍼블릭룸 · 가라오케",
-    addr: "수원시 팔달구 인계동",
-    hours: "오후 6시 ~ 새벽 5시",
-    tags: ["룸60개+", "인계동", "대형"]
-  },
-  {
-    name: "수원 풀싸롱",
-    region: "수원",
-    type: "풀싸롱 · 가라오케 · 셔츠룸",
-    addr: "수원시 팔달구 인계동",
-    hours: "24시간 영업",
-    tags: ["24시간", "인계동", "풀싸롱"]
-  },
-  {
-    name: "수원룸싸롱 김실장",
-    region: "수원",
-    type: "퍼블릭룸 · 셔츠룸 · 레깅스룸",
-    addr: "수원시 영통구 · 인계동",
-    hours: "매일 저녁영업",
-    tags: ["영통", "인계동", "다양한룸"]
-  },
-
-  // ──────────── 대전 ────────────
-  {
-    name: "대전 알라딘룸",
-    region: "대전",
-    type: "노래주점 · 룸",
-    addr: "대전 유성구",
-    hours: "오후 6시 ~ 새벽 6시",
-    tags: ["유성", "노래주점"]
-  },
-  {
-    name: "대전 타이밍룸",
-    region: "대전",
-    type: "룸싸롱 · 퍼블릭룸",
-    addr: "대전 유성구",
-    hours: "매일 저녁영업",
-    tags: ["유성", "퍼블릭"]
-  },
-  {
-    name: "대전룸 이부장",
-    region: "대전",
-    type: "풀싸롱 · 룸싸롱",
-    addr: "대전 유성구",
-    hours: "매일 저녁영업",
-    tags: ["유성", "풀싸롱"]
-  },
-
-  // ──────────── 광주 ────────────
-  {
-    name: "광주 상무지구 룸싸롱",
-    region: "광주",
-    type: "정통룸 · 1종유흥",
-    addr: "광주 서구 상무지구 치평동",
-    hours: "365일 · 오후 7시 20분~",
-    tags: ["상무지구", "1종유흥", "365일"]
-  },
-  {
-    name: "광주 노래홀",
-    region: "광주",
-    type: "가라오케 · 퍼블릭",
-    addr: "광주 서구 상무지구",
-    hours: "매일 저녁영업",
-    tags: ["상무지구", "가라오케"]
-  },
-  {
-    name: "광주 잼투잼",
-    region: "광주",
-    type: "룸싸롱",
-    addr: "광주 서구 상무지구",
-    hours: "매일 저녁영업",
-    tags: ["상무지구", "룸싸롱"]
-  },
-
-  // ──────────── 전주 ────────────
-  {
-    name: "전주 음악홀",
-    region: "전주",
-    type: "음악홀 · 룸",
-    addr: "전주 중화산동 · 아중리 · 신시가지",
-    hours: "오후 7시 30분 ~ 새벽 2시 · 365일",
-    tags: ["음악홀", "365일", "다지점"]
-  },
-  {
-    name: "전주 릴렉스룸",
-    region: "전주",
-    type: "룸싸롱 · 음악홀",
-    addr: "전주 완산구",
-    hours: "매일 저녁영업",
-    tags: ["전주", "릴렉스"]
-  },
-
-  // ──────────── 울산 ────────────
-  {
-    name: "울산 프리미엄 에디션",
-    region: "울산",
-    type: "정통룸 · 가라오케",
-    addr: "울산 남구 삼산동",
-    hours: "매일 저녁영업",
-    tags: ["삼산동", "프리미엄", "정통룸"]
-  },
-  {
-    name: "울산 삼산동룸",
-    region: "울산",
-    type: "퍼블릭 · 가라오케 · 노래방",
-    addr: "울산 남구 삼산동",
-    hours: "매일 저녁영업",
-    tags: ["삼산동", "퍼블릭", "가라오케"]
-  },
-
-  // ──────────── 창원 ────────────
-  {
-    name: "창원룸싸롱",
-    region: "창원",
-    type: "룸싸롱 · 가라오케",
-    addr: "경남 창원시 의창구",
-    hours: "매일 저녁영업",
-    tags: ["창원", "가라오케"]
-  },
-
-  // ──────────── 김해 ────────────
-  {
-    name: "김해 룸싸롱",
-    region: "김해",
-    type: "퍼블릭 · 가라오케",
-    addr: "경남 김해시 내외동",
-    hours: "24시간 영업 · 정찰제",
-    tags: ["내외동", "24시간", "정찰제"]
-  },
-
-  // ──────────── 천안 ────────────
-  {
-    name: "천안 룸싸롱",
-    region: "천안",
-    type: "룸싸롱 · 가라오케",
-    addr: "충남 천안시",
-    hours: "365일 연중무휴",
-    tags: ["365일", "연중무휴"]
-  },
-
-  // ──────────── 청주 ────────────
-  {
-    name: "청주 노래궁",
-    region: "청주",
-    type: "노래주점 · 룸",
-    addr: "충북 청주시",
-    hours: "매일 저녁영업",
-    tags: ["19년전통", "노래궁"]
-  },
-  {
-    name: "청주 야구장",
-    region: "청주",
-    type: "룸싸롱",
-    addr: "충북 청주시",
-    hours: "매일 저녁영업",
-    tags: ["청주", "룸싸롱"]
-  },
-
-  // ──────────── 제주 ────────────
-  {
-    name: "제주 VIP 풀룸",
-    region: "제주",
-    type: "풀룸 · 정통룸싸롱",
-    addr: "제주 제주시",
-    hours: "365일 24시간 · 100% 예약제 · 정찰제",
-    tags: ["VIP", "예약제", "정찰제", "365일"]
-  },
-  {
-    name: "제주 신호등",
-    region: "제주",
-    type: "룸싸롱 · 유흥",
-    addr: "제주 제주시",
-    hours: "매일 저녁영업",
-    tags: ["제주", "룸싸롱"]
-  },
-  {
-    name: "제주밤 셔츠룸",
-    region: "제주",
-    type: "셔츠룸 · 퍼블릭 · 가라오케",
-    addr: "제주 제주시 연동",
-    hours: "매일 저녁영업",
-    tags: ["연동", "셔츠룸", "가라오케"]
-  },
-];
-
-
-/* ======= DOM ======= */
-const grid = document.getElementById("grid");
-const searchInput = document.getElementById("searchInput");
-const filtersEl = document.getElementById("filters");
-const listingCount = document.getElementById("listingCount");
-const noResults = document.getElementById("noResults");
-const featuredCard = document.querySelector(".featured-card");
-
-let activeRegion = "all";
-
-/* ======= RENDER ======= */
-function renderCard(item) {
-  const tagsHTML = item.tags.map(t => `<span class="card-tag">${t}</span>`).join("");
-  return `
-    <article class="card" data-region="${item.region}">
-      <div class="card-header">
-        <h3 class="card-name">${item.name}</h3>
-        <span class="card-region">${item.region}</span>
-      </div>
-      <p class="card-type">${item.type}</p>
-      <p class="card-addr">${item.addr}</p>
-      <p class="card-hours">${item.hours}</p>
-      <div class="card-tags">${tagsHTML}</div>
-    </article>`;
-}
-
-function render() {
-  const query = searchInput.value.trim().toLowerCase();
-
-  const filtered = listings.filter(item => {
-    const regionMatch = activeRegion === "all" || item.region === activeRegion;
-    if (!regionMatch) return false;
-    if (!query) return true;
-    const haystack = `${item.name} ${item.region} ${item.type} ${item.addr} ${item.tags.join(" ")}`.toLowerCase();
-    return haystack.includes(query);
+  var searchIdx=listings.map(function(v){
+    return {v:v, norm:normalize(v.name+v.region+v.type+v.tags.join(''))};
   });
 
-  grid.innerHTML = filtered.map(renderCard).join("");
-  listingCount.textContent = `총 ${filtered.length}개 업소`;
-  noResults.style.display = filtered.length === 0 ? "block" : "none";
-
-  // Featured card visibility
-  if (featuredCard) {
-    const showFeatured = (activeRegion === "all" || activeRegion === "일산") &&
-      (!query || "일산 명월관 요정 비즈니스룸 가라오케".includes(query));
-    featuredCard.closest(".featured-section").style.display = showFeatured ? "block" : "none";
+  // Dynamic filter buttons from actual regions
+  var regionSet={};
+  listings.forEach(function(v){regionSet[v.region]=(regionSet[v.region]||0)+1;});
+  var topRegions=Object.keys(regionSet).sort(function(a,b){return regionSet[b]-regionSet[a];}).slice(0,20);
+  var filterContainer=document.getElementById('filterBtns');
+  if(filterContainer){
+    topRegions.forEach(function(r){
+      var b=document.createElement('button');
+      b.className='filter-btn';b.dataset.region=r;b.textContent=r;
+      filterContainer.appendChild(b);
+    });
   }
-}
 
-/* ======= EVENTS ======= */
-filtersEl.addEventListener("click", (e) => {
-  const btn = e.target.closest(".filter-btn");
-  if (!btn) return;
-  filtersEl.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-  activeRegion = btn.dataset.region;
-  render();
-});
+  // Premium cards (일산명월관요정 + 일산룸 first, then others with phone)
+  function renderPremium(){
+    var priority=['일산명월관요정','일산룸'];
+    var premium=[];
+    priority.forEach(function(n){var f=listings.find(function(v){return v.name===n;});if(f)premium.push(f);});
+    listings.forEach(function(v){if(v.phone&&priority.indexOf(v.name)<0)premium.push(v);});
+    premiumEl.innerHTML=premium.map(function(v){
+      var hookH=esc(v.hook).replace(/\n/g,'<br>');
+      return '<div class="premium-card">'+
+        '<span class="premium-badge">PREMIUM</span>'+
+        '<h3 class="premium-name">'+esc(v.name)+'</h3>'+
+        '<p class="premium-type">'+esc(v.type)+'</p>'+
+        '<p class="premium-hook">'+hookH+'</p>'+
+        (v.nickname?'<p class="premium-nickname">'+esc(v.nickname)+' 예약문의</p>':'')+
+        (v.phone?'<a href="tel:'+v.phone.replace(/-/g,'')+'" class="premium-phone" target="_blank" rel="noopener noreferrer">'+esc(v.phone)+'</a>':'')+
+        '<a href="/v/'+encodeURI(v._slug)+'/" class="premium-detail-btn" target="_blank" rel="noopener noreferrer">상세보기 &rarr;</a>'+
+        '</div>';
+    }).join('');
+  }
 
-searchInput.addEventListener("input", render);
+  // Rank cards (top 5)
+  function renderRanks(){
+    var top5=listings.slice(0,5);
+    rankEl.innerHTML=top5.map(function(v,i){
+      return '<a href="/v/'+encodeURI(v._slug)+'/" class="rank-card" target="_blank" rel="noopener noreferrer">'+
+        '<span class="rank-badge" style="background:#8B5CF6">'+(i+1)+'</span>'+
+        '<span class="rank-name">'+esc(v.name)+'</span>'+
+        '<span class="rank-region">'+esc(v.region)+'</span>'+
+        '<span class="rank-arrow">&rarr;</span></a>';
+    }).join('');
+  }
 
-/* ======= INIT ======= */
-render();
+  function renderCards(list){
+    if(!list.length){grid.innerHTML='';noResults.style.display='block';listingCount.textContent='';return;}
+    noResults.style.display='none';
+    listingCount.textContent='총 '+list.length+'개 업소';
+    grid.innerHTML=list.map(function(v){
+      var hookH=esc(v.hook).replace(/\n/g,'<br>');
+      var tagsH=v.tags.map(function(t){return'<span class="card-tag">'+esc(t)+'</span>';}).join('');
+      return '<article class="card" role="listitem">'+
+        '<a href="/v/'+encodeURI(v._slug)+'/" class="card-link" target="_blank" rel="noopener noreferrer">'+
+        '<div class="card-body"><div class="card-meta"><span class="card-region">'+esc(v.region)+'</span><span class="card-type">'+esc(v.type)+'</span></div>'+
+        '<h3 class="card-name">'+esc(v.name)+'</h3><p class="card-hook">'+hookH+'</p><p class="card-value">'+esc(v.value)+'</p>'+
+        '<div class="card-tags">'+tagsH+'</div><span class="card-detail-btn">상세보기 &rarr;</span></div></a></article>';
+    }).join('');
+  }
+
+  function filterCards(){
+    var filtered=currentRegion==='all'?listings:listings.filter(function(v){return v.region===currentRegion;});
+    renderCards(filtered);
+  }
+
+  // Filter click (delegated)
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.filter-btn');
+    if(btn){
+      document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      currentRegion=btn.dataset.region;
+      if(searchInput)searchInput.value='';
+      if(searchDropdown)searchDropdown.classList.remove('open');
+      filterCards();
+    }
+    if(!e.target.closest('.search-box')&&searchDropdown)searchDropdown.classList.remove('open');
+  });
+
+  // Search
+  if(searchInput) searchInput.addEventListener('input',function(){
+    var q=normalize(this.value);
+    if(q.length<1){searchDropdown.classList.remove('open');filterCards();return;}
+    var matches=searchIdx.filter(function(s){return s.norm.includes(q);}).slice(0,8);
+    if(!matches.length){searchDropdown.classList.remove('open');renderCards([]);return;}
+    searchDropdown.innerHTML=matches.map(function(s){
+      var v=s.v;
+      return '<a href="/v/'+encodeURI(v._slug)+'/" class="dd-item" target="_blank" rel="noopener noreferrer">'+
+        '<div class="dd-info"><span class="dd-name">'+esc(v.name)+'</span><span class="dd-region">'+esc(v.region)+' · '+esc(v.type)+'</span></div>'+
+        '<span class="dd-arrow">&rarr;</span></a>';
+    }).join('');
+    searchDropdown.classList.add('open');
+    renderCards(matches.map(function(s){return s.v;}));
+  });
+
+  // Popular tags click
+  document.querySelectorAll('.ptag').forEach(function(t){
+    t.addEventListener('click',function(){
+      var q=this.dataset.q;
+      if(searchInput){searchInput.value=q;searchInput.dispatchEvent(new Event('input'));}
+    });
+  });
+
+  // [A] Roulette
+  var rouletteBtn=document.getElementById('rouletteBtn');
+  var rouletteResult=document.getElementById('rouletteResult');
+  if(rouletteBtn) rouletteBtn.addEventListener('click',function(){
+    var r=listings[Math.floor(Math.random()*listings.length)];
+    rouletteResult.innerHTML='<a href="/v/'+encodeURI(r._slug)+'/" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;">'+esc(r.name)+' ('+esc(r.region)+' · '+esc(r.type)+')</a>';
+  });
+
+  // [B] VS Vote
+  var vsContent=document.getElementById('vsContent');
+  if(vsContent){
+    var a=listings[Math.floor(Math.random()*listings.length)];
+    var b=listings[Math.floor(Math.random()*listings.length)];
+    while(b.name===a.name)b=listings[Math.floor(Math.random()*listings.length)];
+    var vA=0,vB=0;
+    function renderVS(){
+      vsContent.innerHTML=
+        '<div style="display:flex;gap:8px;margin-bottom:12px;">'+
+        '<button class="vs-a" style="flex:1;padding:12px;border:2px solid #8B5CF6;border-radius:12px;background:#F8F7FF;cursor:pointer;font-family:inherit;font-size:14px;font-weight:700;color:#111;">'+esc(a.name)+'<br><span style="font-size:20px;color:#8B5CF6;">'+vA+'</span></button>'+
+        '<span style="display:flex;align-items:center;font-weight:900;color:#8B5CF6;font-size:18px;">VS</span>'+
+        '<button class="vs-b" style="flex:1;padding:12px;border:2px solid #06B6D4;border-radius:12px;background:#F0FDFA;cursor:pointer;font-family:inherit;font-size:14px;font-weight:700;color:#111;">'+esc(b.name)+'<br><span style="font-size:20px;color:#06B6D4;">'+vB+'</span></button>'+
+        '</div>';
+      vsContent.querySelector('.vs-a').addEventListener('click',function(){vA++;renderVS();});
+      vsContent.querySelector('.vs-b').addEventListener('click',function(){vB++;renderVS();});
+    }
+    renderVS();
+  }
+
+  // [E] Hot Now
+  var hotNow=document.getElementById('hotNow');
+  var hotTime=document.getElementById('hotTime');
+  if(hotNow){
+    var h=new Date().getHours();
+    var hot=listings[h%listings.length];
+    hotNow.textContent=hot.name+' ('+hot.region+')';
+    if(h>=22||h<4)hotTime.textContent='지금은 피크 타임! 밤 10시~새벽 4시가 가장 뜨겁습니다.';
+    else if(h>=18)hotTime.textContent='슬슬 분위기가 달아오르는 시간. 밤 10시부터 본격 피크!';
+    else hotTime.textContent='아직 이른 시간. 오후 8시부터 업소들이 문을 엽니다.';
+  }
+
+  // Slide-up after 3 min
+  setTimeout(function(){var el=document.getElementById('slideupPopup');if(el)el.classList.add('show');},180000);
+  // Scroll 80% banner
+  var _sb=false;
+  window.addEventListener('scroll',function(){
+    var p=(window.scrollY+window.innerHeight)/document.body.scrollHeight;
+    if(p>0.8&&!_sb){var el=document.getElementById('scrollBanner');if(el)el.classList.add('show');_sb=true;}
+  });
+
+  // Init
+  renderPremium();
+  renderRanks();
+  renderCards(listings);
+})();
