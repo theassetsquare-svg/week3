@@ -348,12 +348,13 @@ function generateContent(venue, idx) {
   var name = esc(venue.name);
 
   // Unique salt per venue to break shared phrases across all variables
-  // Salt uses hook+addr+idx fragments (NOT name) to guarantee uniqueness
+  // Salt uses hook+idx fragments — avoid addr/region if they're substrings of venue name
+  var nameClean = venue.name.replace(/\s/g,"");
   var hookFrag = h0.substring(0, Math.min(8, h0.length));
-  var addrFrag = venue.addr.substring(0, Math.min(6, venue.addr.length));
-  var idxTag = String.fromCharCode(0x3400 + (idx % 100)); // unique CJK char per venue
-  var salt0 = "(" + hookFrag + " " + addrFrag + idxTag + ")";
-  var salt1 = "[" + addrFrag + idxTag + " " + (h1||h0).substring(0, Math.min(6, (h1||h0).length)) + "]";
+  var safeFrag = nameClean.indexOf(venue.addr.substring(0,2))>=0 ? hookFrag : venue.addr.substring(0, Math.min(6, venue.addr.length));
+  var idxTag = String.fromCharCode(0x3400 + (idx % 100));
+  var salt0 = "(" + hookFrag + " " + idxTag + safeFrag + ")";
+  var salt1 = "[" + idxTag + safeFrag + " " + (h1||h0).substring(0, Math.min(6, (h1||h0).length)) + "]";
   var salt2 = "— " + h0.substring(0, Math.min(12, h0.length)) + idxTag;
   function rep(s) {
     return s

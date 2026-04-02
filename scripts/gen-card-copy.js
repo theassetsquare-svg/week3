@@ -518,7 +518,8 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<div class="similar-section"><p class="similar-title">비슷한 분위기 5곳 더 보기</p>'+
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="similar-cta">놀쿨에서 비슷한 업소 찾기 &rarr;</a></div>\n'+
     // FAQ
-    '<div class="detail-section">\n<h2 class="detail-section-title"><!--VN-->'+escapeHtml(venue.name)+' <!--/VN-->'+_p(LBL_FAQ,50)+'</h2>\n'+faqHtml+'\n<!-- DENSITY -->\n</div>\n'+
+    '<div class="detail-section">\n<h2 class="detail-section-title"><!--VN-->'+escapeHtml(venue.name)+' <!--/VN-->'+_p(LBL_FAQ,50)+'</h2>\n'+faqHtml+'\n</div>\n'+
+    '<!-- DENSITY -->\n'+
     // Conclusion
     '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_CONC,60)+'</h2>\n<div class="detail-body"><p>'+escapeHtml(content.conclusion)+'</p></div>\n</div>\n'+
     // [2] Secret Menu — 스크롤 80%에 공개
@@ -1246,13 +1247,13 @@ function calcDensity(html,name){
 }
 var BOOST_LINES=[
   "$name, 처음 방문한다면 이 정보부터 확인하자.",
+  "주말 저녁이라면 예약이 사실상 필수인 곳이 많다. 미리 전화하는 게 안전하다. 특히 금요일과 토요일은 웨이팅이 생길 수 있으니 넉넉하게 시간을 잡는 것이 좋다.",
   "$region에서 $name만큼 분위기 잡힌 곳은 많지 않다.",
-  "실제로 $name에 다녀온 사람들은 재방문율이 높다.",
-  "$name 예약은 주말 기준 최소 이틀 전이 안전하다.",
-  "밤 문화에 관심 있다면 $name, 리스트에 넣어둘 만하다.",
-  "$name 주변 교통편과 주차 정보도 미리 체크하자.",
+  "드레스코드는 깔끔한 캐주얼 이상이면 대부분 문제없다. 슬리퍼와 반바지는 제한되는 곳이 대부분이고, 셔츠와 구두까지는 아니더라도 단정한 복장이면 충분하다.",
+  "실제로 다녀온 사람들의 재방문율이 높은 편이다.",
+  "대중교통이나 대리운전을 미리 준비해두면 귀가가 수월하다. 특히 새벽 시간대는 택시 잡기 경쟁이 치열하니 앱 호출을 30분 전에 시작하는 것을 추천한다.",
   "$name의 진짜 매력은 직접 가봐야 알 수 있다.",
-  "$region $type 중 $name이 눈에 띄는 이유가 있다."
+  "웨이터에게 첫 방문이라고 말하면 분위기에 맞는 자리와 메뉴를 추천받을 수 있다. 처음이라면 주중 저녁 방문이 여유롭게 분위기를 파악하기 좋다."
 ];
 
 /* ══════════ MAIN EXECUTION ══════════ */
@@ -1328,18 +1329,23 @@ var BOOST_LINES=[
     if(stats.density<1.5){
       var nc=v.name.replace(/\s/g,'');
       var nl=nc.length;
-      var targetCount=Math.ceil(0.02*stats.chars/nl);
-      var needed=Math.min(targetCount-stats.count,7);
+      var nameBoosts=BOOST_LINES.filter(function(b){return b.indexOf('$name')>=0;});
+      var fillerBoosts=BOOST_LINES.filter(function(b){return b.indexOf('$name')<0;});
+      var targetDensity=nl<=4?0.016:0.018; // lower target for short names
+      var targetCount=Math.ceil(targetDensity*stats.chars/nl);
+      var needed=Math.min(targetCount-stats.count,8);
       if(needed>0){
         var lines=[];
         for(var bi=0;bi<needed;bi++){
-          var line=BOOST_LINES[bi%BOOST_LINES.length]
-            .replace(/\$name/g,en)
-            .replace(/\$region/g,escapeHtml(v.region))
-            .replace(/\$type/g,escapeHtml(v.type));
-          lines.push('<p>'+line+'</p>');
+          var nline=nameBoosts[bi%nameBoosts.length]
+            .replace(/\$name/g,en).replace(/\$region/g,escapeHtml(v.region)).replace(/\$type/g,escapeHtml(v.type));
+          lines.push('<p>'+nline+'</p>');
+          // Add filler between name lines for long names (stuffing prevention)
+          if(nl>=5 && bi<needed-1){
+            lines.push('<p>'+fillerBoosts[bi%fillerBoosts.length]+'</p>');
+          }
         }
-        html=html.replace('<!-- DENSITY -->',lines.join(''));
+        html=html.replace('<!-- DENSITY -->','<div class="boost-section">'+lines.join('')+'</div>');
       }
     }
 

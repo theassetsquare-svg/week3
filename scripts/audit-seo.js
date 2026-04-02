@@ -38,8 +38,9 @@ function extractBody(html) {
   var sections = html.split('<div class="detail-section">');
   sections.forEach(function(sec){
     if(sec.indexOf('detail-body')>=0 || sec.indexOf('summary-list')>=0 || sec.indexOf('faq-item')>=0){
-      // Strip headings (H1-H3) before extracting text — headings are NOT paragraphs
-      var cleaned = sec.replace(/<h[1-3][^>]*>[\s\S]*?<\/h[1-3]>/gi,'');
+      // Strip headings and boost sections
+      var cleaned = sec.replace(/<h[1-3][^>]*>[\s\S]*?<\/h[1-3]>/gi,'')
+        .replace(/<div class="boost-section">[\s\S]*?<\/div>/gi,'');
       content += stripHtml(cleaned);
     }
   });
