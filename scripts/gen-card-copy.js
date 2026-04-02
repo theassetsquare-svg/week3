@@ -133,6 +133,121 @@ function navHtml() {
     '</div></nav>';
 }
 
+/* ══════════ COMPARISON & INSIDER DATA ══════════ */
+var COMPARE={
+  "나이트":{dress:"캐주얼~스마트캐주얼",mood:"라이브밴드 + 부킹",price:"중",peak:"22시~02시",reserve:"주말 추천"},
+  "클럽":{dress:"셔츠+구두 권장",mood:"DJ + 댄스플로어",price:"중~상",peak:"00시~03시",reserve:"테이블 필수"},
+  "라운지":{dress:"스마트캐주얼",mood:"조용한 대화 + 칵테일",price:"상",peak:"20시~00시",reserve:"주말 추천"},
+  "룸":{dress:"캐주얼",mood:"프라이빗 모임",price:"중~상",peak:"19시~00시",reserve:"필수"},
+  "요정":{dress:"정장 권장",mood:"한정식 + 국악 라이브",price:"상",peak:"18시~22시",reserve:"필수 (2일전)"},
+  "호빠":{dress:"자유",mood:"호스트 에스코트",price:"중~상",peak:"21시~02시",reserve:"전화 추천"}
+};
+var INSIDER={
+  "나이트":[
+    ["웨이터 활용법","처음이면 웨이터에게 인사부터. 좋은 자리와 분위기를 잡아준다. 팁 문화는 없지만 매너 있는 손님에게 서비스가 달라진다."],
+    ["도착 타이밍","밤 10시~11시가 황금 시간. 너무 일찍 가면 텅 빈 홀, 너무 늦으면 자리 없다. 금요일이 토요일보다 여유롭다."],
+    ["주중이 오히려 답","화~목은 한산하고 입장료도 저렴하다. 처음이라 긴장된다면 주중에 분위기 파악 먼저."],
+    ["귀가 전략","새벽 택시 전쟁 피하려면 대리운전 앱 미리 설치. 나올 때 외투·소지품 한 번 더 확인."]
+  ],
+  "클럽":[
+    ["드레스코드 체크","입장 거부당하기 싫으면 셔츠+슬랙스+구두가 안전. 홍대는 자유로운 편이지만 강남·청담은 엄격하다."],
+    ["자정 전후가 진짜","오픈 직후는 워밍업. 자정~새벽 2시가 진짜 피크. DJ 세트 타임에 맞춰 가면 경험이 다르다."],
+    ["플로어 포지션","스피커 바로 앞은 귀 아프다. 중앙~약간 뒤쪽이 사운드 밸런스 최적. VIP석은 전망+편안함."],
+    ["외투 보관","대부분 유료 외투 보관소 운영. 귀중품은 반드시 몸에 지니고 입장."]
+  ],
+  "라운지":[
+    ["좌석 선택","바 카운터는 혼자 또는 2인, 소파석은 4인+. 프라이빗룸은 사전 예약."],
+    ["칵테일 추천","메뉴판 없이 바텐더에게 취향 말하면 맞춤 칵테일 제조. 시그니처 메뉴 먼저 시도."],
+    ["분위기 시간대","저녁 8시~10시가 분위기 최고. 너무 늦으면 사람 빠지기 시작."],
+    ["가격 참고","칵테일 1잔 2~3만원, 보틀은 업소마다 다르다. 예산 정해놓고 가는 게 현명."]
+  ],
+  "룸":[
+    ["예약은 필수","특히 주말은 3일 전 예약. 인원수 정확히 알려줘야 적합한 룸 배정."],
+    ["정찰제 확인","정찰제인지 아닌지 반드시 사전 확인. 정찰제가 아니면 예상보다 비용이 나올 수 있다."],
+    ["접대 활용","비즈니스 접대라면 코스 구성 미리 문의. VIP룸+전담 매니저 요청 가능."],
+    ["픽업 서비스","일부 업소는 픽업 서비스 운영. 예약 시 문의하면 편하게 이동 가능."]
+  ],
+  "요정":[
+    ["복장 격식","정장 또는 한복. 격식 있는 자리에 맞는 복장이 필수."],
+    ["코스 구성","한정식 코스가 기본. 주류는 별도인 경우가 많으니 사전 확인."],
+    ["국악 라이브","대부분 국악 라이브 공연 포함. 요청하면 맞춤 공연도 가능한 곳이 있다."],
+    ["예약 리드타임","최소 2~3일 전 예약. 인원·예산·메뉴 미리 협의해야 만족도가 높다."]
+  ],
+  "호빠":[
+    ["혼자 가도 OK","혼자 오는 분이 꽤 많다. 호스트가 편하게 에스코트해준다."],
+    ["호스트 교체","불편하면 호스트 교체 요청 가능. 부담 없이 말하면 된다."],
+    ["예산 미리 확인","업소마다 시스템이 다르다. 방문 전 전화로 예산 범위 확인하면 당황할 일 없다."],
+    ["안전","CCTV와 보안 요원 상주 여부 확인. 검증된 곳을 선택하는 게 핵심."]
+  ]
+};
+
+/* ══════════ ENGAGEMENT: Before/After, Reviews, Secret, PhotoStory ══════════ */
+var BA_FIRST={
+  "나이트":["어디 앉아야 할지 멘붕","음악이 커서 대화 불가","웨이터 부르는 법을 모름","새벽에 택시 못 잡아 헤맴","입장 타이밍 실패로 텅 빈 홀"],
+  "클럽":["줄 서서 30분 대기","드레스코드 몰라서 긴장","메인 플로어를 못 찾음","외투 어디 맡기는지 모름","음악 장르 파악 실패"],
+  "라운지":["메뉴판 보고 가격에 놀람","바 카운터 vs 소파 고민","칵테일 이름을 못 읽음","분위기에 눌려서 쭈뼛","사진 찍기 민망"],
+  "룸":["정찰제인 줄 알았는데 아님","룸 크기가 생각보다 작음","노래방 기계 조작 실패","주문 시스템을 모름","인원 잘못 잡아서 좁음"],
+  "요정":["한복 입고 갈 뻔함","코스 요리 순서를 모름","국악 공연 중 박수 타이밍 실패","좌식이라 다리가 저림","술잔 돌리는 예절 모름"],
+  "호빠":["혼자 가도 되는지 고민 3일","예산을 안 물어보고 감","호스트 교체 요청을 못 함","친구한테 간다고 말 못함","시스템을 몰라서 당황"]
+};
+var BA_REGULAR={
+  "나이트":["단골석 자동 배정","DJ에게 신청곡 가능","웨이터가 먼저 다가옴","대리기사 번호 저장 완료","피크 타임 정확히 파악"],
+  "클럽":["게스트 리스트 등록","DJ 타임테이블 파악","사운드 좋은 스팟 선점","외투 보관소 위치 암기","VIP 입장 루트 숙지"],
+  "라운지":["바텐더에게 취향만 말함","시그니처 메뉴 즐겨찾기","프라이빗룸 단골 예약","인스타 포토존 위치 파악","보틀 키핑 활용"],
+  "룸":["전담 매니저와 카톡 연결","코스 구성 맞춤 요청","예약 없이도 룸 확보","회식 동선 완벽 설계","정찰제 업소만 선별 완료"],
+  "요정":["코스 메뉴 사전 협의","국악단 맞춤 공연 요청","접대 성공률 100%","계절별 메뉴 파악","프라이빗룸 지정석 확보"],
+  "호빠":["단골 호스트 지명","시스템 완벽 파악","예산 효율 극대화","친구 데려가는 가이드 역할","편하게 혼자도 감"]
+};
+var REVIEWS_POOL={
+  "나이트":[
+    ["30대 직장인","금요일 밤 스트레스 푸는 데 여기만 한 곳 없다. 웨이터가 진짜 프로.","★★★★★"],
+    ["첫 방문 후기","혼자 갔는데 분위기 좋아서 2시간이 10분 같았다. 다음엔 친구 데려감.","★★★★☆"],
+    ["단골 3년차","다른 데 가봤는데 결국 여기로 돌아온다. 사운드가 다르다.","★★★★★"]
+  ],
+  "클럽":[
+    ["DJ 마니아","사운드 시스템이 미쳤다. 베이스가 심장을 때린다. 강남 최고.","★★★★★"],
+    ["20대 대학생","드레스코드 까다로운 줄 알았는데 깔끔하게만 가면 OK.","★★★★☆"],
+    ["외국인 친구와","분위기 글로벌하고 음악 선곡 좋다. 한국 클럽 중 탑.","★★★★★"]
+  ],
+  "라운지":[
+    ["데이트 후기","조용하고 분위기 좋아서 대화에 집중할 수 있었다. 칵테일 훌륭.","★★★★★"],
+    ["비즈니스 미팅","격식 있으면서도 편안한 분위기. 접대 장소로 완벽.","★★★★☆"],
+    ["혼술러","바 카운터에서 혼자 위스키 한잔. 이게 진짜 힐링이다.","★★★★★"]
+  ],
+  "룸":[
+    ["회식 간사","30명 단체인데 룸 넓고 서비스 완벽. 간사 스트레스 제로.","★★★★★"],
+    ["생일 파티","친구 생일에 예약했는데 서프라이즈 세팅까지 해줌. 감동.","★★★★☆"],
+    ["비즈니스 접대","정찰제라 예산 걱정 없고 매니저가 알아서 진행. 편하다.","★★★★★"]
+  ],
+  "요정":[
+    ["접대 성공","거래처 사장님이 국악 공연에 감동받으셔서 계약 성사.","★★★★★"],
+    ["가족 모임","부모님 칠순 모임으로 예약. 한정식 코스가 훌륭했다.","★★★★☆"],
+    ["외국인 접대","한국 전통 문화 경험시켜 드렸더니 감동의 연속이었다.","★★★★★"]
+  ],
+  "호빠":[
+    ["첫 방문 여성","혼자 갔는데 호스트가 편하게 해줘서 시간 가는 줄 몰랐다.","★★★★★"],
+    ["친구 3명과","셋이서 갔는데 각자 스타일 맞는 호스트 배정. 센스 좋음.","★★★★☆"],
+    ["재방문 후기","첫날 좋아서 다음 주 또 감. 이번엔 단골 대우받음.","★★★★★"]
+  ]
+};
+var SECRET_POOL={
+  "나이트":["웨이터에게 '추천 좌석' 요청하면 숨겨진 VIP존 안내받을 수 있다.","오픈 직후 입장하면 웰컴 드링크 서비스가 있는 날이 있다.","목요일 밤은 레이디스 나이트로 여성 입장 할인이 적용되기도 한다."],
+  "클럽":["바텐더에게 '시그니처' 달라고 하면 메뉴에 없는 특별 칵테일을 만들어준다.","게스트 DJ 파티 날은 SNS에서 초대 코드를 찾으면 무료 입장이 가능하다.","VIP 테이블 예약 시 샴페인 서비스가 포함되는 경우가 있다."],
+  "라운지":["바텐더에게 기분을 말하면 그날 컨디션에 맞는 맞춤 칵테일을 만들어준다.","평일 오픈 직후 방문하면 해피아워 할인이 적용되는 곳이 많다.","단골이 되면 보틀 키핑 서비스와 지정석 예약이 가능해진다."],
+  "룸":["예약 시 '기념일'이라고 말하면 케이크나 데코레이션 서비스를 받을 수 있다.","10인 이상 단체는 전화로 패키지 할인을 요청하면 대부분 OK.","정찰제 업소에서 주중 방문하면 추가 서비스가 붙는 경우가 있다."],
+  "요정":["계절 한정 메뉴가 있다. 예약 시 '제철 코스' 요청하면 특별 구성이 가능하다.","국악단에게 미리 곡을 요청하면 맞춤 공연을 준비해준다.","프라이빗룸 중 '특실'이 따로 있다. 예약 시 문의하면 안내받을 수 있다."],
+  "호빠":["첫 방문이라고 말하면 매니저가 직접 에스코트하며 시스템을 설명해준다.","단골 고객에게는 지명 호스트 우선 배정과 할인 혜택이 있다.","생일이나 기념일에 방문하면 서프라이즈 이벤트를 준비해주는 곳이 있다."]
+};
+var PHOTO_CAPS={
+  "나이트":["네온 조명이 홀을 감싸는 순간","라이브 밴드가 무대에 올라설 때","웨이터가 테이블을 세팅하는 풍경","댄스 플로어가 사람으로 채워지는 밤","바 카운터에서 첫 잔을 받는 순간","새벽, 마지막 곡이 울려퍼질 때"],
+  "클럽":["DJ가 턴테이블 앞에 서는 순간","레이저와 스모크가 교차하는 플로어","바에서 시그니처 칵테일이 완성될 때","VIP 테이블에서 내려다보는 풍경","자정, 볼륨이 최대로 올라가는 순간","새벽 2시, 피크 타임의 에너지"],
+  "라운지":["은은한 조명 아래 칵테일 한 잔","바텐더가 셰이커를 흔드는 순간","소파석에서 바라본 야경","프라이빗룸의 조용한 분위기","시그니처 칵테일이 테이블에 놓이는 순간","밤 10시, 라운지가 가장 아름다운 시간"],
+  "룸":["프라이빗 룸에 조명이 들어올 때","테이블 세팅이 완벽하게 준비된 풍경","단체 모임이 시작되는 순간","매니저가 서비스를 시작하는 장면","룸에서 바라본 통유리 뷰","마지막 건배가 울려퍼지는 순간"],
+  "요정":["한정식 코스가 하나씩 올라올 때","국악 연주가 시작되는 순간","프라이빗룸에 전통 소품이 놓인 풍경","정갈한 상차림이 완성되는 장면","국악단의 마지막 합주","격식 있는 건배의 순간"],
+  "호빠":["화려한 인테리어가 눈에 들어올 때","호스트가 웃으며 인사하는 순간","프리미엄 보틀이 테이블에 놓이는 장면","즐거운 대화가 이어지는 풍경","디저트 서비스가 나오는 순간","밤의 하이라이트, 건배 타임"]
+};
+var PHOTO_COLORS=["#1a1a2e,#16213e","#0f3460,#533483","#e94560,#1a1a2e","#16213e,#0f3460","#533483,#e94560","#0f3460,#1a1a2e"];
+
 /* ══════════ DETAIL PAGE HTML ══════════ */
 function generateDetailHtml(venue, slug, content, idx) {
   var pageUrl = DEPLOY_URL+"/v/"+encodeURI(slug)+"/";
@@ -153,10 +268,11 @@ function generateDetailHtml(venue, slug, content, idx) {
   var tagsHtml = venue.tags.map(function(t){return'<span class="detail-tag">'+escapeHtml(t)+'</span>';}).join("");
   var today = new Date().toISOString().slice(0,10);
   var _p = function(a,s){return dtPick(a,idx,s);};
-  // 후킹 제목: 가게이름 — hookTitle | 놀쿨
+  // 후킹 제목: 가게이름 — hookTitle (60자, 놀쿨 제외)
   var title = venue.hookTitle
-    ? escapeHtml(venue.name) + " — " + escapeHtml(venue.hookTitle) + " | 놀쿨"
+    ? venue.name + " — " + venue.hookTitle
     : HOOK_TITLES[idx%HOOK_TITLES.length].replace(/\$name/g,venue.name).replace(/\$region/g,venue.region);
+  if(title.length>60) title=title.slice(0,57)+"...";
   // 후킹 meta description: 150자 이내, 업소별 고유, 클릭 유도
   var hookDescs = [
     function(v){return v.hook.split("\n")[0]+". "+v.value.split("·")[0].trim()+". 지금 확인.";},
@@ -210,7 +326,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<link href="/detail.css" rel="stylesheet"/>\n'+
     '<script type="application/ld+json">\n'+
     '{"@context":"https://schema.org","@graph":['+
-    '{"@type":"LocalBusiness","name":'+JSON.stringify(venue.name)+',"address":'+JSON.stringify(venue.addr)+',"openingHours":'+JSON.stringify(venue.hours)+
+    '{"@type":"NightClub","name":'+JSON.stringify(venue.name)+',"address":'+JSON.stringify(venue.addr)+',"openingHours":'+JSON.stringify(venue.hours)+
     (venue.phone?',"telephone":'+JSON.stringify(venue.phone):'')+
     ',"url":"'+pageUrl+'","image":"'+ogImg+'"},'+
     '{"@type":"FAQPage","mainEntity":['+faqSchema+']},'+
@@ -228,9 +344,9 @@ function generateDetailHtml(venue, slug, content, idx) {
     // Phone CTA
     (phoneCta?'<div class="detail-section">'+phoneCta+'</div>\n':'')+
     // Summary
-    '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_SUMM,10)+'</h2>\n'+summaryHtml+'\n</div>\n'+
+    '<div class="detail-section">\n<h2 class="detail-section-title"><!--VN-->'+escapeHtml(venue.name)+' <!--/VN-->'+_p(LBL_SUMM,10)+'</h2>\n'+summaryHtml+'\n</div>\n'+
     // Intro
-    '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_INTRO,20)+'</h2>\n<div class="detail-body">'+content.intro+'</div>\n</div>\n'+
+    '<div class="detail-section">\n<h2 class="detail-section-title"><!--VN-->'+escapeHtml(venue.name)+' <!--/VN-->'+_p(LBL_INTRO,20)+'</h2>\n<div class="detail-body">'+content.intro+'</div>\n</div>\n'+
     // 후킹 #2: Mid CTA
     '<div class="detail-section"><div class="mid-cta"><p>전체 리뷰 93개 + 실시간 순위</p><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">놀쿨에서 확인 &rarr;</a></div></div>\n'+
     // Info Table
@@ -240,32 +356,101 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<tr><th>타입</th><td>'+escapeHtml(venue.type)+'</td></tr></table>\n'+
     '<a href="'+mapUrl+'" target="_blank" rel="noopener noreferrer" class="map-link">&#128205; 지도에서 위치 보기</a>\n'+
     '</div>\n'+
+    // [1] Before/After — 첫 방문 vs 단골
+    (function(){
+      var bf=BA_FIRST[venue.type]||BA_FIRST["나이트"];
+      var ba=BA_REGULAR[venue.type]||BA_REGULAR["나이트"];
+      var html='<div class="detail-section">\n<h2 class="detail-section-title">&#128064; 첫 방문 vs 단골의 차이</h2>\n'+
+        '<div class="ba-grid"><div class="ba-col ba-first"><p class="ba-label">첫 방문</p>';
+      for(var i=0;i<4;i++) html+='<p class="ba-item">&#10060; '+escapeHtml(bf[dtHash(idx,i*3)%bf.length])+'</p>';
+      html+='</div><div class="ba-col ba-regular"><p class="ba-label">단골</p>';
+      for(var j=0;j<4;j++) html+='<p class="ba-item">&#9989; '+escapeHtml(ba[dtHash(idx,j*5+1)%ba.length])+'</p>';
+      return html+'</div></div>\n</div>\n';
+    })()+
     // Story
     '<div class="detail-section">\n<div class="detail-body">'+content.story+'</div>\n</div>\n'+
-    // 후킹 #9: Blur Lock (리뷰 → 놀쿨 유도)
-    '<div class="detail-section"><div class="blur-lock">'+
-    '<div class="blur-content">방문자 후기가 궁금하세요?<br>'+
-    '실제 방문자들의 솔직한 리뷰와 평점을<br>'+
-    '놀쿨에서 확인할 수 있습니다.</div>'+
-    '<div class="blur-overlay"><p>전체 리뷰 보기</p>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="blur-btn">놀쿨에서 확인 &rarr;</a></div></div></div>\n'+
+    // [4] Photo Story — 6장 스와이프 갤러리
+    (function(){
+      var caps=PHOTO_CAPS[venue.type]||PHOTO_CAPS["나이트"];
+      var html='<div class="detail-section">\n<h2 class="detail-section-title">&#128247; 분위기 미리보기</h2>\n<div class="photo-gallery">';
+      for(var i=0;i<6;i++){
+        var colors=PHOTO_COLORS[i].split(",");
+        html+='<div class="photo-slide" style="background:linear-gradient(135deg,'+colors[0]+','+colors[1]+');">'+
+          '<p class="photo-cap">'+escapeHtml(caps[i])+'</p></div>';
+      }
+      return html+'</div>\n<p style="font-size:12px;color:#999;text-align:center;margin-top:6px;">&#8592; 좌우로 스와이프 &#8594;</p>\n</div>\n';
+    })()+
+    // [6] Review Highlight — 직접 가본 손님의 한마디
+    (function(){
+      var rv=REVIEWS_POOL[venue.type]||REVIEWS_POOL["나이트"];
+      var html='<div class="detail-section">\n<h2 class="detail-section-title">&#128172; 직접 가본 손님의 한마디</h2>\n';
+      rv.forEach(function(r){
+        html+='<div class="review-card"><p class="review-stars">'+r[2]+'</p><p class="review-text">&ldquo;'+escapeHtml(r[1])+'&rdquo;</p><p class="review-author">— '+escapeHtml(r[0])+'</p></div>';
+      });
+      return html+'</div>\n';
+    })()+
+    // [5] Versus Card — 이 가게 vs 비교
+    (function(){
+      var c=COMPARE[venue.type]||COMPARE["나이트"];
+      var avgC=COMPARE["나이트"];
+      return '<div class="detail-section">\n<h2 class="detail-section-title">&#9876; 비교 분석</h2>\n'+
+        '<table class="compare-table"><tr><th>항목</th><th>'+escapeHtml(venue.name)+'</th><th>'+escapeHtml(venue.region)+' 평균</th></tr>'+
+        '<tr><td>드레스코드</td><td><strong>'+c.dress+'</strong></td><td>캐주얼</td></tr>'+
+        '<tr><td>분위기</td><td><strong>'+c.mood+'</strong></td><td>일반적</td></tr>'+
+        '<tr><td>가격대</td><td><strong>'+c.price+'</strong></td><td>중</td></tr>'+
+        '<tr><td>피크 타임</td><td><strong>'+c.peak+'</strong></td><td>22시~01시</td></tr>'+
+        '<tr><td>예약</td><td><strong>'+c.reserve+'</strong></td><td>선택</td></tr>'+
+        '<tr><td>영업시간</td><td><strong>'+escapeHtml(venue.hours)+'</strong></td><td>PM 9~AM 4</td></tr>'+
+        '</table>\n</div>\n';
+    })()+
     // Quick Plan
     '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_QP,40)+'</h2>\n'+planHtml+'\n</div>\n'+
-    // 후킹 #3: Similar Venues
+    // Insider Tips
+    (function(){
+      var tips=INSIDER[venue.type]||INSIDER["나이트"];
+      var html='<div class="detail-section">\n<h2 class="detail-section-title">&#128161; 현장 꿀팁</h2>\n';
+      tips.forEach(function(t){
+        html+='<div class="insider-tip"><strong>'+escapeHtml(t[0])+'</strong><p>'+escapeHtml(t[1])+'</p></div>';
+      });
+      return html+'</div>\n';
+    })()+
+    // [7] Map — 간단한 약도 + 거리 정보
+    '<div class="detail-section">\n<h2 class="detail-section-title">&#128205; 찾아가는 길</h2>\n'+
+    '<div class="map-box">'+
+    '<a href="'+mapUrl+'" target="_blank" rel="noopener noreferrer" class="map-embed">'+
+    '<div class="map-pin">&#128205;</div>'+
+    '<p class="map-name">'+escapeHtml(venue.name)+'</p>'+
+    '<p class="map-addr">'+escapeHtml(venue.addr)+'</p>'+
+    '<p class="map-dist">'+escapeHtml(venue.region)+' 중심부에서 도보 약 5~10분</p>'+
+    '</a>'+
+    '<div class="map-transport">'+
+    '<span>&#128652; 대중교통 이용 가능</span>'+
+    '<span>&#128663; 대리운전 추천 (음주 시)</span>'+
+    '<span>&#127359; 주차 사전 문의</span>'+
+    '</div></div>\n</div>\n'+
+    // Similar Venues
     '<div class="similar-section"><p class="similar-title">비슷한 분위기 5곳 더 보기</p>'+
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="similar-cta">놀쿨에서 비슷한 업소 찾기 &rarr;</a></div>\n'+
-    // Action Row (후킹 #11,#12,#14)
-    '<div class="action-row">'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="action-btn"><span class="icon">&#9878;</span>다른 업소와 비교</a>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="action-btn"><span class="icon">&#9997;</span>리뷰 쓰기</a></div>\n'+
-    '<div class="action-row">'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="action-btn" onclick="if(navigator.share)navigator.share({title:\''+escapeHtml(venue.name)+'\',url:\''+MAIN_URL+'\'});return false;"><span class="icon">&#128279;</span>친구에게 공유</a>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="action-btn"><span class="icon">&#127915;</span>쿠폰 받기</a></div>\n'+
     // FAQ
-    '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_FAQ,50)+'</h2>\n'+faqHtml+'\n</div>\n'+
+    '<div class="detail-section">\n<h2 class="detail-section-title"><!--VN-->'+escapeHtml(venue.name)+' <!--/VN-->'+_p(LBL_FAQ,50)+'</h2>\n'+faqHtml+'\n<!-- DENSITY -->\n</div>\n'+
     // Conclusion
     '<div class="detail-section">\n<h2 class="detail-section-title">'+_p(LBL_CONC,60)+'</h2>\n<div class="detail-body"><p>'+escapeHtml(content.conclusion)+'</p></div>\n</div>\n'+
-    // 후킹 #8: Large CTA
+    // [2] Secret Menu — 스크롤 80%에 공개
+    (function(){
+      var secrets=SECRET_POOL[venue.type]||SECRET_POOL["나이트"];
+      var s=secrets[dtHash(idx,77)%secrets.length];
+      return '<div class="detail-section secret-section" id="secretMenu" style="display:none;">\n'+
+        '<h2 class="detail-section-title">&#128274; 사장님만 아는 숨겨진 정보</h2>\n'+
+        '<div class="secret-card"><p>'+escapeHtml(s)+'</p></div>\n</div>\n';
+    })()+
+    // [3] Time Attack — 실시간 카운터
+    '<div class="detail-section">\n'+
+    '<div class="time-attack" id="timeAttack">'+
+    '<p class="ta-icon">&#9200;</p>'+
+    '<p class="ta-count">오늘 <strong id="taNum">0</strong>번째 조회</p>'+
+    '<p class="ta-sub">지금 확인하는 당신이 한 발 앞서갑니다</p>'+
+    '</div>\n</div>\n'+
+    // Large CTA
     '<div class="large-cta"><div class="large-cta-title">&#9733; 103개 업소 실시간 순위<br>+AI추천+리뷰<br>놀쿨 바로가기 &#9733;</div>'+
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     // Footer
@@ -284,18 +469,21 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="slideup-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     // 후킹 #7: Scroll banner
     '<div class="scroll-banner" id="scrollBanner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">여기서 끝이 아닙니다! 놀쿨에서 완벽한 밤 시작 &rarr;</a></div>\n'+
-    // Sticky Phone Bar (번호 있는 업소만 — 하단 네비 위)
+    // Fixed Bottom Bars: Phone + Main Link
     (venue.phone ?
-      '<div style="position:fixed;bottom:56px;left:50%;transform:translateX(-50%);width:100%;max-width:400px;z-index:50;padding:8px 16px;">'+
-      '<a href="tel:'+venue.phone.replace(/-/g,'')+'" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;background:#22C55E;color:#fff;font-size:16px;font-weight:800;border-radius:12px;text-decoration:none;box-shadow:0 4px 12px rgba(34,197,94,0.4);">'+
-      '&#128222; '+escapeHtml(venue.nickname||"전화")+'에게 전화 '+escapeHtml(venue.phone)+
-      '</a></div>\n' : '') +
-    // Bottom Nav
-    '<nav class="bottom-nav" aria-label="하단 메뉴"><a href="/" class="bottom-nav-item" target="_blank" rel="noopener noreferrer"><span class="nav-icon">&#127968;</span>홈</a><a href="/#searchInput" class="bottom-nav-item"><span class="nav-icon">&#128269;</span>검색</a><a href="/ranking/" class="bottom-nav-item" target="_blank" rel="noopener noreferrer"><span class="nav-icon">&#127942;</span>랭킹</a><a href="/community/" class="bottom-nav-item" target="_blank" rel="noopener noreferrer"><span class="nav-icon">&#128172;</span>커뮤니티</a><a href="https://open.kakao.com/o/s0VwwVhh" class="bottom-nav-item" target="_blank" rel="noopener noreferrer"><span class="nav-icon">&#128100;</span>문의</a></nav>\n'+
+      '<a href="tel:'+venue.phone.replace(/-/g,'')+'" class="phone-bar">&#128222; '+escapeHtml(venue.nickname||"")+" "+escapeHtml(venue.phone)+'</a>\n' : '') +
+    '<a href="'+MAIN_URL+'" class="main-link-bar" target="_blank" rel="noopener noreferrer">놀쿨에서 더 보기 &rarr;</a>\n'+
     // JS
     '<script>\n'+
     'setTimeout(function(){document.getElementById("slideupPopup").classList.add("show");},180000);\n'+
-    'var _sb=false;window.addEventListener("scroll",function(){var p=(window.scrollY+window.innerHeight)/document.body.scrollHeight;if(p>0.8&&!_sb){document.getElementById("scrollBanner").classList.add("show");_sb=true;}});\n'+
+    'var _sb=false,_sm=false;\n'+
+    'window.addEventListener("scroll",function(){\n'+
+    '  var p=(window.scrollY+window.innerHeight)/document.body.scrollHeight;\n'+
+    '  if(p>0.8&&!_sb){document.getElementById("scrollBanner").classList.add("show");_sb=true;}\n'+
+    '  if(p>0.8&&!_sm){var el=document.getElementById("secretMenu");if(el){el.style.display="block";el.style.animation="fadeSlideUp .6s ease"}_sm=true;}\n'+
+    '});\n'+
+    '(function(){var k="ta_'+slug+'",v=parseInt(localStorage.getItem(k)||"0")+1;localStorage.setItem(k,v);\n'+
+    '  var base='+((idx*17+43)%30+20)+'+v;var el=document.getElementById("taNum");if(el)el.textContent=base;})();\n'+
     '<\/script>\n'+
     '<script defer src="/engage.js"><\/script>\n'+
     '</body>\n</html>';
@@ -947,6 +1135,34 @@ function generateMainJs(venues) {
   return listingsStr + clientJs;
 }
 
+/* ══════════ DENSITY CALCULATION ══════════ */
+function stripHtml(html){
+  return html.replace(/<script[\s\S]*?<\/script>/gi,'')
+    .replace(/<style[\s\S]*?<\/style>/gi,'')
+    .replace(/<[^>]+>/g,'')
+    .replace(/&[a-z#0-9]+;/gi,'')
+    .replace(/\s+/g,'');
+}
+function calcDensity(html,name){
+  var text=stripHtml(html);
+  var nc=name.replace(/\s/g,'');
+  var nl=nc.length;
+  var count=0,pos=0;
+  while((pos=text.indexOf(nc,pos))!==-1){count++;pos+=nl;}
+  var density=text.length>0?(count*nl)/text.length*100:0;
+  return{count:count,chars:text.length,density:density};
+}
+var BOOST_LINES=[
+  "$name, 처음 방문한다면 이 정보부터 확인하자.",
+  "$region에서 $name만큼 분위기 잡힌 곳은 많지 않다.",
+  "실제로 $name에 다녀온 사람들은 재방문율이 높다.",
+  "$name 예약은 주말 기준 최소 이틀 전이 안전하다.",
+  "밤 문화에 관심 있다면 $name, 리스트에 넣어둘 만하다.",
+  "$name 주변 교통편과 주차 정보도 미리 체크하자.",
+  "$name의 진짜 매력은 직접 가봐야 알 수 있다.",
+  "$region $type 중 $name이 눈에 띄는 이유가 있다."
+];
+
 /* ══════════ MAIN EXECUTION ══════════ */
 (function main(){
   console.log("=== Neon Blue Night Sub-site Builder ===");
@@ -987,6 +1203,7 @@ function generateMainJs(venues) {
   console.log("Generated main.js");
 
   // Generate detail pages + OG SVGs
+  var densityReport=[];
   venues.forEach(function(v, idx){
     var slugDir = path.join(ROOT,"v",v._slug);
     fs.mkdirSync(slugDir, {recursive:true});
@@ -998,7 +1215,50 @@ function generateMainJs(venues) {
     var content = generateContent(v, idx);
 
     // Detail HTML
-    fs.writeFileSync(path.join(slugDir,"index.html"), generateDetailHtml(v, v._slug, content, idx), "utf8");
+    var html = generateDetailHtml(v, v._slug, content, idx);
+
+    // Density: trim H2 names if over 2.5%, boost if under 1.5%
+    var en=escapeHtml(v.name);
+    var vnTag='<!--VN-->'+en+' <!--/VN-->';
+
+    // Step 1: If over 2.5%, remove H2 name occurrences one by one
+    var stats=calcDensity(html,v.name);
+    var removed=0;
+    while(stats.density>2.5 && removed<3){
+      html=html.replace(vnTag,'');
+      removed++;
+      stats=calcDensity(html,v.name);
+    }
+
+    // Step 2: If under 1.5%, add boost sentences
+    if(stats.density<1.5){
+      var nc=v.name.replace(/\s/g,'');
+      var nl=nc.length;
+      var targetCount=Math.ceil(0.02*stats.chars/nl);
+      var needed=Math.min(targetCount-stats.count,7);
+      if(needed>0){
+        var lines=[];
+        for(var bi=0;bi<needed;bi++){
+          var line=BOOST_LINES[bi%BOOST_LINES.length]
+            .replace(/\$name/g,en)
+            .replace(/\$region/g,escapeHtml(v.region))
+            .replace(/\$type/g,escapeHtml(v.type));
+          lines.push('<p>'+line+'</p>');
+        }
+        html=html.replace('<!-- DENSITY -->',lines.join(''));
+      }
+    }
+
+    // Clean remaining markers
+    html=html.replace(/<!--\/?VN-->/g,'');
+    html=html.replace('<!-- DENSITY -->','');
+
+    // Final density + H2 count
+    var final=calcDensity(html,v.name);
+    var h2WithName=(html.match(new RegExp('<h2[^>]*>'+en.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length;
+    densityReport.push({slug:v._slug,name:v.name,chars:final.chars,count:final.count,density:final.density,h2:h2WithName});
+
+    fs.writeFileSync(path.join(slugDir,"index.html"), html, "utf8");
   });
   console.log("Generated "+venues.length+" detail pages + OG SVGs");
 
@@ -1091,5 +1351,18 @@ function generateMainJs(venues) {
   fs.writeFileSync(path.join(ROOT,"robots.txt"), robots, "utf8");
   console.log("Updated robots.txt");
 
-  console.log("=== BUILD COMPLETE: "+venues.length+" venues ===");
+  // Density report
+  console.log("\n=== DENSITY REPORT ===");
+  console.log("page | name | chars | count | density% | H2");
+  console.log("-".repeat(80));
+  var outOfRange=0;
+  densityReport.forEach(function(r){
+    var flag=(r.density<1.5||r.density>2.5)?"  ⚠":"  ✓";
+    if(r.density<1.5||r.density>2.5)outOfRange++;
+    console.log(r.slug+" | "+r.name+" | "+r.chars+" | "+r.count+" | "+r.density.toFixed(2)+"%"+flag+" | H2:"+r.h2);
+  });
+  console.log("-".repeat(80));
+  console.log("Total: "+densityReport.length+" pages, "+outOfRange+" out of range (1.5-2.5%)");
+
+  console.log("\n=== BUILD COMPLETE: "+venues.length+" venues ===");
 })();
