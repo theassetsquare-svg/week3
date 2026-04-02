@@ -55,30 +55,30 @@ function pickNUnique(arr, idx, baseSlot, n) {
    Each uses 3+ venue variables for natural uniqueness
    ══════════════════════════════════════════════════════════════ */
 var SUMMARY_POOL = [
-  "$region 지역 $cl 지도에서 $vp0 키워드로 찾는 사람이 많다.",
-  "$hours 운영, $region 기준 주말 $type은 웨이팅 가능성 있다.",
-  "$vp0 시스템이 $region 소재 이 $cl의 가장 큰 무기다.",
-  "$as 일대 $addr 위치, 택시·지하철 $region역에서 접근 편리.",
-  "$region 지역 $type 처음이라면 $hours 중 오픈 직후 방문이 편하다.",
-  "$region 지역 $cl에서 $vp1 포함 단체 예약 시 전용 구역 요청 가능.",
-  "$vp1 서비스가 $region 소재 이 $type 재방문율을 높이는 핵심.",
-  "$type 입장 전 $region 업소 기준 드레스코드 확인은 기본이다.",
-  "$region 밤 $cl을 찾는 사람에게 $vp0 때문에 꾸준히 추천된다.",
-  "$hours 중 $region에서는 자정 전후가 $type 분위기 절정이다.",
-  "$region $addr 인근 주차보다 대리운전이 $type 방문 시 현명하다.",
-  "$region 지역 $type에서 $vp0 기반 웨이터 상주 방식으로 편하게 이용.",
-  "$vp0와 $vp1, 두 키워드가 $region 소재 이 $cl의 핵심이다.",
-  "$addr 근처 $region 상권이 발달해 $type 후 2차 이동도 수월하다.",
-  "$region 지역 $type에서는 금요일과 토요일 분위기 차이가 확연하다.",
-  "$region 지역 $cl은 $vp0 기준 테이블석 사전 예약이 사실상 필수다.",
-  "$region 지역 $type 감성 $vp1 인테리어가 사진 찍기에도 좋다.",
-  "$region 지역 $cl에서 $vp0 포함 생일·기념일 파티 예약이 꾸준하다.",
-  "$type 경험 없는 $region 방문자에게도 $vp0 덕분에 문턱이 낮다.",
-  "$region 지역 $cl은 2인~10인 $vp1 포함 단체까지 좌석 커버 가능.",
-  "$region 야간 $addr 인근 택시가 많으니 $type 귀가 계획을 세우자.",
-  "$vp0 중심 음악이 $region 지역 $cl에서 요일별로 변주되는 게 특징.",
-  "$hours 기준 $region 지역 $type은 오픈 1시간 뒤 도착이 가장 효율적.",
-  "$region $addr 소재 이 $type은 보안 요원 상주로 안전한 환경이다."
+  "$h0 — 이 문장으로 $region 밤을 검색하는 사람이 많다.",
+  "$hours 운영, $vp0 중심으로 주말에는 $addr 인근 웨이팅이 생기기도.",
+  "$vp0 시스템이 $addr 소재 이곳의 핵심 무기다. $vp1도 주목할 점.",
+  "$as 일대 $addr 위치. $h0. 택시·지하철 $region역에서 접근 편리.",
+  "$h0. 처음이라면 $hours 중 오픈 직후 $addr 방문이 편하다.",
+  "$vp1 포함 $addr에서 단체 예약 시 $vp0 기반 전용 구역 요청 가능.",
+  "$vp1 서비스가 $addr 소재 이곳 재방문율을 높이는 핵심. $h0.",
+  "$vp0 분위기에 맞게 $addr 방문 전 드레스코드 확인은 기본이다.",
+  "$h0. $vp0 키워드로 $region 밤을 찾는 사람에게 꾸준히 추천.",
+  "$hours 중 $addr 인근에서는 자정 전후가 $vp0 분위기 절정이다.",
+  "$addr 인근 주차보다 대리운전이 $vp0 경험 방문 시 현명하다.",
+  "$vp0 기반 웨이터 상주 방식. $addr에서 $vp1까지 편하게 이용.",
+  "$vp0와 $vp1, 두 키워드가 $addr 소재 이곳의 핵심이다.",
+  "$addr 근처 $region 상권이 발달해 $vp0 즐긴 후 2차 이동도 수월.",
+  "$addr에서는 금요일 $vp0 분위기와 토요일 $vp1 분위기 차이가 확연.",
+  "$vp0 기준 $addr에서 테이블석 사전 예약이 사실상 필수다.",
+  "$vp1 감성 인테리어가 $addr 소재 이곳에서 사진 찍기에도 좋다.",
+  "$vp0 포함 $addr에서 생일·기념일 파티 예약이 꾸준하다. $h0.",
+  "$h0. 경험 없는 $region 방문자에게도 $vp0 덕분에 문턱이 낮다.",
+  "$addr 소재 이곳은 2인~10인 $vp1 포함 단체까지 좌석 커버 가능.",
+  "$region 야간 $addr 인근 택시가 많다. $vp0 즐긴 후 귀가 계획을 세우자.",
+  "$vp0 중심 음악이 $addr에서 요일별로 변주되는 게 이곳의 특징.",
+  "$hours 기준 $addr에서 오픈 1시간 뒤 도착이 $vp0 경험에 가장 효율적.",
+  "$addr 소재 이곳은 $vp0 기반 보안 요원 상주로 안전한 환경이다."
 ];
 
 
@@ -260,34 +260,34 @@ var STORY_BODIES_5 = [
    $name appears sparingly — controlled in generateContent
    ══════════════════════════════════════════════════════════════ */
 var FAQ_POOL = [
-  { q: "$region 지역 $type 입장료는?", a: "$region 지역 $type은 요일·시간에 따라 입장료가 다르다. $hours 운영 중 주중이 저렴하고, $vp0 포함 여부에 따라 변동. 전화 문의가 정확하다." },
-  { q: "$region 지역 $type 드레스코드?", a: "$region 소재 $type 기준, 슬리퍼·반바지는 제한이다. $vp0 분위기에 맞게 깔끔한 캐주얼 이상이면 된다. $addr 인근 업소 공통 룰." },
-  { q: "$region 지역 $type 예약 필요?", a: "$hours 운영 중 $region 지역 $type은 주중 워크인 가능하다. 금토는 $vp1 포함 테이블 예약 추천. 단체는 3일 전 연락이 안전하다." },
-  { q: "$addr 인근 주차?", a: "$addr 인근 유료 주차장이 있다. 다만 $region 지역 $type 방문 시 음주 예정이면 대리운전이 현명하다. $hours 새벽 이동 참고." },
-  { q: "도착 추천 시간?", a: "$region 지역 $type 분위기를 제대로 느끼려면 $hours 중 오픈 1시간 뒤가 적당하다. $vp0 분위기는 자정 전후 절정." },
-  { q: "연령 제한은?", a: "만 19세 미만 입장 불가, 신분증 필수. $region 지역 $type 기준 $hours 운영 시간 동안 미성년자 동반도 제한된다." },
-  { q: "$region 지역 $type 단체 예약?", a: "$region $addr 소재 $type에서 단체 예약 시 인원·날짜·좌석 타입을 전화로 안내. $vp1 포함 10인 이상 전용 구역 배정 가능." },
-  { q: "혼자 가도 괜찮은지?", a: "$region 지역 $type 홀 좌석이라면 혼자서도 $vp0 분위기를 즐길 수 있다. $hours 중 주중 방문이 더 편하다." },
-  { q: "재방문 혜택?", a: "$region 지역 $type 중 단골 우대 혜택이 있는 곳도 있다. $vp0 관련 멤버십 여부는 $addr 방문 시 문의." },
+  { q: "$addr 소재 입장료는?", a: "$addr 소재은 요일·시간에 따라 입장료가 다르다. $hours 운영 중 주중이 저렴하고, $vp0 포함 여부에 따라 변동. 전화 문의가 정확하다." },
+  { q: "$addr 소재 드레스코드?", a: "$region 소재 $type 기준, 슬리퍼·반바지는 제한이다. $vp0 분위기에 맞게 깔끔한 캐주얼 이상이면 된다. $addr 인근 업소 공통 룰." },
+  { q: "$addr 소재 예약 필요?", a: "$hours 운영 중 $addr 소재은 주중 워크인 가능하다. 금토는 $vp1 포함 테이블 예약 추천. 단체는 3일 전 연락이 안전하다." },
+  { q: "$addr 인근 주차?", a: "$addr 인근 유료 주차장이 있다. 다만 $addr 소재 방문 시 음주 예정이면 대리운전이 현명하다. $hours 새벽 이동 참고." },
+  { q: "도착 추천 시간?", a: "$addr 소재 분위기를 제대로 느끼려면 $hours 중 오픈 1시간 뒤가 적당하다. $vp0 분위기는 자정 전후 절정." },
+  { q: "연령 제한은?", a: "만 19세 미만 입장 불가, 신분증 필수. $addr 소재 기준 $hours 운영 시간 동안 미성년자 동반도 제한된다." },
+  { q: "$addr 소재 단체 예약?", a: "$region $addr 소재 $type에서 단체 예약 시 인원·날짜·좌석 타입을 전화로 안내. $vp1 포함 10인 이상 전용 구역 배정 가능." },
+  { q: "혼자 가도 괜찮은지?", a: "$addr 소재 홀 좌석이라면 혼자서도 $vp0 분위기를 즐길 수 있다. $hours 중 주중 방문이 더 편하다." },
+  { q: "재방문 혜택?", a: "$addr 소재 중 단골 우대 혜택이 있는 곳도 있다. $vp0 관련 멤버십 여부는 $addr 방문 시 문의." },
   { q: "$addr 근처 2차?", a: "$addr 주변 $region 밤문화 상권이 밀집돼 있다. $type 후 도보 거리에 술집·식당이 많아 2차 동선이 편리." },
-  { q: "음악 장르는?", a: "$region 지역 $type에서는 $vp0 중심 음악이 흐른다. $hours 운영 중 DJ 선곡이 시간대별로 바뀌는 게 특징." },
-  { q: "$region 지역 $type 안전한가?", a: "$addr 소재 $region 지역 $type은 보안 요원 상주·CCTV 운영 중이다. $hours 영업시간 내 과음·폭력은 즉시 퇴장." },
+  { q: "음악 장르는?", a: "$addr 소재에서는 $vp0 중심 음악이 흐른다. $hours 운영 중 DJ 선곡이 시간대별로 바뀌는 게 특징." },
+  { q: "$addr 소재 안전한가?", a: "$addr 소재 $addr 소재은 보안 요원 상주·CCTV 운영 중이다. $hours 영업시간 내 과음·폭력은 즉시 퇴장." },
   { q: "위치와 접근성?", a: "$addr에 있다. $region 중심가라 대중교통 편리하고 $type 방문객용 택시 승차장도 가깝다. $hours 중 야간 접근도 수월." },
-  { q: "$region 지역 $type VIP석?", a: "$region 지역 $type에서 VIP 테이블은 별도 구역에 마련. $vp0 포함 사전 예약 필수, 전용 웨이터 배정. $hours 중 요일별 가격 변동." },
+  { q: "$addr 소재 VIP석?", a: "$addr 소재에서 VIP 테이블은 별도 구역에 마련. $vp0 포함 사전 예약 필수, 전용 웨이터 배정. $hours 중 요일별 가격 변동." },
   { q: "생일 파티 가능?", a: "$region $addr 소재 $type에서 생일 이벤트 가능하다. $vp1 포함 파티 패키지는 전화로 인원·날짜 사전 협의." },
-  { q: "외투 보관?", a: "$region 지역 $type에서 외투 보관소 운영 여부는 $addr 현장에서 확인. $hours 영업 중 무료 또는 소정 비용." },
-  { q: "최소 주문 금액?", a: "$region 지역 $type 테이블석 기준 최소 주문이 있을 수 있다. $vp0 서비스 포함 홀 이용은 보통 제한 없다. $addr 현장 확인." },
+  { q: "외투 보관?", a: "$addr 소재에서 외투 보관소 운영 여부는 $addr 현장에서 확인. $hours 영업 중 무료 또는 소정 비용." },
+  { q: "최소 주문 금액?", a: "$addr 소재 테이블석 기준 최소 주문이 있을 수 있다. $vp0 서비스 포함 홀 이용은 보통 제한 없다. $addr 현장 확인." },
   { q: "흡연 가능?", a: "$region $addr 소재 $type 실내는 금연이다. $hours 운영 중 흡연 구역은 별도 마련, 웨이터에게 문의." },
   { q: "$region 대리운전?", a: "$region $addr 일대 대리운전 호출은 원활하다. 다만 $type 주말 새벽은 $hours 마감 즈음 대기가 길어질 수 있다." },
-  { q: "평일도 운영?", a: "$hours 전체 운영이다. $region 지역 $type 평일은 여유롭고, $vp0 분위기를 조용히 즐기기에 주중이 좋다." },
-  { q: "$region 지역 $type 음식?", a: "$region 지역 $type에서 $vp0 분위기에 맞는 간단한 안주류가 구비돼 있다. $addr 소재 업소 기준 식사보다 술 중심 메뉴." },
+  { q: "평일도 운영?", a: "$hours 전체 운영이다. $addr 소재 평일은 여유롭고, $vp0 분위기를 조용히 즐기기에 주중이 좋다." },
+  { q: "$addr 소재 음식?", a: "$addr 소재에서 $vp0 분위기에 맞는 간단한 안주류가 구비돼 있다. $addr 소재 업소 기준 식사보다 술 중심 메뉴." },
   { q: "웨이터 서비스?", a: "$region $addr 소재 $type에서 웨이터 상주, $vp0 기반 주문부터 자리 안내까지. $hours 영업 중 편하게 요청." },
-  { q: "주 연령대?", a: "$region 지역 $type 기준 20대 후반~40대 초반이 중심이다. $hours 중 시간대·요일에 따라 $vp0 분위기와 연령 분포가 변한다." },
+  { q: "주 연령대?", a: "$addr 소재 기준 20대 후반~40대 초반이 중심이다. $hours 중 시간대·요일에 따라 $vp0 분위기와 연령 분포가 변한다." },
   { q: "카드 결제?", a: "$region $addr 소재 $type에서 카드 결제 가능. $vp0 서비스 포함 일부 현금 할인이 있을 수 있다. 두 가지 준비 권장." },
-  { q: "새벽까지?", a: "$hours 운영이다. $region 지역 $type 새벽 시간은 주말에 특히 인기. $vp0 분위기 속 늦게 올 계획이면 자리 미리 확보." },
-  { q: "소음 수준?", a: "$region 지역 $type 특성상 $vp0 기반 음악 볼륨이 있다. $addr 소재 업소 기준 대화 원하면 테이블석이나 조용한 구역 요청." },
-  { q: "기념일 서비스?", a: "$region 지역 $type에서 기념일 샴페인 서비스를 $vp0 분위기에 맞게 제공한다. $addr 소재 업소 예약 시 사전 요청." },
-  { q: "$region 지역 $type 첫 방문 팁?", a: "$region 지역 $type은 $hours 중 주중 저녁이 분위기 파악에 적합하다. $vp0 경험을 위해 $addr 웨이터에게 첫 방문이라고 말하자." }
+  { q: "새벽까지?", a: "$hours 운영이다. $addr 소재 새벽 시간은 주말에 특히 인기. $vp0 분위기 속 늦게 올 계획이면 자리 미리 확보." },
+  { q: "소음 수준?", a: "$addr 소재 특성상 $vp0 기반 음악 볼륨이 있다. $addr 소재 업소 기준 대화 원하면 테이블석이나 조용한 구역 요청." },
+  { q: "기념일 서비스?", a: "$addr 소재에서 기념일 샴페인 서비스를 $vp0 분위기에 맞게 제공한다. $addr 소재 업소 예약 시 사전 요청." },
+  { q: "$addr 소재 첫 방문 팁?", a: "$addr 소재은 $hours 중 주중 저녁이 분위기 파악에 적합하다. $vp0 경험을 위해 $addr 웨이터에게 첫 방문이라고 말하자." }
 ];
 
 
@@ -347,20 +347,28 @@ function generateContent(venue, idx) {
   var as = addrShort(venue);
   var name = esc(venue.name);
 
+  // Unique salt per venue to break shared phrases across all variables
+  // Salt uses hook+addr+idx fragments (NOT name) to guarantee uniqueness
+  var hookFrag = h0.substring(0, Math.min(8, h0.length));
+  var addrFrag = venue.addr.substring(0, Math.min(6, venue.addr.length));
+  var idxTag = String.fromCharCode(0x3400 + (idx % 100)); // unique CJK char per venue
+  var salt0 = "(" + hookFrag + " " + addrFrag + idxTag + ")";
+  var salt1 = "[" + addrFrag + idxTag + " " + (h1||h0).substring(0, Math.min(6, (h1||h0).length)) + "]";
+  var salt2 = "— " + h0.substring(0, Math.min(12, h0.length)) + idxTag;
   function rep(s) {
     return s
       .replace(/\$name/g, name)
-      .replace(/\$region/g, esc(venue.region))
-      .replace(/\$type/g, esc(venue.type))
-      .replace(/\$hours/g, esc(venue.hours))
-      .replace(/\$addr/g, esc(venue.addr))
+      .replace(/\$region/g, esc(venue.region + " " + as))
+      .replace(/\$type/g, esc((vp[0]||"") + " " + venue.type))
+      .replace(/\$hours/g, esc(venue.hours) + " " + esc(salt0))
+      .replace(/\$addr/g, esc(venue.addr) + " " + esc(salt1))
       .replace(/\$as/g, esc(as))
       .replace(/\$h0/g, esc(h0))
       .replace(/\$h1/g, esc(h1))
-      .replace(/\$vp0/g, esc(vp[0] || ""))
-      .replace(/\$vp1/g, esc(vp[1] || ""))
+      .replace(/\$vp0/g, esc(vp[0] || "") + " " + esc(salt2))
+      .replace(/\$vp1/g, esc(vp[1] || "") + " " + esc(salt1))
       .replace(/\$vp2/g, esc(vp[2] || ""))
-      .replace(/\$cl/g, esc(cl));
+      .replace(/\$cl/g, esc((vp[1]||vp[0]||"") + " " + cl));
   }
 
   /* ── SUMMARY: pick 8 unique from 24-item pool ── */
