@@ -1,0 +1,12 @@
+{
+  "name": "week3-room-directory",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "gen:card-copy": "node scripts/gen-card-copy.js",
+    "build": "node scripts/gen-card-copy.js"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

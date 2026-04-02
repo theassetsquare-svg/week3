@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="url(#bg)"/>
+  <text x="90" y="68" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="56" font-weight="900" dominant-baseline="middle">N</text>
+  <text x="90" y="126" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="sans-serif" font-size="28" font-weight="700" dominant-baseline="middle" letter-spacing="4">DIR</text>
+  <rect x="28" y="154" width="124" height="2" rx="1" fill="#2563eb"/>
+</svg>
