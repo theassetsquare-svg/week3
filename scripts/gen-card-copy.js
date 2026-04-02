@@ -265,13 +265,48 @@ function generateDetailHtml(venue, slug, content, idx) {
     }
   }
   var hookHtml = escapeHtml(cleanHook).replace(/\n/g,"<br>");
-  var tagsHtml = venue.tags.map(function(t){return'<span class="detail-tag">'+escapeHtml(t)+'</span>';}).join("");
+  // Deduplicate tags to prevent keyword stuffing
+  var uniqueTags=[]; var tagSeen={};
+  venue.tags.forEach(function(t){if(!tagSeen[t]){tagSeen[t]=true;uniqueTags.push(t);}});
+  var tagsHtml = uniqueTags.map(function(t){return'<span class="detail-tag">'+escapeHtml(t)+'</span>';}).join("");
   var today = new Date().toISOString().slice(0,10);
   var _p = function(a,s){return dtPick(a,idx,s);};
-  // 후킹 제목: 가게이름 — hookTitle (60자, 놀쿨 제외)
-  var title = venue.hookTitle
-    ? venue.name + " — " + venue.hookTitle
-    : HOOK_TITLES[idx%HOOK_TITLES.length].replace(/\$name/g,venue.name).replace(/\$region/g,venue.region);
+  // 후킹 제목: 가게이름 — hookTitle (60자, 놀쿨 제외, 단어 중복 금지)
+  function hasTitleDup(t){
+    var words=t.match(/[가-힣]{2,}/g)||[];
+    for(var a=0;a<words.length;a++)for(var b=a+1;b<words.length;b++){
+      if(words[a].length>=2&&words[b].includes(words[a]))return true;
+      if(words[b].length>=2&&words[a].includes(words[b]))return true;
+    }
+    return false;
+  }
+  var title;
+  if(venue.hookTitle){
+    title = venue.name + " — " + venue.hookTitle;
+    if(hasTitleDup(title)){
+      // hookTitle에서 중복 단어 제거
+      var hookWords = venue.hookTitle.match(/[가-힣]{2,}/g)||[];
+      var nameWords = venue.name.match(/[가-힣]{2,}/g)||[];
+      var clean = venue.hookTitle;
+      nameWords.forEach(function(nw){
+        hookWords.forEach(function(hw){
+          if(hw!==nw && (hw.includes(nw)||nw.includes(hw))){
+            var toRemove=hw.length<=nw.length?hw:nw;
+            clean = clean.replace(new RegExp(toRemove.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'),'').replace(/\s{2,}/g,' ').trim();
+          }
+        });
+      });
+      if(clean.length>2) title = venue.name + " — " + clean;
+    }
+  } else {
+    // Try HOOK_TITLES, skip ones with duplicate words
+    title = "";
+    for(var ti=0;ti<HOOK_TITLES.length;ti++){
+      var candidate = HOOK_TITLES[(idx+ti)%HOOK_TITLES.length].replace(/\$name/g,venue.name).replace(/\$region/g,venue.region);
+      if(!hasTitleDup(candidate)){title=candidate;break;}
+    }
+    if(!title) title = venue.name + " — 가기 전 반드시 확인";
+  }
   if(title.length>60) title=title.slice(0,57)+"...";
   // 후킹 meta description: 150자 이내, 업소별 고유, 클릭 유도
   var hookDescs = [
@@ -419,7 +454,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<div class="map-box">'+
     '<a href="'+mapUrl+'" target="_blank" rel="noopener noreferrer" class="map-embed">'+
     '<div class="map-pin">&#128205;</div>'+
-    '<p class="map-name">'+escapeHtml(venue.name)+'</p>'+
+    '<p class="map-name">'+escapeHtml(venue.region)+' '+escapeHtml(venue.type)+'</p>'+
     '<p class="map-addr">'+escapeHtml(venue.addr)+'</p>'+
     '<p class="map-dist">'+escapeHtml(venue.region)+' 중심부에서 도보 약 5~10분</p>'+
     '</a>'+
