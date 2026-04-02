@@ -96,27 +96,76 @@ function qa(venues) {
   return errors;
 }
 
-/* ══════════ OG SVG (Neon Blue) ══════════ */
-function generateOgSvg(venue) {
+/* ══════════ OG IMAGE (1200x1200 PNG via sharp) ══════════ */
+var sharp;
+try { sharp = require("sharp"); } catch(e) { console.warn("sharp not found, using SVG fallback"); }
+
+function generateOgSvg1200(venue) {
   var color = REGION_COLORS[venue.region]||"#3B82F6";
   var safeName = escapeXml(venue.name);
   var safeType = escapeXml(venue.type);
   var safeRegion = escapeXml(venue.region);
-  var fontSize = safeName.length<=6?72:safeName.length<=10?52:safeName.length<=14?40:32;
+  var safeNick = escapeXml(venue.nickname||"");
+  var fontSize = safeName.length<=5?96:safeName.length<=8?72:safeName.length<=12?56:42;
   return [
-    '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">',
-    '  <rect width="1200" height="630" fill="#F8F7FF"/>',
-    '  <rect x="0" y="0" width="1200" height="4" fill="'+color+'"/>',
-    '  <rect x="0" y="626" width="1200" height="4" fill="'+color+'"/>',
-    '  <circle cx="600" cy="280" r="200" fill="none" stroke="'+color+'" stroke-opacity="0.12" stroke-width="2"/>',
-    '  <circle cx="600" cy="280" r="280" fill="none" stroke="'+color+'" stroke-opacity="0.06" stroke-width="1"/>',
-    '  <text x="600" y="260" text-anchor="middle" fill="#111111" font-family="sans-serif" font-size="'+fontSize+'" font-weight="900">'+safeName+'</text>',
-    '  <text x="600" y="320" text-anchor="middle" fill="'+color+'" font-family="sans-serif" font-size="28" font-weight="600">'+safeType+'</text>',
-    '  <text x="600" y="370" text-anchor="middle" fill="#555555" font-family="sans-serif" font-size="22">'+safeRegion+'</text>',
-    '  <text x="600" y="560" text-anchor="middle" fill="rgba(139,92,246,0.4)" font-family="sans-serif" font-size="14" font-weight="700" letter-spacing="6">놀쿨 NIGHTLIFE</text>',
-    '  <text x="600" y="590" text-anchor="middle" fill="rgba(6,182,212,0.5)" font-family="sans-serif" font-size="12" letter-spacing="3">도시의 밤을 지배하라</text>',
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">',
+    '  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0F0A1E"/><stop offset="100%" stop-color="#1A0B2E"/></linearGradient></defs>',
+    '  <rect width="1200" height="1200" fill="url(#bg)"/>',
+    '  <rect x="0" y="0" width="1200" height="6" fill="'+color+'"/>',
+    '  <rect x="0" y="1194" width="1200" height="6" fill="'+color+'"/>',
+    '  <circle cx="600" cy="500" r="300" fill="none" stroke="'+color+'" stroke-opacity="0.15" stroke-width="2"/>',
+    '  <circle cx="600" cy="500" r="420" fill="none" stroke="'+color+'" stroke-opacity="0.08" stroke-width="1"/>',
+    '  <circle cx="600" cy="500" r="180" fill="none" stroke="'+color+'" stroke-opacity="0.2" stroke-width="3"/>',
+    '  <text x="600" y="440" text-anchor="middle" fill="'+color+'" font-family="sans-serif" font-size="32" font-weight="700" letter-spacing="4">'+safeType+'</text>',
+    '  <text x="600" y="530" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="'+fontSize+'" font-weight="900" style="text-shadow:0 2px 8px rgba(0,0,0,0.5)">'+safeName+'</text>',
+    '  <text x="600" y="600" text-anchor="middle" fill="#94A3B8" font-family="sans-serif" font-size="28">'+safeRegion+'</text>',
+    (safeNick ? '  <rect x="400" y="680" width="400" height="60" rx="30" fill="'+color+'" fill-opacity="0.9"/>\n  <text x="600" y="720" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="28" font-weight="800">'+safeNick+'</text>' : ''),
+    '  <text x="600" y="1060" text-anchor="middle" fill="rgba(139,92,246,0.6)" font-family="sans-serif" font-size="24" font-weight="800" letter-spacing="8">놀쿨 NOLCOOL</text>',
+    '  <text x="600" y="1100" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="sans-serif" font-size="16" letter-spacing="4">NIGHTLIFE GUIDE</text>',
     '</svg>'
   ].join("\n");
+}
+
+function generateHomepageOgSvg() {
+  return [
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">',
+    '  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E0A3C"/><stop offset="50%" stop-color="#2D1B69"/><stop offset="100%" stop-color="#0F0A1E"/></linearGradient></defs>',
+    '  <rect width="1200" height="1200" fill="url(#bg)"/>',
+    '  <circle cx="600" cy="500" r="250" fill="none" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="3"/>',
+    '  <circle cx="600" cy="500" r="350" fill="none" stroke="#8B5CF6" stroke-opacity="0.15" stroke-width="2"/>',
+    '  <circle cx="600" cy="500" r="450" fill="none" stroke="#8B5CF6" stroke-opacity="0.08" stroke-width="1"/>',
+    '  <text x="600" y="420" text-anchor="middle" fill="#8B5CF6" font-family="sans-serif" font-size="36" font-weight="700" letter-spacing="12">전국 밤문화 가이드</text>',
+    '  <text x="600" y="520" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="120" font-weight="900" style="text-shadow:0 4px 16px rgba(139,92,246,0.5)">놀쿨</text>',
+    '  <text x="600" y="610" text-anchor="middle" fill="#06B6D4" font-family="sans-serif" font-size="48" font-weight="800" letter-spacing="16">NOLCOOL</text>',
+    '  <text x="600" y="700" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="sans-serif" font-size="24" letter-spacing="4">나이트 · 클럽 · 라운지 · 룸 · 요정 · 호빠</text>',
+    '  <text x="600" y="1080" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="sans-serif" font-size="20" letter-spacing="6">103개 업소 완벽 가이드</text>',
+    '  <rect x="0" y="0" width="1200" height="6" fill="#8B5CF6"/>',
+    '  <rect x="0" y="1194" width="1200" height="6" fill="#06B6D4"/>',
+    '</svg>'
+  ].join("\n");
+}
+
+function generateCategoryOgSvg(catName, count) {
+  var catColors={"나이트":"#EC4899","클럽":"#8B5CF6","라운지":"#06B6D4","룸":"#D4AF37","요정":"#059669","호빠":"#DC2626"};
+  var c=catColors[catName]||"#8B5CF6";
+  return [
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">',
+    '  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0F0A1E"/><stop offset="100%" stop-color="#1A0B2E"/></linearGradient></defs>',
+    '  <rect width="1200" height="1200" fill="url(#bg)"/>',
+    '  <circle cx="600" cy="480" r="250" fill="none" stroke="'+c+'" stroke-opacity="0.25" stroke-width="3"/>',
+    '  <text x="600" y="420" text-anchor="middle" fill="'+c+'" font-family="sans-serif" font-size="36" font-weight="700" letter-spacing="8">전국 '+escapeXml(catName)+'</text>',
+    '  <text x="600" y="530" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="96" font-weight="900">'+escapeXml(catName)+'</text>',
+    '  <text x="600" y="630" text-anchor="middle" fill="'+c+'" font-family="sans-serif" font-size="40" font-weight="700">총 '+count+'곳</text>',
+    '  <text x="600" y="1060" text-anchor="middle" fill="rgba(139,92,246,0.6)" font-family="sans-serif" font-size="24" font-weight="800" letter-spacing="8">놀쿨 NOLCOOL</text>',
+    '  <rect x="0" y="0" width="1200" height="6" fill="'+c+'"/>',
+    '  <rect x="0" y="1194" width="1200" height="6" fill="'+c+'"/>',
+    '</svg>'
+  ].join("\n");
+}
+
+async function svgToPng(svgString, outputPath) {
+  if(!sharp) { fs.writeFileSync(outputPath.replace('.png','.svg'), svgString, "utf8"); return; }
+  await sharp(Buffer.from(svgString)).png({quality:90}).toFile(outputPath);
 }
 
 /* ══════════ NAV HTML ══════════ */
@@ -251,7 +300,7 @@ var PHOTO_COLORS=["#1a1a2e,#16213e","#0f3460,#533483","#e94560,#1a1a2e","#16213e
 /* ══════════ DETAIL PAGE HTML ══════════ */
 function generateDetailHtml(venue, slug, content, idx) {
   var pageUrl = DEPLOY_URL+"/v/"+encodeURI(slug)+"/";
-  var ogImg = DEPLOY_URL+"/v/"+encodeURI(slug)+"/og.svg";
+  var ogImg = DEPLOY_URL+"/v/"+encodeURI(slug)+"/og.png";
   var mapQ = encodeURIComponent(venue.name+" "+venue.addr);
   var mapUrl = "https://www.google.com/maps/search/?api=1&query="+mapQ;
   // hook에서 지역명 중복 제거 (가게이름에 이미 포함)
@@ -346,7 +395,9 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<meta property="og:type" content="article"/>\n'+
     '<meta property="og:url" content="'+pageUrl+'"/>\n'+
     '<meta property="og:image" content="'+ogImg+'"/>\n'+
-    '<meta property="og:image:width" content="1200"/>\n<meta property="og:image:height" content="630"/>\n'+
+    '<meta property="og:image:width" content="1200"/>\n<meta property="og:image:height" content="1200"/>\n'+
+    '<meta property="og:image:type" content="image/png"/>\n'+
+    '<meta property="og:image:alt" content="'+escapeHtml(venue.name)+'"/>\n'+
     '<meta property="og:locale" content="ko_KR"/>\n'+
     '<meta property="og:site_name" content="도시의 밤을 지배하라"/>\n'+
     '<meta name="twitter:card" content="summary_large_image"/>\n'+
@@ -599,6 +650,12 @@ function generateCategoryHtml(catName, catVenues) {
     '<meta property="og:description" content="'+(catDesc[catName]||"")+'"/>\n'+
     '<meta property="og:type" content="website"/>\n'+
     '<meta property="og:url" content="'+DEPLOY_URL+'/c/'+encodeURI(catName)+'/"/>\n'+
+    '<meta property="og:image" content="'+DEPLOY_URL+'/c/'+encodeURI(catName)+'/og.png"/>\n'+
+    '<meta property="og:image:width" content="1200"/>\n<meta property="og:image:height" content="1200"/>\n'+
+    '<meta property="og:image:type" content="image/png"/>\n'+
+    '<meta property="og:image:alt" content="'+escapeHtml(catName)+' 가이드"/>\n'+
+    '<meta name="twitter:card" content="summary_large_image"/>\n'+
+    '<meta name="twitter:image" content="'+DEPLOY_URL+'/c/'+encodeURI(catName)+'/og.png"/>\n'+
     '<meta name="theme-color" content="#FFFFFF"/>\n'+
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>\n'+
     '<link rel="preconnect" href="https://fonts.googleapis.com"/>\n'+
@@ -1237,14 +1294,16 @@ var BOOST_LINES=[
   fs.writeFileSync(path.join(ROOT,"main.js"), mainJs, "utf8");
   console.log("Generated main.js");
 
-  // Generate detail pages + OG SVGs
+  // Generate detail pages + OG PNGs
   var densityReport=[];
+  var ogPromises=[];
   venues.forEach(function(v, idx){
     var slugDir = path.join(ROOT,"v",v._slug);
     fs.mkdirSync(slugDir, {recursive:true});
 
-    // OG SVG
-    fs.writeFileSync(path.join(slugDir,"og.svg"), generateOgSvg(v), "utf8");
+    // OG PNG (1200x1200)
+    var ogSvg = generateOgSvg1200(v);
+    ogPromises.push(svgToPng(ogSvg, path.join(slugDir,"og.png")));
 
     // Content
     var content = generateContent(v, idx);
@@ -1295,7 +1354,9 @@ var BOOST_LINES=[
 
     fs.writeFileSync(path.join(slugDir,"index.html"), html, "utf8");
   });
-  console.log("Generated "+venues.length+" detail pages + OG SVGs");
+  // Wait for all OG PNGs to finish
+  if(ogPromises.length) { Promise.all(ogPromises).then(function(){console.log("Generated "+venues.length+" OG PNGs (1200x1200)");}).catch(function(e){console.error("OG PNG error:",e);}); }
+  console.log("Generated "+venues.length+" detail pages");
 
   // Generate category pages
   var catMap = {};
@@ -1309,6 +1370,7 @@ var BOOST_LINES=[
     var catDir = path.join(ROOT,"c",catName);
     fs.mkdirSync(catDir,{recursive:true});
     fs.writeFileSync(path.join(catDir,"index.html"), generateCategoryHtml(catName, catMap[catName]), "utf8");
+    ogPromises.push(svgToPng(generateCategoryOgSvg(catName, catMap[catName].length), path.join(catDir,"og.png")));
   });
   console.log("Generated category pages");
 
@@ -1347,7 +1409,7 @@ var BOOST_LINES=[
   });
   venues.forEach(function(v){
     sitemapUrls.push('<url><loc>'+DEPLOY_URL+'/v/'+encodeURI(v._slug)+'/</loc><lastmod>'+today+'</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>'+
-      '<image:image><image:loc>'+DEPLOY_URL+'/v/'+encodeURI(v._slug)+'/og.svg</image:loc><image:title>'+escapeXml(v.name)+'</image:title></image:image></url>');
+      '<image:image><image:loc>'+DEPLOY_URL+'/v/'+encodeURI(v._slug)+'/og.png</image:loc><image:title>'+escapeXml(v.name)+'</image:title></image:image></url>');
   });
   var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'+sitemapUrls.join("\n")+'\n</urlset>';
   fs.writeFileSync(path.join(ROOT,"sitemap.xml"), sitemap, "utf8");
@@ -1380,6 +1442,10 @@ var BOOST_LINES=[
     }
   });
   fs.writeFileSync(path.join(ROOT,"_redirects"), redirectLines.join("\n")+"\n", "utf8");
+
+  // Generate homepage OG PNG
+  ogPromises.push(svgToPng(generateHomepageOgSvg(), path.join(ROOT,"og.png")));
+  console.log("Generated homepage + category OG PNGs");
 
   // Update robots.txt
   var robots = 'User-agent: *\nAllow: /\nCrawl-delay: 1\n\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nSitemap: '+DEPLOY_URL+'/sitemap.xml\n';
