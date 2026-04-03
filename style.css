@@ -601,46 +601,50 @@ body {
 }
 .card { animation: slideIn .3s ease forwards; }
 
-/* ══════════ BOTTOM NAV (모바일 하단 네비) ══════════ */
-.bottom-nav {
+/* ══════════ FIXED BOTTOM BARS (전화 + 메인링크만) ══════════ */
+.phone-bar {
+  position: fixed;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 44px;
+  background: #111;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 44px;
+  z-index: 49;
+  text-decoration: none;
+  display: block;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.phone-bar:hover { background: #222; }
+.main-link-bar {
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   max-width: 480px;
-  height: 56px;
-  background: #fff;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  height: 48px;
+  background: #8B5CF6;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 48px;
   z-index: 50;
-  padding: 0 8px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
-}
-.bottom-nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-decoration: none;
-  color: var(--text-dim);
-  font-size: 10px;
-  font-weight: 600;
-  gap: 2px;
-  min-width: 48px;
-  min-height: 48px;
-  padding: 4px 0;
-  transition: color .2s;
-  -webkit-tap-highlight-color: transparent;
+  display: block;
 }
-.bottom-nav-item .nav-icon { font-size: 22px; line-height: 1; }
-.bottom-nav-item.active { color: var(--accent); }
-.bottom-nav-item:hover { color: var(--accent); }
+.main-link-bar:hover { background: #7C3AED; }
 
-/* body에 하단 네비 공간 확보 */
-body { padding-bottom: 72px; }
+/* body에 하단 바 공간 확보 (48+44=92px) */
+body { padding-bottom: 100px; }
 
 /* ══════════ RESPONSIVE ══════════ */
 @media (max-width: 380px) {
@@ -658,18 +662,16 @@ body { padding-bottom: 72px; }
 .ptag { min-height: 44px; display: inline-flex; align-items: center; padding: 8px 14px; }
 .dd-item { min-height: 44px; }
 
-/* ══════════ PC (768px+) — 하단 네비 숨김, 상단 메뉴 사용 ══════════ */
+/* ══════════ PC (768px+) ══════════ */
 @media (min-width: 768px) {
-  .bottom-nav { display: none; }
-  body { padding-bottom: 0; }
-  .scroll-banner.show { bottom: 16px; }
-  .slideup-popup.show { bottom: 0; }
+  .scroll-banner.show { bottom: 100px; }
+  .slideup-popup.show { bottom: 96px; }
 }
 
 /* ══════════ MOBILE — 바 겹침 방지 ══════════ */
 @media (max-width: 767px) {
-  .scroll-banner.show { bottom: 72px; }
-  .slideup-popup.show { bottom: 56px; }
-  #autoNext { bottom: 72px !important; }
+  .scroll-banner.show { bottom: 100px; }
+  .slideup-popup.show { bottom: 96px; }
+  #autoNext { bottom: 100px !important; }
   #engageBadge { position: static; }
 }

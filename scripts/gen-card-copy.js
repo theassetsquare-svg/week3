@@ -357,15 +357,52 @@ function generateDetailHtml(venue, slug, content, idx) {
     if(!title) title = venue.name + " — 가기 전 반드시 확인";
   }
   if(title.length>60) title=title.slice(0,57)+"...";
-  // 후킹 meta description: 150자 이내, 업소별 고유, 클릭 유도
-  var hookDescs = [
-    function(v){return v.hook.split("\n")[0]+". "+v.value.split("·")[0].trim()+". 지금 확인.";},
-    function(v){return v.region+" "+v.type+" 찾고 있다면? "+v.name+" 드레스코드·분위기 솔직 정리. 가기 전 필수 확인.";},
-    function(v){return v.name+", "+v.hook.split("\n")[0]+". 예약·위치·분위기 한눈에. 지금 확인하세요.";},
-    function(v){return "\""+v.hook.split("\n")[0]+"\" "+v.value.split("·").slice(0,2).join(", ")+". 상세 정보 확인.";},
+  // 후킹 meta description: 140~155자, 업소별 고유, 단어 중복 없음
+  var h0d=venue.hook.split("\n")[0];
+  var h1d=(venue.hook.split("\n")[1]||"").trim();
+  var vps=venue.value.split("·").map(function(s){return s.trim();}).filter(Boolean);
+  // Build from 3 blocks: A(name+hook) + B(features) + C(CTA). Always produce 140-155 chars.
+  var blockA=[
+    function(v){return v.name+", "+h0d+".";},
+    function(v){return v.name+" — "+h0d+".";},
+    function(v){return h0d+". "+v.name+".";},
   ];
-  var rawDesc = hookDescs[idx%hookDescs.length](venue);
-  var desc = escapeHtml(rawDesc).slice(0,150);
+  var blockB=[
+    function(v){return " "+vps.slice(0,3).join(" · ")+". 드레스코드부터 입장 팁, 예약 방법까지 한눈에 정리.";},
+    function(v){return " "+(h1d||vps.slice(0,2).join(", "))+". "+v.region+" "+v.type+" 입장 조건, 운영 시간, 주변 교통 정보까지 총정리.";},
+    function(v){return " "+vps[0]+", "+(vps[2]||vps[1])+" 핵심. "+v.addr+" 소재 "+v.type+". 입장 복장·운영 시간·예약 팁 한눈에.";},
+    function(v){return " "+vps[0]+" 기반 "+v.type+". "+v.addr+" 소재. 예약 팁, 입장 조건, 운영 시간 정보 총정리.";},
+  ];
+  var blockC=[
+    " 가기 전 반드시 확인하세요.",
+    " 첫 방문이라면 꼭 읽어보세요.",
+    " 처음 가는 분 필수 확인.",
+    " 지금 바로 확인하세요.",
+    " 방문 전 필수 체크 가이드.",
+    " 예약 전 반드시 읽어보세요.",
+  ];
+  var a=blockA[idx%blockA.length](venue);
+  var b=blockB[idx%blockB.length](venue);
+  var c=blockC[idx%blockC.length];
+  var rawDesc=a+b+c;
+  var desc=escapeHtml(rawDesc);
+  // Trim or pad to 140-155 range
+  if(desc.length>155) desc=desc.slice(0,152)+"...";
+  if(desc.length<140){
+    var er=escapeHtml(venue.region), et=escapeHtml(venue.type), eh=escapeHtml(venue.hours);
+    var pads=[
+      {text:" "+er+" 소재, 운영 "+eh+".", skip:er+" 소재"},
+      {text:" "+et+" 비교 정리, 솔직 후기 모음.", skip:"비교 정리"},
+      {text:" 드레스코드, 위치, 분위기 정리.", skip:"드레스코드"},
+      {text:" 방문 전 꼭 체크하세요.", skip:"체크하세요"},
+    ];
+    for(var pi=0;pi<pads.length&&desc.length<140;pi++){
+      if(desc.indexOf(pads[pi].skip)<0 && desc.length+pads[pi].text.length<=155){
+        desc=desc.replace(/\.\s*$/,"")+"."+pads[pi].text;
+      }
+    }
+    if(desc.length>155) desc=desc.slice(0,152)+"...";
+  }
 
   // Phone CTA
   var phoneCta = "";
