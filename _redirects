@@ -101,3 +101,4 @@
 /v/%EB%B6%80%EC%82%B0%ED%98%B8%EB%B9%A0-%EC%8A%A4%ED%83%80/* /v/busan-hoppa-star/:splat 301
 /v/%EC%9E%A5%EC%95%88%EB%8F%99%ED%98%B8%EB%B9%A0-%EB%B9%B5%EB%B9%B5/* /v/jangandong-hoppa-bbangbbang/:splat 301
 /v/%EA%B1%B4%EB%8C%80%ED%98%B8%EB%B9%A0-W/* /v/geondae-hoppa-w/:splat 301
+/* /index.html 200

@@ -595,7 +595,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<div class="scroll-banner" id="scrollBanner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">여기서 끝이 아닙니다! 놀쿨에서 완벽한 밤 시작 &rarr;</a></div>\n'+
     // Fixed Bottom Bars: Phone + Main Link
     (venue.phone ?
-      '<a href="tel:'+venue.phone.replace(/-/g,'')+'" class="phone-bar">&#128222; '+escapeHtml(venue.nickname||"")+" "+escapeHtml(venue.phone)+'</a>\n' : '') +
+      '<a href="tel:'+venue.phone.replace(/-/g,'')+'" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; '+escapeHtml(venue.nickname||"")+" "+escapeHtml(venue.phone)+'</a>\n' : '') +
     '<a href="'+MAIN_URL+'" class="main-link-bar" target="_blank" rel="noopener noreferrer">놀쿨에서 더 보기 &rarr;</a>\n'+
     // JS
     '<script>\n'+
@@ -680,11 +680,11 @@ function generateCategoryHtml(catName, catVenues) {
 
   return '<!doctype html>\n<html lang="ko">\n<head>\n'+
     '<meta charset="UTF-8"/>\n<meta name="viewport" content="width=device-width,initial-scale=1.0"/>\n'+
-    '<title>'+escapeHtml(catName)+' TOP '+catVenues.length+'곳 — 가기 전 반드시 확인 | 놀쿨</title>\n'+
+    '<title>'+escapeHtml(catName)+' TOP '+catVenues.length+'곳 — 가기 전 반드시 확인</title>\n'+
     '<meta name="description" content="'+(catDesc[catName]||"")+' 놀쿨에서 확인."/>\n'+
     '<meta name="robots" content="index,follow"/>\n'+
     '<link rel="canonical" href="'+DEPLOY_URL+'/c/'+encodeURI(catName)+'/"/>\n'+
-    '<meta property="og:title" content="'+escapeHtml(catName)+' '+catVenues.length+'곳 완벽 비교 | 놀쿨"/>\n'+
+    '<meta property="og:title" content="'+escapeHtml(catName)+' '+catVenues.length+'곳 완벽 비교"/>\n'+
     '<meta property="og:description" content="'+(catDesc[catName]||"")+'"/>\n'+
     '<meta property="og:type" content="website"/>\n'+
     '<meta property="og:url" content="'+DEPLOY_URL+'/c/'+encodeURI(catName)+'/"/>\n'+
@@ -949,7 +949,7 @@ function generateInteractivePages(venues) {
 function communityShell(title, desc, bodyHtml) {
   return '<!doctype html>\n<html lang="ko">\n<head>\n'+
     '<meta charset="UTF-8"/>\n<meta name="viewport" content="width=device-width,initial-scale=1.0"/>\n'+
-    '<title>'+escapeHtml(title)+' | 놀쿨</title>\n'+
+    '<title>'+escapeHtml(title)+'</title>\n'+
     '<meta name="description" content="'+escapeHtml(desc)+'"/>\n'+
     '<meta name="robots" content="index,follow"/>\n'+
     '<meta name="theme-color" content="#FFFFFF"/>\n'+
@@ -1484,6 +1484,7 @@ var BOOST_LINES=[
       }
     }
   });
+  redirectLines.push("/* /index.html 200");
   fs.writeFileSync(path.join(ROOT,"_redirects"), redirectLines.join("\n")+"\n", "utf8");
 
   // Generate homepage OG PNG
