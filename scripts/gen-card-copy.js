@@ -9,7 +9,7 @@ const generateContent = require("./content-engine");
 
 const ROOT = path.join(__dirname, "..");
 const DEPLOY_URL = "https://week3-2og.pages.dev";
-const MAIN_URL = "https://ilsanroom.pages.dev";
+const MAIN_URL = "https://nolcool.com";
 const BANNED = ["해당","이곳","공간","매장","감도","기준","가격"];
 const MAX_REPEAT = 60; // 103 venues: cross-venue threshold relaxed
 const REGION_COLORS = {
@@ -243,7 +243,7 @@ var BA_REGULAR={
   "나이트":["단골석 자동 배정","DJ에게 신청곡 가능","웨이터가 먼저 다가옴","대리기사 번호 저장 완료","피크 타임 정확히 파악"],
   "클럽":["게스트 리스트 등록","DJ 타임테이블 파악","사운드 좋은 스팟 선점","외투 보관소 위치 암기","VIP 입장 루트 숙지"],
   "라운지":["바텐더에게 취향만 말함","시그니처 메뉴 즐겨찾기","프라이빗룸 단골 예약","인스타 포토존 위치 파악","보틀 키핑 활용"],
-  "룸":["전담 매니저와 카톡 연결","코스 구성 맞춤 요청","예약 없이도 룸 확보","회식 동선 완벽 설계","정찰제 업소만 선별 완료"],
+  "룸":["전담 매니저와 바로 연결","코스 구성 맞춤 요청","예약 없이도 룸 확보","회식 동선 완벽 설계","정찰제 업소만 선별 완료"],
   "요정":["코스 메뉴 사전 협의","국악단 맞춤 공연 요청","접대 성공률 100%","계절별 메뉴 파악","프라이빗룸 지정석 확보"],
   "호빠":["단골 호스트 지명","시스템 완벽 파악","예산 효율 극대화","친구 데려가는 가이드 역할","편하게 혼자도 감"]
 };
@@ -1096,7 +1096,7 @@ function generateCommunityPages(venues) {
     '<div style="background:#F9FAFB;border-radius:16px;padding:20px;line-height:2;">'+
     '<p><strong>1. 상호 존중</strong><br>다른 사용자를 존중하세요. 비하, 모욕, 차별적 발언은 금지입니다.</p>'+
     '<p><strong>2. 허위 정보 금지</strong><br>확인되지 않은 정보를 사실처럼 작성하지 마세요. 특정 업소에 대한 허위 리뷰도 금지입니다.</p>'+
-    '<p><strong>3. 광고·홍보 금지</strong><br>영리 목적의 광고, 홍보글은 삭제됩니다. 광고는 공식 채널(카톡 besta12)로 문의하세요.</p>'+
+    '<p><strong>3. 광고·홍보 금지</strong><br>영리 목적의 광고, 홍보글은 삭제됩니다. 광고는 하단 광고문의를 이용하세요.</p>'+
     '<p><strong>4. 불법 콘텐츠 금지</strong><br>불법 행위를 조장하거나, 음란물을 게시하면 즉시 삭제 및 이용 제한됩니다.</p>'+
     '<p><strong>5. 개인정보 보호</strong><br>타인의 전화번호, 주소, 실명 등 개인정보를 동의 없이 게시하지 마세요.</p>'+
     '<p><strong>6. 신고 제도</strong><br>규칙을 위반하는 글이나 댓글을 발견하면 신고해주세요. 검토 후 조치합니다.</p>'+
