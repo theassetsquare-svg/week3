@@ -730,7 +730,7 @@ function generateCategoryHtml(catName, catVenues) {
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'+
     '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>\n'+
     '<link href="/style.css" rel="stylesheet"/>\n'+
-    '</head>\n<body>\n'+
+    '</head>\n<body style="padding-bottom:100px;">\n'+
     '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n'+
     '<nav class="top-nav"><div class="top-nav-inner">'+
     '<a href="/" class="top-nav-link" target="_blank" rel="noopener noreferrer">홈</a>'+
@@ -763,6 +763,8 @@ function generateCategoryHtml(catName, catVenues) {
     '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 도시의 밤을 지배하라</p>'+
     '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
     '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 놀쿨. 정보 제공 목적.</p></footer>\n'+
+    '<a href="tel:01036954929" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; 신실장 010-3695-4929</a>\n'+
+    '<a href="'+MAIN_URL+'" class="main-link-bar" target="_blank" rel="noopener noreferrer">놀쿨에서 더 보기 &rarr;</a>\n'+
     '<script defer src="/engage.js"><\/script>\n'+
     '</body>\n</html>';
 }
@@ -988,7 +990,7 @@ function communityShell(title, desc, bodyHtml) {
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'+
     '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>\n'+
     '<link href="/style.css" rel="stylesheet"/>\n'+
-    '</head>\n<body>\n'+
+    '</head>\n<body style="padding-bottom:100px;">\n'+
     '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n'+
     navHtml()+'\n'+
     '<header class="cat-hero"><h1 class="cat-hero-title">'+escapeHtml(title)+'</h1></header>\n'+
@@ -1000,6 +1002,8 @@ function communityShell(title, desc, bodyHtml) {
     '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 도시의 밤을 지배하라</p>'+
     '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
     '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 놀쿨. 정보 제공 목적.</p></footer>\n'+
+    '<a href="tel:01036954929" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; 신실장 010-3695-4929</a>\n'+
+    '<a href="'+MAIN_URL+'" class="main-link-bar" target="_blank" rel="noopener noreferrer">놀쿨에서 더 보기 &rarr;</a>\n'+
     '<script defer src="/engage.js"><\/script>\n'+
     '</body>\n</html>';
 }
