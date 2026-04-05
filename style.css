@@ -562,7 +562,7 @@ body {
   transition: bottom .4s ease;
   box-shadow: 0 4px 20px rgba(139,92,246,0.3);
 }
-.scroll-banner.show { bottom: 16px; }
+.scroll-banner.show { bottom: 100px; }
 .scroll-banner a { color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
 
 /* ══════════ CATEGORY HERO ══════════ */
