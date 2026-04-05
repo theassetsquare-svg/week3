@@ -13,6 +13,12 @@
 - 지도: https://week3-2og.pages.dev/map/
 - 랭킹: https://week3-2og.pages.dev/ranking/
 - 매거진: https://week3-2og.pages.dev/magazine/
+- 이벤트: https://week3-2og.pages.dev/events/
+- 커뮤니티: https://week3-2og.pages.dev/community/
+- 취향 테스트: https://week3-2og.pages.dev/interactive/quiz.html
+- 드레스코드 체커: https://week3-2og.pages.dev/interactive/dresscode.html
+- 안전 도구: https://week3-2og.pages.dev/interactive/safety.html
+- N빵 계산기: https://week3-2og.pages.dev/community/calculator.html
 
 ## 전체 업소 목록 (103곳)
 - 일산룸 | 룸 | 일산 | /v/ilsan-room/

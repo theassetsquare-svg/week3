@@ -1488,6 +1488,10 @@ var BOOST_LINES=[
     sitemapUrls.push('<url><loc>'+DEPLOY_URL+'/v/'+encodeURI(v._slug)+'/</loc><lastmod>'+today+'</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>'+
       '<image:image><image:loc>'+DEPLOY_URL+'/v/'+encodeURI(v._slug)+'/og.png</image:loc><image:title>'+escapeXml(v.name)+'</image:title></image:image></url>');
   });
+  // Extra pages
+  ["map","ranking","magazine","events","community","interactive/quiz.html","interactive/dresscode.html","interactive/safety.html","community/tips.html","community/fashion.html","community/guidelines.html","community/calculator.html"].forEach(function(p){
+    sitemapUrls.push('<url><loc>'+DEPLOY_URL+'/'+p+(p.indexOf('.html')<0?'/':'')+'</loc><lastmod>'+today+'</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>');
+  });
   var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'+sitemapUrls.join("\n")+'\n</urlset>';
   fs.writeFileSync(path.join(ROOT,"sitemap.xml"), sitemap, "utf8");
   console.log("Generated sitemap.xml ("+sitemapUrls.length+" URLs)");
@@ -1525,8 +1529,12 @@ var BOOST_LINES=[
   ogPromises.push(svgToPng(generateHomepageOgSvg(), path.join(ROOT,"og.png")));
   console.log("Generated homepage + category OG PNGs");
 
-  // Update robots.txt
-  var robots = 'User-agent: *\nAllow: /\nCrawl-delay: 1\n\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nSitemap: '+DEPLOY_URL+'/sitemap.xml\n';
+  // Update robots.txt — ALL bots allowed, NO Disallow!
+  var robots = 'User-agent: *\nAllow: /\nSitemap: '+DEPLOY_URL+'/sitemap.xml\n\n'+
+    'User-agent: Googlebot\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\nUser-agent: NaverBot\nAllow: /\n\n'+
+    'User-agent: Daumoa\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\n'+
+    'User-agent: Google-Extended\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\n'+
+    'User-agent: Bingbot\nAllow: /\n\nUser-agent: Kakaotalk-scrap\nAllow: /\n';
   fs.writeFileSync(path.join(ROOT,"robots.txt"), robots, "utf8");
   console.log("Updated robots.txt");
 

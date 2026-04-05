@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Crawl-delay: 1
+Sitemap: https://week3-2og.pages.dev/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
@@ -8,7 +8,29 @@ Allow: /
 User-agent: Yeti
 Allow: /
 
+User-agent: NaverBot
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://week3-2og.pages.dev/sitemap.xml
+User-agent: Kakaotalk-scrap
+Allow: /
