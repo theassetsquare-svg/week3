@@ -445,7 +445,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>\n'+
     '<link rel="preconnect" href="https://fonts.googleapis.com"/>\n'+
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'+
-    '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>\n'+
+    '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"/>\n'+
     '<link href="/detail.css" rel="stylesheet"/>\n'+
     '<script type="application/ld+json">\n'+
     '{"@context":"https://schema.org","@graph":['+
@@ -468,6 +468,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     // [K5] Read Time
     '<div class="read-time"><span class="read-time-icon">&#9200;</span> 읽는 시간: 3분</div>\n'+
     '</header>\n'+
+    '<main role="main">\n'+
     // Phone CTA
     (phoneCta?'<div class="detail-section">'+phoneCta+'</div>\n':'')+
     // Summary
@@ -581,6 +582,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     // Large CTA
     '<div class="large-cta"><div class="large-cta-title">&#9733; 103개 업소 실시간 순위<br>+AI추천+리뷰<br>놀쿨 바로가기 &#9733;</div>'+
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
+    '</main>\n'+
     // Footer
     '<footer class="detail-footer">'+
     '<a href="https://open.kakao.com/o/s0VwwVhh" target="_blank" rel="noopener noreferrer" style="display:block;padding:14px;background:#F9FAFB;border:1px solid #D1D5DB;border-radius:16px;text-align:center;text-decoration:none;margin-bottom:16px;"><span style="background:#8B5CF6;color:#fff;font-size:10px;font-weight:900;padding:3px 6px;border-radius:4px;">AD</span> <span style="font-size:16px;font-weight:800;color:#111;">광고문의</span> <span style="color:#8B5CF6;font-weight:700;">카톡 : besta12</span></a>'+
@@ -728,7 +730,7 @@ function generateCategoryHtml(catName, catVenues) {
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>\n'+
     '<link rel="preconnect" href="https://fonts.googleapis.com"/>\n'+
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'+
-    '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>\n'+
+    '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"/>\n'+
     '<link href="/style.css" rel="stylesheet"/>\n'+
     '</head>\n<body style="padding-bottom:100px;">\n'+
     '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n'+
@@ -988,7 +990,7 @@ function communityShell(title, desc, bodyHtml) {
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>\n'+
     '<link rel="preconnect" href="https://fonts.googleapis.com"/>\n'+
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'+
-    '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>\n'+
+    '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"/>\n'+
     '<link href="/style.css" rel="stylesheet"/>\n'+
     '</head>\n<body style="padding-bottom:100px;">\n'+
     '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n'+
