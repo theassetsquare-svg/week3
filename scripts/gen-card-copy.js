@@ -456,6 +456,8 @@ function generateDetailHtml(venue, slug, content, idx) {
     '{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"'+DEPLOY_URL+'/"},{"@type":"ListItem","position":2,"name":'+JSON.stringify(venue.name)+',"item":"'+pageUrl+'"}]}'+
     ']}\n</script>\n'+
     '</head>\n<body>\n'+
+    // [K1] Scroll Progress Bar
+    '<div class="scroll-progress" id="scrollProgress"></div>\n'+
     navHtml()+'\n'+
     // Hero
     '<header class="detail-hero">\n'+
@@ -463,6 +465,8 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<h1>'+escapeHtml(venue.name)+'</h1>\n'+
     '<p class="detail-hook">'+hookHtml+'</p>\n'+
     '<div class="detail-tags">'+tagsHtml+'</div>\n'+
+    // [K5] Read Time
+    '<div class="read-time"><span class="read-time-icon">&#9200;</span> 읽는 시간: 3분</div>\n'+
     '</header>\n'+
     // Phone CTA
     (phoneCta?'<div class="detail-section">'+phoneCta+'</div>\n':'')+
@@ -597,12 +601,38 @@ function generateDetailHtml(venue, slug, content, idx) {
     (venue.phone ?
       '<a href="tel:'+venue.phone.replace(/-/g,'')+'" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; '+escapeHtml(venue.nickname||"")+" "+escapeHtml(venue.phone)+'</a>\n' : '') +
     '<a href="'+MAIN_URL+'" class="main-link-bar" target="_blank" rel="noopener noreferrer">놀쿨에서 더 보기 &rarr;</a>\n'+
+    // [K2] Sticky Highlight
+    '<div class="sticky-highlight" id="stickyHighlight">'+
+    '<button class="close-sh" onclick="document.getElementById(\'stickyHighlight\').classList.remove(\'show\')">&times;</button>'+
+    '<div class="sticky-highlight-icon">&#128161;</div>'+
+    '<div class="sticky-highlight-title">'+escapeHtml(venue.name)+' 숨겨진 장점</div>'+
+    '<div class="sticky-highlight-desc">'+escapeHtml(venue.hook.split("\n")[0])+'</div>'+
+    '</div>\n'+
+    // [K4] Exit Popup
+    '<div class="exit-popup-overlay" id="exitPopup">'+
+    '<div class="exit-popup">'+
+    '<div class="exit-popup-icon">&#9995;</div>'+
+    '<div class="exit-popup-title">잠깐! 이것만 보고 가세요</div>'+
+    '<div class="exit-popup-quote">&ldquo;다른 데 가봤는데 결국 여기로 돌아왔다&rdquo;<br>— '+escapeHtml(venue.name)+' 단골</div>'+
+    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="exit-popup-btn">놀쿨에서 더 알아보기 &rarr;</a>'+
+    '<button class="close-ep" onclick="document.getElementById(\'exitPopup\').classList.remove(\'show\')">닫기</button>'+
+    '</div></div>\n'+
     // JS
     '<script>\n'+
     'setTimeout(function(){document.getElementById("slideupPopup").classList.add("show");},180000);\n'+
-    'var _sb=false,_sm=false;\n'+
+    'var _sb=false,_sm=false,_sh=false,_ep=false,_lastY=window.scrollY;\n'+
     'window.addEventListener("scroll",function(){\n'+
-    '  var p=(window.scrollY+window.innerHeight)/document.body.scrollHeight;\n'+
+    '  var y=window.scrollY,h=document.body.scrollHeight-window.innerHeight;\n'+
+    '  var p=(y+window.innerHeight)/document.body.scrollHeight;\n'+
+    '  var pct=h>0?y/h*100:0;\n'+
+    '  /* [K1] Progress bar */\n'+
+    '  var pb=document.getElementById("scrollProgress");if(pb)pb.style.width=Math.min(pct,100)+"%";\n'+
+    '  /* [K2] Sticky highlight at 50% */\n'+
+    '  if(pct>50&&!_sh){document.getElementById("stickyHighlight").classList.add("show");_sh=true;\n'+
+    '    setTimeout(function(){var el=document.getElementById("stickyHighlight");if(el)el.classList.remove("show");},8000);}\n'+
+    '  /* [K4] Exit popup on scroll up after 30% */\n'+
+    '  if(pct>30&&y<_lastY-80&&!_ep){document.getElementById("exitPopup").classList.add("show");_ep=true;}\n'+
+    '  _lastY=y;\n'+
     '  if(p>0.8&&!_sb){document.getElementById("scrollBanner").classList.add("show");_sb=true;}\n'+
     '  if(p>0.8&&!_sm){var el=document.getElementById("secretMenu");if(el){el.style.display="block";el.style.animation="fadeSlideUp .6s ease"}_sm=true;}\n'+
     '});\n'+

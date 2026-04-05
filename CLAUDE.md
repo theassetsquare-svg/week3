@@ -44,7 +44,7 @@ Do NOT ask. Just fix. Report all titles when done.
 - title: Store name + hook. Under 60 chars
 - meta: 150 chars. H1+H2 with store name 3+ times
 - Schema: JSON-LD NightClub. og:image: real photo + nickname
-- sitemap.xml + robots.txt + llms.txt
+- robots.txt Allow ALL bots! NO Disallow! sitemap.xml list ALL pages! llms.txt for AI search! + llms.txt
 - Core Web Vitals: LCP<2.5s, INP<200ms, CLS<0.1
 - E-E-A-T: real experience tone. Canonical URL. NEVER duplicate title/content across domains!. og:image 1200x1200 (1:1) every page!
 

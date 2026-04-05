@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="naver-site-verification" content="ea130562cd2a96bd8354a40ba30d448eaca19e78" />
-  <meta name="description" content="오늘밤 어디 갈지 고민? 전국 103곳 나이트·클럽·라운지·룸·요정·호빠 분위기·드레스코드 한번에 비교. 가기 전 필수 확인." />
+  <meta name="description" content="오늘 밤 어디 갈지 고민 끝. 전국 나이트·클럽·라운지·룸·요정·호빠 103곳 드레스코드, 분위기, 예약 정보 한눈에 비교. 실패 없는 밤을 위한 솔직 가이드. 가기 전 반드시 확인하세요." />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="google-site-verification" content="HJjm7MRxykCQ7d_9L7glaTeeaWrmJIzAKY0BcNcfm88" />
   <link rel="canonical" href="https://week3-2og.pages.dev/" />
   <link rel="alternate" hreflang="ko" href="https://week3-2og.pages.dev/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://week3-2og.pages.dev/sitemap.xml" />
   <link rel="alternate" type="application/rss+xml" title="놀쿨 RSS" href="https://week3-2og.pages.dev/rss.xml" />
-  <meta property="og:title" content="놀쿨 — 전국 103곳 나이트·클럽·라운지 한번에 비교" />
-  <meta property="og:description" content="오늘밤 어디 갈지 고민? 전국 103곳 분위기·드레스코드 비교. 가기 전 필수 확인." />
+  <meta property="og:title" content="놀쿨 — 오늘 밤 실패 없는 선택" />
+  <meta property="og:description" content="오늘 밤 어디 갈지 고민 끝. 전국 103곳 드레스코드, 분위기, 예약 정보 한눈에 비교. 실패 없는 밤을 위한 솔직 가이드." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://week3-2og.pages.dev/" />
   <meta property="og:locale" content="ko_KR" />
@@ -23,10 +23,10 @@
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="놀쿨 NOLCOOL 전국 밤문화 가이드" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="놀쿨 — 전국 103곳 완벽 비교" />
-  <meta name="twitter:description" content="나이트·클럽·라운지·룸·요정·호빠. 놀쿨에서 확인." />
+  <meta name="twitter:title" content="놀쿨 — 오늘 밤 실패 없는 선택" />
+  <meta name="twitter:description" content="전국 103곳 드레스코드, 분위기, 예약 한눈에 비교. 실패 없는 밤을 위한 솔직 가이드." />
   <meta name="twitter:image" content="https://week3-2og.pages.dev/og.png" />
-  <title>놀쿨 — 전국 나이트·클럽·라운지·룸·요정·호빠 103곳 한번에 비교</title>
+  <title>놀쿨 — 오늘 밤 실패 없는 선택</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
   <meta name="theme-color" content="#FFFFFF" />
@@ -36,13 +36,16 @@
   <link href="/style.css" rel="stylesheet" />
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
-    {"@type":"WebSite","name":"놀쿨 — 전국 나이트·클럽·라운지 가이드","url":"https://week3-2og.pages.dev/","description":"전국 나이트·클럽·라운지·룸·요정·호빠 103곳 완벽 비교","inLanguage":"ko-KR","potentialAction":{"@type":"SearchAction","target":"https://week3-2og.pages.dev/?q={search_term_string}","query-input":"required name=search_term_string"}},
+    {"@type":"WebSite","name":"놀쿨 — 오늘 밤 실패 없는 선택","url":"https://week3-2og.pages.dev/","description":"전국 나이트·클럽·라운지·룸·요정·호빠 103곳. 드레스코드, 분위기, 예약 정보 한눈에 비교. 실패 없는 밤을 위한 솔직 가이드.","inLanguage":"ko-KR","potentialAction":{"@type":"SearchAction","target":"https://week3-2og.pages.dev/?q={search_term_string}","query-input":"required name=search_term_string"}},
     {"@type":"Organization","name":"놀쿨 NOLCOOL","url":"https://week3-2og.pages.dev/"},
     {"@type":"ItemList","name":"전국 밤문화 추천 리스트","numberOfItems":103,"itemListOrder":"https://schema.org/ItemListOrderDescending"}
   ]}
   </script>
 </head>
 <body>
+
+  <!-- [K1] Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- 후킹 #1: 상단 고정 배너 -->
   <div class="bamki-banner">
@@ -67,8 +70,8 @@
   <!-- HERO -->
   <header class="hero" role="banner">
     <div class="hero-inner">
-      <h1 class="hero-title"><span class="neon">놀쿨</span> — 전국 나이트·클럽·라운지 한번에 비교</h1>
-      <p class="hero-desc">전국 나이트·클럽·라운지·룸·요정·호빠 103곳<br>드레스코드·예약 한번에 비교</p>
+      <h1 class="hero-title"><span class="neon">놀쿨</span> — 오늘 밤 실패 없는 선택</h1>
+      <p class="hero-desc">전국 나이트·클럽·라운지·룸·요정·호빠 103곳<br>드레스코드·분위기·예약 한눈에 비교</p>
       <div class="search-box">
         <label for="searchInput" class="sr-only">업소명 또는 지역 검색</label>
         <input type="text" id="searchInput" placeholder="업소명 또는 지역으로 검색..." autocomplete="off" />
@@ -260,5 +263,8 @@
 
   <script defer src="/main.js"></script>
   <script defer src="/engage.js"></script>
+  <script>
+  window.addEventListener("scroll",function(){var e=document.getElementById("scrollProgress");if(e){var p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;e.style.width=Math.min(p,100)+"%";}});
+  </script>
 </body>
 </html>
