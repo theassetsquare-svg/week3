@@ -236,14 +236,14 @@ const HT_HOPPA = [
 // ══════════ ALL VENUES DATA ══════════
 const raw = [
   // 룸 (2)
-  {name:"일산룸",type:"룸",region:"일산",nickname:"신실장",phone:""},
+  {name:"일산룸",type:"룸",region:"일산",nickname:"신실장",phone:"010-3695-4929"},
   {name:"해운대고구려",type:"룸",region:"부산해운대",nickname:"",phone:""},
   // 요정 (1)
-  {name:"일산명월관요정",type:"요정",region:"일산",nickname:"신실장",phone:""},
+  {name:"일산명월관요정",type:"요정",region:"일산",nickname:"신실장",phone:"010-3695-4929"},
   // 나이트 서울 (12)
-  {name:"청담H2O나이트",type:"나이트",region:"청담",nickname:"펩시맨",phone:""},
+  {name:"청담H2O나이트",type:"나이트",region:"청담",nickname:"펩시맨",phone:"010-5655-4866"},
   {name:"강남줄리아나나이트",type:"나이트",region:"강남",nickname:"",phone:""},
-  {name:"신림그랑프리나이트",type:"나이트",region:"신림",nickname:"태양",phone:""},
+  {name:"신림그랑프리나이트",type:"나이트",region:"신림",nickname:"태양",phone:"010-4241-3748"},
   {name:"상봉동한국관나이트",type:"나이트",region:"상봉동",nickname:"",phone:""},
   {name:"수유샴푸나이트",type:"나이트",region:"수유",nickname:"",phone:""},
   {name:"독산국빈관나이트",type:"나이트",region:"독산",nickname:"",phone:""},
@@ -256,18 +256,18 @@ const raw = [
   // 나이트 경기 (16)
   {name:"일산샴푸나이트",type:"나이트",region:"일산",nickname:"",phone:""},
   {name:"일산물나이트",type:"나이트",region:"일산",nickname:"",phone:""},
-  {name:"파주야당스카이돔나이트",type:"나이트",region:"파주",nickname:"막내",phone:""},
+  {name:"파주야당스카이돔나이트",type:"나이트",region:"파주",nickname:"막내",phone:"010-8255-3509"},
   {name:"화정한국관나이트",type:"나이트",region:"화정",nickname:"",phone:""},
   {name:"김포호박나이트",type:"나이트",region:"김포",nickname:"",phone:""},
   {name:"김포썸나이트",type:"나이트",region:"김포",nickname:"",phone:""},
   {name:"구리호박나이트",type:"나이트",region:"구리",nickname:"",phone:""},
   {name:"의정부한국관나이트",type:"나이트",region:"의정부",nickname:"",phone:""},
-  {name:"수원찬스돔나이트",type:"나이트",region:"수원",nickname:"강호동",phone:""},
+  {name:"수원찬스돔나이트",type:"나이트",region:"수원",nickname:"강호동",phone:"010-9354-1323"},
   {name:"수원코리아나이트",type:"나이트",region:"수원",nickname:"",phone:""},
   {name:"오산호박나이트",type:"나이트",region:"오산",nickname:"",phone:""},
   {name:"성남국빈관나이트",type:"나이트",region:"성남",nickname:"",phone:""},
   {name:"인덕원국빈관나이트",type:"나이트",region:"인덕원",nickname:"",phone:""},
-  {name:"성남샴푸나이트",type:"나이트",region:"성남",nickname:"박찬호",phone:""},
+  {name:"성남샴푸나이트",type:"나이트",region:"성남",nickname:"박찬호",phone:"010-3987-6885"},
   {name:"분당퐁퐁나이트",type:"나이트",region:"분당",nickname:"",phone:""},
   {name:"평택호박나이트",type:"나이트",region:"평택",nickname:"",phone:""},
   // 나이트 인천/부천/안산 (5)
@@ -293,11 +293,11 @@ const raw = [
   {name:"대구토토가나이트",type:"나이트",region:"대구",nickname:"",phone:""},
   {name:"구미호박나이트",type:"나이트",region:"구미",nickname:"",phone:""},
   // 나이트 부산/울산 (5)
-  {name:"부산연산동물나이트",type:"나이트",region:"부산",nickname:"따봉",phone:""},
+  {name:"부산연산동물나이트",type:"나이트",region:"부산",nickname:"따봉",phone:"010-7942-9076"},
   {name:"부산아시아드나이트",type:"나이트",region:"부산",nickname:"",phone:""},
   {name:"부산물나이트",type:"나이트",region:"부산",nickname:"",phone:""},
   {name:"울산뉴월드나이트",type:"나이트",region:"울산",nickname:"",phone:""},
-  {name:"울산챔피언나이트",type:"나이트",region:"울산",nickname:"춘자",phone:""},
+  {name:"울산챔피언나이트",type:"나이트",region:"울산",nickname:"춘자",phone:"010-5653-0069"},
   // 나이트 광주/전라/제주 (6)
   {name:"광주상무나이트",type:"나이트",region:"광주",nickname:"",phone:""},
   {name:"광주토토밤나이트",type:"나이트",region:"광주",nickname:"",phone:""},
