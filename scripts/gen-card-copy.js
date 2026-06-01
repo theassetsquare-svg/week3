@@ -765,7 +765,7 @@ function generateCategoryHtml(catName, catVenues) {
     '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 도시의 밤을 지배하라</p>'+
     '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
     '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 놀쿨. 정보 제공 목적.</p></footer>\n'+
-    '<a href="tel:01036954929" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; 신실장 010-3695-4929</a>\n'+
+    '<a href="https://theassetsquare.com/" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; 신실장 </a>\n'+
     '<a href="'+MAIN_URL+'" class="main-link-bar" target="_blank" rel="noopener noreferrer">놀쿨에서 더 보기 &rarr;</a>\n'+
     '<script defer src="/engage.js"><\/script>\n'+
     '</body>\n</html>';
@@ -921,9 +921,9 @@ function generateInteractivePages(venues) {
     '<div id="drinkResult" style="margin-top:16px;text-align:center;font-size:18px;font-weight:800;min-height:28px;color:#DC2626;"></div></div>'+
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">긴급 연락처</h2>'+
     '<div style="display:grid;gap:8px;">'+
-    '<a href="tel:112" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:16px;background:#FEF2F2;border:1px solid #FECACA;border-radius:12px;text-decoration:none;color:#111;font-weight:700;font-size:16px;">&#128680; 경찰 112</a>'+
-    '<a href="tel:119" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:16px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;text-decoration:none;color:#111;font-weight:700;font-size:16px;">&#128657; 소방/구급 119</a>'+
-    '<a href="tel:1366" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:16px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;text-decoration:none;color:#111;font-weight:700;font-size:16px;">&#128156; 여성긴급 1366</a>'+
+    '<a href="https://theassetsquare.com/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:16px;background:#FEF2F2;border:1px solid #FECACA;border-radius:12px;text-decoration:none;color:#111;font-weight:700;font-size:16px;">&#128680; 경찰 112</a>'+
+    '<a href="https://theassetsquare.com/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:16px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;text-decoration:none;color:#111;font-weight:700;font-size:16px;">&#128657; 소방/구급 119</a>'+
+    '<a href="https://theassetsquare.com/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:16px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;text-decoration:none;color:#111;font-weight:700;font-size:16px;">&#128156; 여성긴급 1366</a>'+
     '</div>'+
     '<div style="background:#F8F7FF;border:1px solid #E5E7EB;border-radius:16px;padding:20px;margin-top:24px;">'+
     '<h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">귀가 안전 팁</h3>'+
@@ -1004,7 +1004,7 @@ function communityShell(title, desc, bodyHtml) {
     '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 도시의 밤을 지배하라</p>'+
     '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
     '<p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())<\/script> 놀쿨. 정보 제공 목적.</p></footer>\n'+
-    '<a href="tel:01036954929" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; 신실장 010-3695-4929</a>\n'+
+    '<a href="https://theassetsquare.com/" class="phone-bar" target="_blank" rel="noopener noreferrer">&#128222; 신실장 </a>\n'+
     '<a href="'+MAIN_URL+'" class="main-link-bar" target="_blank" rel="noopener noreferrer">놀쿨에서 더 보기 &rarr;</a>\n'+
     '<script defer src="/engage.js"><\/script>\n'+
     '</body>\n</html>';
