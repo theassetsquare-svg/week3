@@ -168,6 +168,21 @@ async function svgToPng(svgString, outputPath) {
   await sharp(Buffer.from(svgString)).png({quality:90}).toFile(outputPath);
 }
 
+/* All venues — set before the detail loop so generateDetailHtml can pick real related venues */
+var ALL_VENUES = [];
+
+/* Footer hub row — internal links so map/ranking/magazine/events/community are never orphaned */
+function hubLinksHtml() {
+  return '<nav class="hub-links" aria-label="둘러보기" style="display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;margin:18px 0 8px;font-size:13px;">'+
+    '<a href="/" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;">홈</a>'+
+    '<a href="/ranking/" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;">인기 순위</a>'+
+    '<a href="/map/" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;">전국 지도</a>'+
+    '<a href="/magazine/" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;">매거진</a>'+
+    '<a href="/events/" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;">이벤트</a>'+
+    '<a href="/community/" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;">커뮤니티</a>'+
+    '</nav>';
+}
+
 /* ══════════ NAV HTML ══════════ */
 function navHtml() {
   return '<div class="bamki-banner"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer">&#9733; 프리미엄 정보+실시간 예약은 <strong>놀쿨</strong>에서 &#9733; &rarr;</a></div>\n' +
@@ -568,9 +583,19 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<span>&#128663; 대리운전 추천 (음주 시)</span>'+
     '<span>&#127359; 주차 사전 문의</span>'+
     '</div></div>\n</div>\n'+
-    // Similar Venues
-    '<div class="similar-section"><p class="similar-title">비슷한 분위기 5곳 더 보기</p>'+
-    '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="similar-cta">놀쿨에서 비슷한 업소 찾기 &rarr;</a></div>\n'+
+    // Similar Venues — REAL internal links (same region first, then same type) for 회유 동선 + inbound
+    (function(){
+      var rel=[];
+      ALL_VENUES.forEach(function(o){ if(o._slug!==slug && o.region===venue.region) rel.push(o); });
+      if(rel.length<6) ALL_VENUES.forEach(function(o){ if(o._slug!==slug && o.type===venue.type && rel.indexOf(o)<0) rel.push(o); });
+      if(rel.length<6) ALL_VENUES.forEach(function(o){ if(o._slug!==slug && rel.indexOf(o)<0) rel.push(o); });
+      rel=rel.slice(0,6);
+      var items=rel.map(function(o){
+        return '<a href="/v/'+encodeURI(o._slug)+'/" target="_blank" rel="noopener noreferrer" class="similar-link" style="display:block;padding:12px 14px;border:1px solid #E5E7EB;border-radius:12px;margin-bottom:8px;text-decoration:none;color:#111;font-weight:600;">'+escapeHtml(o.name)+' <span style="font-size:12px;color:#8B5CF6;font-weight:500;">'+escapeHtml(o.region+' '+o.type)+'</span></a>';
+      }).join("");
+      return '<div class="similar-section"><p class="similar-title">'+escapeHtml(venue.region)+' 근처 비슷한 곳</p>'+items+
+        '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="similar-cta">놀쿨에서 더 많은 업소 찾기 &rarr;</a></div>\n';
+    })()+
     // FAQ
     '<div class="detail-section">\n<h2 class="detail-section-title"><!--VN-->'+escapeHtml(venue.name)+' <!--/VN-->'+_p(LBL_FAQ,50)+'</h2>\n'+faqHtml+'\n</div>\n'+
     '<!-- DENSITY -->\n'+
@@ -597,6 +622,7 @@ function generateDetailHtml(venue, slug, content, idx) {
     '</main>\n'+
     // Footer
     '<footer class="detail-footer">'+
+    hubLinksHtml()+
     '<a href="https://open.kakao.com/o/s0VwwVhh" target="_blank" rel="noopener noreferrer" style="display:block;padding:14px;background:#F9FAFB;border:1px solid #D1D5DB;border-radius:16px;text-align:center;text-decoration:none;margin-bottom:16px;"><span style="background:#8B5CF6;color:#fff;font-size:10px;font-weight:900;padding:3px 6px;border-radius:4px;">AD</span> <span style="font-size:16px;font-weight:800;color:#111;">광고문의</span> <span style="color:#8B5CF6;font-weight:700;">카톡 : besta12</span></a>'+
     '<p class="detail-footer-slogan">놀쿨 — 전국 나이트라이프 가이드</p>'+
     '<p class="detail-footer-brand">NOLCOOL NIGHTLIFE</p>'+
@@ -771,6 +797,11 @@ function generateCategoryHtml(catName, catVenues) {
     '<div class="section"><div class="section-inner"><div class="cta-box"><div class="cta-icon">&#9200;</div><div class="cta-title">인기 요일·시간대</div><div style="font-size:15px;color:#333;margin-top:8px;">'+escapeHtml(hottime)+'</div></div></div></div>\n'+
     // Cards
     '<main class="section"><div class="section-inner"><h2 class="section-title"><span class="accent-dot"></span> '+escapeHtml(catName)+' 전체 목록</h2><div class="grid">\n'+cardsHtml+'\n</div></div></main>\n'+
+    // Full internal list — every venue in this category is linked (no orphans, all crawlable)
+    '<div class="section"><div class="section-inner"><h2 class="section-title"><span class="accent-dot"></span> '+escapeHtml(catName)+' '+catVenues.length+'곳 전체 보기</h2>'+
+    '<div class="cat-all-list" style="display:flex;flex-wrap:wrap;gap:8px;">'+
+    catVenues.map(function(v){return '<a href="/v/'+encodeURI(v._slug)+'/" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:8px 14px;border:1px solid #E5E7EB;border-radius:999px;font-size:14px;text-decoration:none;color:#111;background:#fff;">'+escapeHtml(v.name)+'</a>';}).join("")+
+    '</div></div></div>\n'+
     // VS Vote
     (catVenues.length>=2 ?
     '<div class="section"><div class="section-inner"><div class="cta-box"><div class="cta-icon">&#9876;</div><div class="cta-title">VS 대결</div><div style="display:flex;gap:8px;margin-top:12px;"><a href="/v/'+encodeURI(va._slug)+'/" target="_blank" rel="noopener noreferrer" style="flex:1;padding:12px;border:2px solid #8B5CF6;border-radius:12px;background:#F8F7FF;text-align:center;text-decoration:none;color:#111;font-weight:700;">'+escapeHtml(va.name)+'</a><span style="display:flex;align-items:center;font-weight:900;color:#8B5CF6;">VS</span><a href="/v/'+encodeURI(vb._slug)+'/" target="_blank" rel="noopener noreferrer" style="flex:1;padding:12px;border:2px solid #06B6D4;border-radius:12px;background:#F0FDFA;text-align:center;text-decoration:none;color:#111;font-weight:700;">'+escapeHtml(vb.name)+'</a></div></div></div></div>\n' : '') +
@@ -779,6 +810,7 @@ function generateCategoryHtml(catName, catVenues) {
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     // Footer
     '<footer class="footer">'+
+    hubLinksHtml()+
     '<a href="https://open.kakao.com/o/s0VwwVhh" target="_blank" rel="noopener noreferrer" class="ad-banner"><span class="ad-badge">AD</span><span class="ad-title">광고문의</span><span class="ad-kakao">카톡 : besta12</span><span class="ad-btn">KakaoTalk</span></a>'+
     '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 전국 나이트라이프 가이드</p>'+
     '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
@@ -1041,6 +1073,7 @@ function communityShell(title, desc, bodyHtml, pageUrl) {
     '<div class="large-cta"><div class="large-cta-title">더 많은 정보와 커뮤니티<br>놀쿨에서 참여하세요</div>'+
     '<a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="large-cta-btn">놀쿨 바로가기 &rarr;</a></div>\n'+
     '<footer class="footer">'+
+    hubLinksHtml()+
     '<a href="https://open.kakao.com/o/s0VwwVhh" target="_blank" rel="noopener noreferrer" class="ad-banner"><span class="ad-badge">AD</span><span class="ad-title">광고문의</span><span class="ad-kakao">카톡 : besta12</span><span class="ad-btn">KakaoTalk</span></a>'+
     '<p class="footer-slogan" style="font-size:13px;color:#8B5CF6;margin-bottom:12px;">놀쿨 — 전국 나이트라이프 가이드</p>'+
     '<p class="footer-brand">NOLCOOL NIGHTLIFE</p>'+
@@ -1410,6 +1443,7 @@ var BOOST_LINES=[
   console.log("Generated main.js");
 
   // Generate detail pages + OG PNGs
+  ALL_VENUES = venues;   // expose for related-venue picking in generateDetailHtml
   var densityReport=[];
   var ogPromises=[];
   venues.forEach(function(v, idx){
@@ -1648,13 +1682,38 @@ var BOOST_LINES=[
     var rf=path.join(ROOT,"_redirects");
     if(fs.existsSync(rf) && /\/\*\s+\/index\.html\s+200/.test(fs.readFileSync(rf,"utf8")))
       viol.push("SOFT-404: _redirects has SPA catch-all '/* /index.html 200' (missing paths would 200)");
+    // FUNNEL: dead-end (0 onward), orphan (0 inbound), nolcool non-direct, dark patterns
+    var DARK=["마감임박","마감 임박","품절","매진","곧 마감","마지막 기회","선착순 마감","자리 없음","오늘만 특가","한정 특가"];
+    var htmlPages=targets.filter(function(f){return /\.html$/.test(f)&&fs.existsSync(f);});
+    var keyOf=function(f){var p=f.slice(ROOT.length).replace(/index\.html$/,"");return p===""?"/":p;};
+    var keySet={}; htmlPages.forEach(function(f){keySet[keyOf(f)]=true;});
+    var inbound={}; Object.keys(keySet).forEach(function(k){inbound[k]=0;});
+    htmlPages.forEach(function(f){
+      var raw=fs.readFileSync(f,"utf8"), rel=f.replace(ROOT+"/",""), self=keyOf(f);
+      var hrefs=raw.match(/href="([^"]+)"/g)||[];
+      var onward=0, into={};
+      hrefs.forEach(function(m){
+        var h=m.slice(6,-1);
+        if(/nolcool\.com/.test(h)){onward++; if(/ilsanroom|pages\.dev\/.*nolcool|nolcool\.com\/(?!$|\?|#)/.test(h)){} return;}
+        if(h.indexOf("ilsanroom")>=0)viol.push("NOLCOOL non-direct (ilsanroom hop) in "+rel);
+        var k=h.split("?")[0].split("#")[0]; try{k=decodeURIComponent(k);}catch(e){}
+        if(k.charAt(0)!=="/")return; k=k.replace(/index\.html$/,"");
+        if(keySet[k]){onward++; if(k!==self)into[k]=true;}
+      });
+      Object.keys(into).forEach(function(k){inbound[k]++;});
+      if(onward===0)viol.push("DEAD-END (0 onward links) in "+rel);
+      DARK.forEach(function(w){ if(raw.indexOf(w)>=0)viol.push("DARK-PATTERN '"+w+"' in "+rel); });
+      // venue pages must link nolcool.com directly
+      if(/\/v\//.test(self) && !/href="https:\/\/nolcool\.com"/.test(raw))viol.push("NOLCOOL CTA missing/indirect in "+rel);
+    });
+    Object.keys(inbound).forEach(function(k){ if(inbound[k]===0 && k!=="/")viol.push("ORPHAN (0 inbound) "+k); });
     if(viol.length){
       console.error("\n❌ OUTPUT GATE FAILED ("+viol.length+" violations):");
       viol.slice(0,40).forEach(function(v){console.error("  "+v);});
       if(viol.length>40)console.error("  ... +"+(viol.length-40)+" more");
       process.exit(1);
     }
-    console.log("\n✅ OUTPUT GATE PASSED: 0 garble · 0 risk · 0 dup-line>3 · 0 stuffing · meta 120-160 unique · 0 double-dot · 0 soft-404 catch-all");
+    console.log("\n✅ OUTPUT GATE PASSED: 0 garble · 0 risk · 0 dup-line>3 · 0 stuffing · meta 120-160 unique · 0 double-dot · 0 soft-404 · 0 dead-end · 0 orphan · nolcool direct · 0 dark-pattern");
   })();
 
   console.log("\n=== BUILD COMPLETE: "+venues.length+" venues ===");
