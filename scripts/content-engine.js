@@ -30,6 +30,30 @@ function hookLine(v, n) { var h = v.hook.split("\n"); return (h[n] || h[0]).repl
 function valueParts(v) { return v.value.split("·").map(function (s) { return s.trim(); }).filter(Boolean); }
 function addrShort(v) { var m = v.addr.match(/[가-힣]+[구동]/); return m ? m[0] : v.region; }
 
+/* Korean particle (josa) selection by final-consonant (받침) of the preceding word.
+   Used ONLY at template variable boundaries (rv), never global text — so words like
+   "사과"/"결과" are never mangled. Non-Korean tail → keep template's default particle. */
+function jp(word, p) {
+  if (!word) return p;
+  var last = word.charCodeAt(word.length - 1);
+  if (last < 0xAC00 || last > 0xD7A3) return p;
+  var jong = (last - 0xAC00) % 28, has = jong !== 0;
+  switch (p) {
+    case "은": case "는": return has ? "은" : "는";
+    case "이": case "가": return has ? "이" : "가";
+    case "을": case "를": return has ? "을" : "를";
+    case "과": case "와": return has ? "과" : "와";
+    case "으로": case "로": return (!has || jong === 8) ? "로" : "으로";
+  }
+  return p;
+}
+/* Replace one $token: fix a josa attached right after it, then replace bare token. */
+function rv(s, token, value) {
+  var re = new RegExp("\\" + token + "(으로|은|는|이|가|을|를|과|와|로)", "g");
+  s = s.replace(re, function (_, p) { return value + jp(value, p); });
+  return s.split(token).join(value);
+}
+
 /* Unescape HTML entities for FAQ/conclusion text */
 function unesc(s) {
   return s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"');
@@ -352,19 +376,19 @@ function generateContent(venue, idx) {
   // De-dupe region phrase so "$region" never doubles (e.g. addr "안산" + region "안산").
   var regionPhrase = (as && as !== venue.region) ? (venue.region + " " + as) : venue.region;
   function rep(s) {
-    return s
-      .replace(/\$name/g, name)
-      .replace(/\$region/g, esc(regionPhrase))
-      .replace(/\$type/g, esc((vp[0]||"") + " " + venue.type))
-      .replace(/\$hours/g, esc(venue.hours))
-      .replace(/\$addr/g, esc(venue.addr))
-      .replace(/\$as/g, esc(as))
-      .replace(/\$h0/g, esc(h0))
-      .replace(/\$h1/g, esc(h1))
-      .replace(/\$vp0/g, esc(vp[0] || ""))
-      .replace(/\$vp1/g, esc(vp[1] || ""))
-      .replace(/\$vp2/g, esc(vp[2] || ""))
-      .replace(/\$cl/g, esc((vp[1]||vp[0]||"") + " " + cl));
+    s = rv(s, "$name", name);
+    s = rv(s, "$region", esc(regionPhrase));
+    s = rv(s, "$type", esc((vp[0]||"") + " " + venue.type));
+    s = rv(s, "$hours", esc(venue.hours));
+    s = rv(s, "$addr", esc(venue.addr));
+    s = rv(s, "$as", esc(as));
+    s = rv(s, "$h0", esc(h0));
+    s = rv(s, "$h1", esc(h1));
+    s = rv(s, "$vp0", esc(vp[0] || ""));
+    s = rv(s, "$vp1", esc(vp[1] || ""));
+    s = rv(s, "$vp2", esc(vp[2] || ""));
+    s = rv(s, "$cl", esc((vp[1]||vp[0]||"") + " " + cl));
+    return s;
   }
 
   /* ── SUMMARY: pick 8 unique from 24-item pool ── */

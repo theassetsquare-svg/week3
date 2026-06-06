@@ -358,8 +358,8 @@ function generateDetailHtml(venue, slug, content, idx) {
   }
   if(title.length>60) title=title.slice(0,57)+"...";
   // 후킹 meta description: 140~155자, 업소별 고유, 단어 중복 없음
-  var h0d=venue.hook.split("\n")[0];
-  var h1d=(venue.hook.split("\n")[1]||"").trim();
+  var h0d=venue.hook.split("\n")[0].replace(/[.\s]+$/,"");   // strip trailing period → templates append one (no "중심..")
+  var h1d=(venue.hook.split("\n")[1]||"").replace(/[.\s]+$/,"").trim();
   var vps=venue.value.split("·").map(function(s){return s.trim();}).filter(Boolean);
   // Build from 3 blocks: A(name+hook) + B(features) + C(CTA). Always produce 140-155 chars.
   var blockA=[
@@ -449,7 +449,16 @@ function generateDetailHtml(venue, slug, content, idx) {
     '<link href="/detail.css" rel="stylesheet"/>\n'+
     '<script type="application/ld+json">\n'+
     '{"@context":"https://schema.org","@graph":['+
-    '{"@type":"NightClub","name":'+JSON.stringify(venue.name)+',"address":'+JSON.stringify(venue.addr)+',"openingHours":'+JSON.stringify(venue.hours)+
+    '{"@type":"NightClub","name":'+JSON.stringify(venue.name)+
+    ','+(function(){
+      // PostalAddress from REAL data only — region always real; street/locality only if present; NO geo (no coords in data)
+      var p=['"addressCountry":"KR"','"addressRegion":'+JSON.stringify(venue.region)];
+      if(venue.addr&&venue.addr!==venue.region){
+        p.push((/[0-9]|로|길|번지/.test(venue.addr)?'"streetAddress":':'"addressLocality":')+JSON.stringify(venue.addr));
+      }
+      return '"address":{"@type":"PostalAddress",'+p.join(',')+'}';
+    })()+
+    ',"openingHours":'+JSON.stringify(venue.hours)+
     (venue.phone?',"telephone":'+JSON.stringify(venue.phone):'')+
     ',"url":"'+pageUrl+'","image":"'+ogImg+'"},'+
     '{"@type":"FAQPage","mainEntity":['+faqSchema+']},'+
@@ -705,12 +714,12 @@ function generateCategoryHtml(catName, catVenues) {
   var va = catVenues[0], vb = catVenues[Math.min(1, catVenues.length-1)];
 
   var catDesc = {
-    "나이트": "금요일 밤 어디 갈지 고민? 전국 "+catVenues.length+"곳 분위기·드레스코드 한눈에 비교. 가기 전 필수 확인.",
-    "클럽": "이번 주말 어디서 놀지? 전국 "+catVenues.length+"곳 사운드·DJ·분위기 솔직 비교. 줄 서기 전 확인.",
-    "라운지": "조용하고 분위기 좋은 곳 찾나요? 전국 "+catVenues.length+"곳 라운지 칵테일·프라이빗 비교. 지금 확인.",
-    "룸": "프라이빗한 모임 장소 찾고 있다면? 전국 "+catVenues.length+"곳 룸 정찰제·서비스 비교. 예약 전 확인.",
-    "요정": "격식 있는 접대 장소? 전국 "+catVenues.length+"곳 요정 한정식·국악·프라이빗룸. 예약 전 필수 확인.",
-    "호빠": "여성을 위한 프리미엄 밤. 전국 "+catVenues.length+"곳 호빠 안전·서비스 비교. 처음이라면 여기서 확인."
+    "나이트": "금요일 밤 어디로 갈지 고민이라면 여기서 끝내세요. 전국 나이트 "+catVenues.length+"곳의 분위기·드레스코드·입장 조건·운영 시간·예약 팁까지 한눈에 비교했습니다. 처음 가는 분도 실패 없이 고르도록 솔직한 정보만 모았어요. 가기 전 꼭 확인하세요.",
+    "클럽": "이번 주말 어느 클럽에서 놀지 정하지 못했다면 참고하세요. 전국 클럽 "+catVenues.length+"곳의 사운드·DJ 라인업·분위기·드레스코드를 솔직하게 비교 정리했습니다. 줄 서기 전에 내 취향에 맞는 곳을 미리 골라 두면 후회가 없어요. 위치와 입장 조건까지 카드마다 함께 담았습니다.",
+    "라운지": "조용하고 분위기 좋은 곳을 찾고 있다면 라운지가 정답입니다. 전국 라운지 "+catVenues.length+"곳의 칵테일·프라이빗 공간·인테리어·예약 조건을 한눈에 비교했어요. 대화도 분위기도 놓치고 싶지 않은 밤, 위치와 가격대까지 살펴보고 실패 없이 고르세요. 카드마다 솔직한 포인트를 담았습니다.",
+    "룸": "프라이빗한 모임 장소를 찾고 있다면 여기서 비교하세요. 전국 룸 "+catVenues.length+"곳의 정찰제 여부·서비스·룸 구성·예약 조건을 솔직하게 정리했습니다. 인원과 예산에 딱 맞는 곳을 예약 전에 미리 확인해 두세요. 카드마다 위치와 이용 팁을 함께 정리해 두었습니다.",
+    "요정": "격식 있는 접대 장소가 필요하다면 요정을 살펴보세요. 전국 요정 "+catVenues.length+"곳의 한정식·국악 공연·프라이빗룸·코스 구성을 비교 정리했습니다. 중요한 자리일수록 분위기와 서비스를 미리 확인하는 것이 안전합니다. 위치와 예약 방법까지 카드 하나로 정리했습니다.",
+    "호빠": "여성을 위한 프리미엄 밤, 처음이라 망설여진다면 여기서 시작하세요. 전국 호빠 "+catVenues.length+"곳의 안전·시스템·서비스·예산을 솔직하게 비교했습니다. 혼자 가도 편하도록 위치·예약 방법·이용 팁까지 꼭 필요한 정보만 카드마다 솔직하게 모아 정리했어요."
   };
 
   return '<!doctype html>\n<html lang="ko">\n<head>\n'+
@@ -796,7 +805,7 @@ function generateExtraPages(venues) {
 
   pages.push({dir:'map',file:'index.html', html: communityShell(
     '놀쿨 전국 지도 — 내 근처 나이트·클럽 103곳',
-    '내 근처 어디 있지? 전국 103곳 나이트·클럽·라운지·룸·요정·호빠 위치 한눈에 확인. 클릭하면 상세 정보·예약·드레스코드·영업시간까지. 놀쿨 전국 지도.',
+    '내 근처 어디에 있을까요? 전국 나이트·클럽·라운지·룸·요정·호빠 103곳의 위치를 지도 한 장에 모았습니다. 마커를 누르면 상세 정보·영업시간·드레스코드·예약 안내까지 바로 확인할 수 있어요. 지금 가까운 곳부터 찾아보세요.',
     '<div style="margin-bottom:16px;">'+
     '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">'+
     Object.keys(catColors).map(function(c){return'<span style="display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:#333;"><span style="width:8px;height:8px;border-radius:50%;background:'+catColors[c]+';"></span>'+c+'</span>';}).join('')+
@@ -820,7 +829,7 @@ function generateExtraPages(venues) {
 
   pages.push({dir:'ranking',file:'index.html', html: communityShell(
     '놀쿨 인기 TOP 20 — 지금 가장 핫한 곳은?',
-    '지금 가장 핫한 곳은? 전국 나이트라이프 인기 업소 TOP 20 실시간 순위. 나이트·클럽·라운지·룸 카테고리별 랭킹. 놀쿨 인기 순위.',
+    '지금 가장 핫한 곳이 궁금하다면 실시간 순위를 확인하세요. 전국 나이트·클럽·라운지·룸 인기 업소 TOP 20을 조회수 기반으로 매주 새로 집계합니다. 사람들이 많이 찾는 데는 이유가 있어요. 오늘 밤 실패 없는 선택을 도와드립니다.',
     '<p style="color:#555;margin-bottom:16px;">조회수 기반 인기 순위입니다. 매주 업데이트됩니다.</p>'+rankHtml+
     '<div class="rank-cta" style="margin-top:16px;"><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" style="color:#8B5CF6;text-decoration:none;font-weight:700;">21위~103위 전체 보기 &rarr; 놀쿨</a></div>',
     '/ranking/'
@@ -843,7 +852,7 @@ function generateExtraPages(venues) {
 
   pages.push({dir:'magazine',file:'index.html', html: communityShell(
     '놀쿨 매거진 — 강남 vs 홍대 어디가 나을까?',
-    '강남 vs 홍대 어디가 나을까? 클럽 첫 방문 완벽 가이드부터 호빠 솔직 후기까지. 읽다 보면 3분 순삭. 나이트라이프 초보부터 고수까지 놀쿨 매거진에서 정보 충전.',
+    '강남과 홍대 중 어디가 나을까요? 클럽 첫 방문 완벽 가이드부터 호빠 솔직 후기, 라운지 비교까지 읽다 보면 3분이 순삭됩니다. 초보부터 고수까지 알아두면 쓸모 있는 밤 이야기를 놀쿨 매거진에서 골라 정리했어요. 지역별 분위기 차이와 예산 감각까지 미리 익혀 두면 첫 방문도 든든합니다.',
     magHtml+
     '<div class="cta-box" style="margin-top:16px;"><div class="cta-icon">&#128218;</div><div class="cta-title">더 많은 매거진</div><div class="cta-desc">놀쿨에서 매주 새로운 매거진이 업데이트됩니다.</div><a href="'+MAIN_URL+'" target="_blank" rel="noopener noreferrer" class="cta-btn">놀쿨에서 더 보기 &rarr;</a></div>',
     '/magazine/'
@@ -852,7 +861,7 @@ function generateExtraPages(venues) {
   // ── EVENTS PAGE ──
   pages.push({dir:'events',file:'index.html', html: communityShell(
     '놀쿨 이벤트 — 이번 주 파티·DJ공연 총정리',
-    '이번 주말 어디서 파티? 전국 나이트·클럽 이벤트·DJ공연·할인·레이디스나이트 정보 한눈에. 놓치면 후회하는 핫한 파티 일정을 놀쿨 이벤트 캘린더에서 확인.',
+    '이번 주말 어디서 파티를 즐길지 고민이라면 여기를 보세요. 전국 나이트·클럽의 DJ 공연·할인·레이디스 나이트·특별 무대 일정을 한곳에 모았습니다. 놓치면 아쉬운 핫한 소식을 놀쿨 이벤트 캘린더에서 매주 업데이트합니다.',
     '<p style="color:#333;margin-bottom:20px;">전국 업소의 이벤트, 파티, 특별 공연 정보를 모았습니다. 매주 업데이트됩니다.</p>'+
     '<div style="background:#F8F7FF;border:1px solid #E5E7EB;border-radius:16px;padding:20px;margin-bottom:16px;">'+
     '<h3 style="font-size:16px;font-weight:700;margin-bottom:12px;">이번 주 주목할 이벤트</h3>'+
@@ -881,7 +890,7 @@ function generateInteractivePages(venues) {
   // ── Quiz: 나이트라이프 취향 테스트 ──
   pages.push({file:'quiz.html', html: communityShell(
     '놀쿨 나이트라이프 유형 테스트 — 클럽형? 라운지형?',
-    '3문제면 끝! 나는 클럽형? 라운지형? 내 나이트라이프 유형 테스트하고 딱 맞는 업소 추천받기.',
+    '단 3문제면 끝납니다. 나는 클럽형일까 라운지형일까? 간단한 취향 테스트로 내게 맞는 밤 스타일을 진단하고, 결과에 딱 맞는 업소 유형까지 추천받아 보세요. 어디로 갈지 고민될 때 1분이면 방향이 잡힙니다. 결과를 친구와 비교해 보면 그날 코스를 정하기도 한결 쉬워집니다.',
     '<div id="quizApp">'+
     '<div id="quizQ" style="font-size:20px;font-weight:800;color:#111;margin-bottom:20px;text-align:center;min-height:60px;"></div>'+
     '<div id="quizBtns" style="display:flex;flex-direction:column;gap:10px;"></div>'+
@@ -921,7 +930,7 @@ function generateInteractivePages(venues) {
   // ── Safety: 음주 계산기 + SOS ──
   pages.push({file:'safety.html', html: communityShell(
     '놀쿨 안전 도구 — 음주 계산기·긴급전화·귀가 팁',
-    '소주 3잔이면 혈중알코올 얼마? 음주 계산기+긴급전화 112/119+귀가 안전 팁. 나가기 전 확인.',
+    '소주 석 잔이면 혈중알코올 농도가 얼마나 될까요? 음주 계산기로 미리 확인하고, 긴급전화 112·119와 안전한 귀가 요령까지 한곳에 모았습니다. 즐거운 밤일수록 나가기 전 안전부터 챙기세요. 확인은 단 3초면 충분합니다.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">음주 계산기</h2>'+
     '<div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:16px;padding:24px;margin-bottom:24px;">'+
     '<div style="margin-bottom:12px;"><label style="font-size:14px;font-weight:600;display:block;margin-bottom:4px;">체중 (kg)</label>'+
@@ -956,7 +965,7 @@ function generateInteractivePages(venues) {
   // ── Dresscode checker ──
   pages.push({file:'dresscode.html', html: communityShell(
     '놀쿨 드레스코드 체커 — 입장 가능 여부 확인',
-    '지금 입은 옷으로 입장 가능? 클럽·나이트·라운지·요정 6종 업종별 입장 판정. 3초면 끝.',
+    '지금 입은 옷으로 입장이 가능할까요? 클럽·나이트·라운지·요정 등 6개 업종별 드레스코드 기준으로 입장 가능 여부를 즉시 판정해 드립니다. 입구에서 거부당하는 일이 없도록 출발 전 3초만 투자해 확인해 보세요. 업종마다 기준이 다르니 가려는 곳에 맞춰 미리 점검하면 더 안전합니다.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">입장 가능할까?</h2>'+
     '<p style="margin-bottom:16px;color:#333;">아래 항목을 선택하면 업종별 입장 가능 여부를 알려드립니다.</p>'+
     '<div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:16px;padding:24px;">'+
@@ -1052,7 +1061,7 @@ function generateCommunityPages(venues) {
   }).join('');
   pages.push({file:'index.html', html: communityShell(
     '놀쿨 커뮤니티 — 나이트라이프 고수들의 실전 팁',
-    '나이트라이프 고수들의 실전 팁부터 패션 가이드·N빵 계산기·드레스코드 체크까지. 처음 가는 사람부터 단골까지 필수 확인. 놀쿨 커뮤니티.',
+    '밤을 제대로 즐기는 사람들의 실전 노하우가 모인 공간입니다. 도착 시간·웨이터 팁·귀가 전략부터 업종별 드레스코드, N빵 계산기까지 처음 가는 분도 단골도 챙겨야 할 정보를 정리했어요. 놀쿨 커뮤니티에서 확인하세요.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">나이트라이프 커뮤니티</h2>'+
     '<p>놀쿨 커뮤니티에서 다양한 정보를 나누세요. 후기, 팁, 패션, 파티 모집까지.</p>'+
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px 0;">'+
@@ -1068,7 +1077,7 @@ function generateCommunityPages(venues) {
   // Tips page
   pages.push({file:'tips.html', html: communityShell(
     '놀쿨 나이트라이프 팁 — 실전 노하우 5가지',
-    '도착 시간, 웨이터 팁, 귀가 전략까지. 아무도 안 알려주는 실전 노하우 5가지. 지금 확인.',
+    '아무도 먼저 알려주지 않는 실전 노하우 다섯 가지. 몇 시에 도착해야 자리가 좋은지, 웨이터에게 어떻게 말해야 하는지, 새벽 귀가는 어떻게 준비하는지까지 핵심만 정리했습니다. 첫 방문 전에 읽어 두면 밤이 달라집니다.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">실전에서 바로 쓰는 팁</h2>'+
     '<div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:16px;padding:20px;margin-bottom:16px;">'+
     '<h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">1. 도착 시간이 분위기를 결정한다</h3>'+
@@ -1090,7 +1099,7 @@ function generateCommunityPages(venues) {
   // Fashion page
   pages.push({file:'fashion.html', html: communityShell(
     '놀쿨 드레스코드 가이드 — 입장 거부 피하는 법',
-    '입장 거부당하기 싫다면? 클럽·나이트·라운지·요정 업종별 드레스코드 완벽 정리. 가기 전 확인.',
+    '입구에서 입장을 거부당하기 싫다면 출발 전에 확인하세요. 클럽·나이트·라운지·요정 업종별 드레스코드 기준과 피해야 할 복장, 무난하게 통과하는 코디까지 한눈에 정리했습니다. 신발과 가방까지 챙기면 입구에서 막힐 일이 없어요. 옷차림 하나로 밤의 시작이 달라집니다.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">업종별 드레스코드</h2>'+
     '<div style="background:#F8F7FF;border:1px solid #E5E7EB;border-radius:16px;padding:20px;margin-bottom:16px;">'+
     '<h3 style="color:#8B5CF6;font-size:16px;font-weight:700;margin-bottom:8px;">클럽</h3>'+
@@ -1112,7 +1121,7 @@ function generateCommunityPages(venues) {
   // N빵 Calculator
   pages.push({file:'calculator.html', html: communityShell(
     '놀쿨 N빵 계산기 — 술자리 정산 3초 해결',
-    '다음 자리까지 가면 얼마? 총 금액 입력하면 1인당 자동 계산. 술자리 필수 도구.',
+    '다음 자리까지 가면 1인당 얼마일까요? 술자리 총 금액과 인원수만 입력하면 1인당 정산 금액을 3초 만에 자동으로 계산해 드립니다. 복잡한 더치페이는 그만, 즐거운 자리에서 돈 계산으로 분위기 깨지 마세요. 술자리 필수 도구.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">N빵 계산기</h2>'+
     '<p style="margin-bottom:16px;">총 금액과 인원수를 입력하면 1인당 금액을 자동 계산합니다.</p>'+
     '<div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:16px;padding:24px;">'+
@@ -1129,7 +1138,7 @@ function generateCommunityPages(venues) {
   // Guidelines
   pages.push({file:'guidelines.html', html: communityShell(
     '놀쿨 커뮤니티 이용 규칙',
-    '놀쿨 커뮤니티 이용 규칙. 상호 존중·허위정보 금지·광고 금지·개인정보 보호.',
+    '놀쿨 커뮤니티를 모두가 기분 좋게 이용하기 위한 기본 규칙을 안내합니다. 서로를 존중하고, 허위 정보와 광고성 게시물을 올리지 않으며, 타인의 개인정보를 보호해 주세요. 건강한 나이트라이프 정보 공유를 위해 함께 지켜 주세요.',
     '<h2 style="font-size:20px;font-weight:800;margin-bottom:16px;">이용 규칙</h2>'+
     '<div style="background:#F9FAFB;border-radius:16px;padding:20px;line-height:2;">'+
     '<p><strong>1. 상호 존중</strong><br>다른 사용자를 존중하세요. 비하, 모욕, 차별적 발언은 금지입니다.</p>'+
@@ -1556,7 +1565,8 @@ var BOOST_LINES=[
       }
     }
   });
-  redirectLines.push("/* /index.html 200");
+  // NO SPA catch-all: missing paths must return real 404 (Cloudflare Pages serves /404.html with HTTP 404).
+  // Adding "/* /index.html 200" here would re-create the soft-404 (every missing URL = duplicate home shell).
   fs.writeFileSync(path.join(ROOT,"_redirects"), redirectLines.join("\n")+"\n", "utf8");
 
   // Generate homepage OG PNG
@@ -1622,13 +1632,29 @@ var BOOST_LINES=[
       Object.keys(c).forEach(function(t){ var r=c[t]/toks.length;       // single-token over-density (stuffing)
         if(c[t]>=25 && r>0.10)viol.push("STUFFING '"+t+"' "+c[t]+"/"+toks.length+" ("+(r*100).toFixed(1)+"%) in "+f.replace(ROOT+"/","")); });
     });
+    // META: length 120-160, unique across pages, no stray double-dot ("..") — but allow "..." ellipsis
+    var metaSeen={};
+    targets.filter(function(f){return /\.html$/.test(f);}).forEach(function(f){
+      if(!fs.existsSync(f))return;
+      var raw=fs.readFileSync(f,"utf8"), rel=f.replace(ROOT+"/","");
+      var m=raw.match(/name="description"\s+content="([^"]*)"/);
+      if(!m){viol.push("META missing in "+rel);return;}
+      var d=m[1];
+      if(d.length<120||d.length>160)viol.push("META len "+d.length+" (need 120-160) in "+rel);
+      if(/(^|[^.])\.\.(?!\.)/.test(d))viol.push("DOUBLE-DOT in meta of "+rel);
+      if(metaSeen[d])viol.push("META DUP in "+rel+" & "+metaSeen[d]); else metaSeen[d]=rel;
+    });
+    // SOFT-404 guard: _redirects must NOT re-introduce the SPA catch-all
+    var rf=path.join(ROOT,"_redirects");
+    if(fs.existsSync(rf) && /\/\*\s+\/index\.html\s+200/.test(fs.readFileSync(rf,"utf8")))
+      viol.push("SOFT-404: _redirects has SPA catch-all '/* /index.html 200' (missing paths would 200)");
     if(viol.length){
       console.error("\n❌ OUTPUT GATE FAILED ("+viol.length+" violations):");
       viol.slice(0,40).forEach(function(v){console.error("  "+v);});
       if(viol.length>40)console.error("  ... +"+(viol.length-40)+" more");
       process.exit(1);
     }
-    console.log("\n✅ OUTPUT GATE PASSED: 0 garble · 0 risk words · 0 dup-line>3 · 0 single-token stuffing");
+    console.log("\n✅ OUTPUT GATE PASSED: 0 garble · 0 risk · 0 dup-line>3 · 0 stuffing · meta 120-160 unique · 0 double-dot · 0 soft-404 catch-all");
   })();
 
   console.log("\n=== BUILD COMPLETE: "+venues.length+" venues ===");
