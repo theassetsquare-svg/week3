@@ -1,0 +1,23 @@
+name = "nolcool-autopilot"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Cron: 00:00 UTC = 09:00 KST, every day
+[triggers]
+crons = ["0 0 * * *"]
+
+# KV for alert dedup + last-run log (self-cleaning via expirationTtl)
+# 1) wrangler kv namespace create AUTOPILOT_KV   → paste the id below
+[[kv_namespaces]]
+binding = "AUTOPILOT_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Site registry is injected as a var at deploy time from sites.json:
+#   wrangler deploy --var SITES:"$(node -e 'process.stdout.write(JSON.stringify(require(\"./sites.json\")))')"
+# (or paste the JSON string here). Keeping it as a var avoids a build step.
+[vars]
+SITES = "[]"
+
+# Secrets (NOT here — set with `wrangler secret put <NAME>`):
+#   RESEND_API_KEY  ALERT_TO  ALERT_FROM
+#   DEPLOY_HOOK_WEEK3 (+ WEEK2/WEEK1)   INDEXNOW_KEY   PSI_KEY   GSC_SA_JSON

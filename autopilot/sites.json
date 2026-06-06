@@ -1,0 +1,41 @@
+[
+  {
+    "id": "week3",
+    "name": "놀쿨 위성 — 전국 나이트라이프 디렉토리",
+    "base": "https://week3-2og.pages.dev",
+    "mainUrl": "https://nolcool.com",
+    "repo": "theassetsquare-svg/week3",
+    "cfProject": "week3",
+    "sitemap": "https://week3-2og.pages.dev/sitemap.xml",
+    "gates": [
+      "garble[㐀-䶿]", "risk-words", "repeat-line>3", "single-token-stuffing>10%",
+      "meta-120-160-unique", "double-dot", "soft-404-catchall",
+      "dead-end", "orphan", "nolcool-direct", "dark-pattern"
+    ],
+    "deployHookSecret": "DEPLOY_HOOK_WEEK3"
+  },
+  {
+    "id": "week2",
+    "name": "놀쿨 위성 2 (placeholder — fill base/repo when registering)",
+    "base": "https://REPLACE-week2.pages.dev",
+    "mainUrl": "https://nolcool.com",
+    "repo": "theassetsquare-svg/week2",
+    "cfProject": "week2",
+    "sitemap": "https://REPLACE-week2.pages.dev/sitemap.xml",
+    "gates": ["garble", "risk-words", "soft-404", "nolcool-direct", "dark-pattern"],
+    "deployHookSecret": "DEPLOY_HOOK_WEEK2",
+    "_note": "Confirm the live base URL + repo for week2 before enabling its checks."
+  },
+  {
+    "id": "week1",
+    "name": "놀쿨 위성 1 (placeholder — fill base/repo when registering)",
+    "base": "https://REPLACE-week1.pages.dev",
+    "mainUrl": "https://nolcool.com",
+    "repo": "theassetsquare-svg/week1",
+    "cfProject": "week1",
+    "sitemap": "https://REPLACE-week1.pages.dev/sitemap.xml",
+    "gates": ["garble", "risk-words", "soft-404", "nolcool-direct", "dark-pattern"],
+    "deployHookSecret": "DEPLOY_HOOK_WEEK1",
+    "_note": "Confirm the live base URL + repo for week1 before enabling its checks."
+  }
+]
