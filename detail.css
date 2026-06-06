@@ -487,6 +487,63 @@ a, button { min-height: 44px; display: inline-flex; align-items: center; justify
   .phone-cta-phone { font-size: 22px; }
 }
 
+/* ══════════ PC (768px+) — 넓은 상세페이지 ══════════ */
+@media (min-width: 768px) {
+  body { max-width: 800px; }
+  .detail-hero { padding: 56px 32px 40px; }
+  .detail-hero h1 { font-size: 32px; }
+  .detail-hook { font-size: 17px; }
+  .detail-section { padding: 32px 32px; }
+  .detail-body { font-size: 17px; line-height: 1.9; }
+  .ba-grid { gap: 20px; }
+  .action-row { gap: 12px; padding: 16px 32px; }
+  .info-table th, .info-table td { padding: 14px 20px; }
+  .faq-q { font-size: 17px; }
+  .faq-a { font-size: 16px; }
+  .plan-card { padding: 20px; }
+}
+
+/* ══════════ SMOOTH SCROLL + 성능 ══════════ */
+html { scroll-behavior: smooth; }
+.detail-section { will-change: auto; }
+
+/* ══════════ 다크모드 (시스템 설정 따름) ══════════ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F0F0F;
+    --bg-page: #000000;
+    --bg-card: #1A1A1A;
+    --text: #F0F0F0;
+    --text-sub: #CCCCCC;
+    --text-dim: #999999;
+    --border: #333333;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .detail-hero { background: linear-gradient(180deg, #1A1028 0%, var(--bg) 100%); }
+  .info-table th { background: #1A1A1A; }
+  .info-table td { border-color: #333; }
+  .faq-item { border-color: #333; }
+  .summary-list li { border-color: #222; }
+  .plan-card { background: var(--bg-card); border-color: #333; }
+  .review-card { background: #1A1A1A; border-color: #333; }
+  .phone-cta-box { background: #1A1028; border-color: var(--accent); }
+  .mid-cta { background: #1A1028; border-color: #333; }
+  .map-link { background: #1A1A1A; }
+  .blur-content { background: #1A1A1A; }
+  .blur-overlay { background: rgba(15,15,15,0.7); }
+  .ba-first { background: #2A1515; border-color: #5C2020; }
+  .ba-regular { background: #152A15; border-color: #205C20; }
+  .insider-tip { background: #2A2015; border-color: #F59E0B; }
+  .secret-section { background: #0A0A15; }
+  .time-attack { background: linear-gradient(135deg, #1A1028, #151525); border-color: #333; }
+  .compare-table td { border-color: #333; }
+  .compare-table td:first-child { background: #1A1A1A; }
+  .detail-footer { background: #0A0A0A; border-color: #333; }
+  .top-nav { background: #0F0F0F; }
+  .bamki-banner { background: #2D1B69; }
+}
+
 /* ══════════ PC (768px+) ══════════ */
 @media (min-width: 768px) {
   .scroll-banner.show { bottom: 100px; }

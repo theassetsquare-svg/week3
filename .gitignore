@@ -1,0 +1,13 @@
+node_modules/
+.wrangler/
+*.log
+firebase-debug.log
+auto-deploy.log
+
+# secrets — DO NOT COMMIT
+.secrets/
+theasset-gsc.json
+*-service-account.json
+gsc-cache/
+.env
+.env.local

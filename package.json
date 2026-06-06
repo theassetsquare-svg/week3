@@ -4,7 +4,17 @@
   "private": true,
   "scripts": {
     "gen:card-copy": "node scripts/gen-card-copy.js",
-    "build": "node scripts/gen-card-copy.js"
+    "build": "node scripts/gen-card-copy.js && node scripts/post-build-seo.js",
+    "audit": "node scripts/seo-audit.js",
+    "audit:fix": "node scripts/seo-audit.js --fix",
+    "audit:full": "node scripts/seo-full-audit.js",
+    "audit:strict": "node scripts/seo-full-audit.js --strict",
+    "gsc": "node scripts/gsc-monitor.js",
+    "health": "node scripts/health-check.js",
+    "watch": "node scripts/auto-watchdog.js",
+    "auto-fix": "node scripts/auto-fix.js",
+    "deploy": "CLOUDFLARE_API_TOKEN=Rmyh9BB6lKFsRjqHZvpMFOBwsbi36MaOEPdWg9sS npx wrangler pages deploy /home/user/week3 --project-name=week3 --commit-dirty=true",
+    "full": "npm run build && npm run audit:full && npm run deploy && npm run health"
   },
   "dependencies": {
     "sharp": "^0.34.5"

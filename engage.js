@@ -239,10 +239,10 @@
   // ══════════ [14] 무한 콘텐츠 — "더 읽을거리" 자동 추가 ══════════
   var readMore = [
     {title:'드레스코드 체커로 입장 가능한지 확인하기',url:'/interactive/dresscode.html'},
-    {title:'나에게 맞는 밤문화 유형 테스트',url:'/interactive/quiz.html'},
+    {title:'나에게 맞는 나이트라이프 유형 테스트',url:'/interactive/quiz.html'},
     {title:'음주 계산기로 안전하게',url:'/interactive/safety.html'},
     {title:'N빵 계산기',url:'/community/calculator.html'},
-    {title:'밤문화 팁 · 노하우',url:'/community/tips.html'},
+    {title:'나이트라이프 팁 · 노하우',url:'/community/tips.html'},
     {title:'전국 업소 지도',url:'/map/'},
     {title:'인기 TOP 20 랭킹',url:'/ranking/'},
     {title:'매거진 — 강남 vs 홍대',url:'/magazine/'},
@@ -391,7 +391,7 @@
   if(isDetailPage && document.querySelector('.detail-section')){
     var vsNames = [
       '강남 vs 홍대','라운지 vs 클럽','소규모 vs 대형','밴드 vs DJ',
-      '금요일 vs 토요일','캐주얼 vs 드레시','2차 vs 올인원','서울 vs 부산'
+      '금요일 vs 토요일','캐주얼 vs 드레시','다음 자리 vs 올인원','서울 vs 부산'
     ];
     var vsIdx = (new Date().getDate() + pageViews) % vsNames.length;
     var vsPair = vsNames[vsIdx].split(' vs ');
@@ -446,7 +446,7 @@
     });
   }
 
-  // ══════════ [21] 퀴즈 — "나에게 맞는 밤문화는?" (상세페이지 인라인) ══════════
+  // ══════════ [21] 퀴즈 — "나에게 맞는 나이트라이프는?" (상세페이지 인라인) ══════════
   if(isDetailPage){
     var quizData = [
       {q:'밤에 나가면 가장 먼저 하는 건?',a:['음악에 몸 맡기기','조용히 술 한잔','새로운 사람 만나기'],r:['클럽이 딱!','라운지 추천!','나이트가 맞아!']},

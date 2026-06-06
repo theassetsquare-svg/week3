@@ -674,10 +674,23 @@ body { padding-bottom: 100px; }
 .ptag { min-height: 44px; display: inline-flex; align-items: center; padding: 8px 14px; }
 .dd-item { min-height: 44px; }
 
-/* ══════════ PC (768px+) ══════════ */
+/* ══════════ PC (768px+) — 2열 카드 그리드 + 넓은 레이아웃 ══════════ */
 @media (min-width: 768px) {
+  body { max-width: 960px; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hero-title { font-size: 36px; }
+  .hero-desc { font-size: 17px; }
+  .section { padding: 36px 24px; }
+  .card-body { min-height: 220px; }
+  .premium-card { padding: 24px; }
   .scroll-banner.show { bottom: 100px; }
   .slideup-popup.show { bottom: 96px; }
+}
+
+/* ══════════ PC 대형 (1200px+) — 3열 ══════════ */
+@media (min-width: 1200px) {
+  body { max-width: 1200px; }
+  .grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 /* ══════════ MOBILE — 바 겹침 방지 ══════════ */
@@ -686,4 +699,40 @@ body { padding-bottom: 100px; }
   .slideup-popup.show { bottom: 96px; }
   #autoNext { bottom: 100px !important; }
   #engageBadge { position: static; }
+}
+
+/* ══════════ SMOOTH SCROLL + 성능 최적화 ══════════ */
+html { scroll-behavior: smooth; }
+.card, .premium-card, .rank-card { will-change: transform; }
+img, svg { content-visibility: auto; }
+
+/* ══════════ 다크모드 (시스템 설정 따름) ══════════ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F0F0F;
+    --bg-page: #000000;
+    --bg-card: #1A1A1A;
+    --text: #F0F0F0;
+    --text-sub: #CCCCCC;
+    --text-dim: #999999;
+    --border: #333333;
+    --border-hover: #555555;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .card, .premium-card, .rank-card { background: var(--bg-card); }
+  .hero { background: linear-gradient(180deg, #1A1028 0%, var(--bg) 100%); }
+  .search-box input { background: #1A1A1A; color: var(--text); border-color: #333; }
+  .search-box input::placeholder { color: #666; }
+  .search-dropdown { background: #1A1A1A; border-color: #333; }
+  .dd-item:hover { background: #222; }
+  .filters { background: rgba(15,15,15,0.95); }
+  .filter-btn { background: #1A1A1A; border-color: #333; }
+  .footer { background: #0A0A0A; }
+  .bamki-banner { background: #2D1B69; }
+  .top-nav { background: #0F0F0F; }
+  .cta-box, .daily-card { background: #1A1028; border-color: #333; }
+  .ad-banner { background: #1A1A1A; }
+  .card-tag { background: #222; border-color: #333; }
+  .info-table th { background: #1A1A1A; }
 }
