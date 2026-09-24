@@ -243,7 +243,7 @@ const raw = [
   // 나이트 서울 (12)
   {name:"청담H2O나이트",type:"나이트",region:"청담",nickname:"펩시맨",phone:"010-5655-4866"},
   {name:"강남줄리아나나이트",type:"나이트",region:"강남",nickname:"",phone:""},
-  {name:"신림그랑프리나이트",type:"나이트",region:"신림",nickname:"광고문의",phone:"카톡 besta12"},
+  {name:"신림그랑프리나이트",type:"나이트",region:"신림",nickname:"",phone:""},
   {name:"상봉동한국관나이트",type:"나이트",region:"상봉동",nickname:"",phone:""},
   {name:"수유샴푸나이트",type:"나이트",region:"수유",nickname:"",phone:""},
   {name:"독산국빈관나이트",type:"나이트",region:"독산",nickname:"",phone:""},
@@ -293,7 +293,7 @@ const raw = [
   {name:"대구토토가나이트",type:"나이트",region:"대구",nickname:"",phone:""},
   {name:"구미호박나이트",type:"나이트",region:"구미",nickname:"",phone:""},
   // 나이트 부산/울산 (5)
-  {name:"부산연산동물나이트",type:"나이트",region:"부산",nickname:"광고문의",phone:"카톡 besta12"},
+  {name:"부산연산동물나이트",type:"나이트",region:"부산",nickname:"",phone:""},
   {name:"부산아시아드나이트",type:"나이트",region:"부산",nickname:"",phone:""},
   {name:"부산물나이트",type:"나이트",region:"부산",nickname:"",phone:""},
   {name:"울산뉴월드나이트",type:"나이트",region:"울산",nickname:"",phone:""},
