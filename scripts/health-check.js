@@ -18,7 +18,7 @@ const https = require("https");
 const { URL } = require("url");
 
 const ROOT = path.join(__dirname, "..");
-const SITE = process.argv[2] || "https://week3-2og.pages.dev";
+const SITE = process.argv[2] || "https://ee.nolcool.com";
 const OUT = path.join(ROOT, ".secrets", "health-report.json");
 const CONCURRENCY = 6;
 const TIMEOUT_MS = 8000;

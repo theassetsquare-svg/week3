@@ -18,7 +18,7 @@
  * Usage:
  *   node scripts/gsc-monitor.js               # last 28 days
  *   node scripts/gsc-monitor.js --days=90     # last 90 days
- *   node scripts/gsc-monitor.js --site=https://week3-2og.pages.dev/
+ *   node scripts/gsc-monitor.js --site=https://ee.nolcool.com/
  */
 const fs = require("fs");
 const path = require("path");
@@ -28,7 +28,7 @@ const https = require("https");
 const ROOT = path.join(__dirname, "..");
 const KEY_PATH = path.join(ROOT, ".secrets", "theasset-gsc.json");
 const OUT_DIR = path.join(ROOT, ".secrets");
-const SITE = arg("--site", "https://week3-2og.pages.dev/");
+const SITE = arg("--site", "https://ee.nolcool.com/");
 const DAYS = parseInt(arg("--days", "28"), 10);
 
 function arg(name, def) {

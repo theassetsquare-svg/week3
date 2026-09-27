@@ -8,7 +8,7 @@ const path = require("path");
 const generateContent = require("./content-engine");
 
 const ROOT = path.join(__dirname, "..");
-const DEPLOY_URL = "https://week3-2og.pages.dev";
+const DEPLOY_URL = "https://ee.nolcool.com";
 const MAIN_URL = "https://nolcool.com";
 const BANNED = ["해당","이곳","공간","매장","감도","기준","가격"];
 const MAX_REPEAT = 60; // 103 venues: cross-venue threshold relaxed

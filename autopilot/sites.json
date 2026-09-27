@@ -2,11 +2,11 @@
   {
     "id": "week3",
     "name": "놀쿨 위성 — 전국 나이트라이프 디렉토리",
-    "base": "https://week3-2og.pages.dev",
+    "base": "https://ee.nolcool.com",
     "mainUrl": "https://nolcool.com",
     "repo": "theassetsquare-svg/week3",
     "cfProject": "week3",
-    "sitemap": "https://week3-2og.pages.dev/sitemap.xml",
+    "sitemap": "https://ee.nolcool.com/sitemap.xml",
     "gates": [
       "garble[㐀-䶿]", "risk-words", "repeat-line>3", "single-token-stuffing>10%",
       "meta-120-160-unique", "double-dot", "soft-404-catchall",

@@ -5,10 +5,10 @@
  *
  * Usage:
  *   normalizeSlug("/gangnam/gangnam-room/gangnam") → "/gangnam/room"
- *   buildCanonical("https://week3-2og.pages.dev", "/a/") → "https://week3-2og.pages.dev/a/"
+ *   buildCanonical("https://ee.nolcool.com", "/a/") → "https://ee.nolcool.com/a/"
  */
 
-const DEPLOY_URL = "https://week3-2og.pages.dev";
+const DEPLOY_URL = "https://ee.nolcool.com";
 
 /**
  * Normalize a URL path by removing duplicate segments.
@@ -32,9 +32,9 @@ function normalizeSlug(path) {
 
 /**
  * Build a full canonical URL from a base URL and path.
- * @param {string} base - e.g. "https://week3-2og.pages.dev"
+ * @param {string} base - e.g. "https://ee.nolcool.com"
  * @param {string} path - e.g. "/a/"
- * @returns {string} - e.g. "https://week3-2og.pages.dev/a/"
+ * @returns {string} - e.g. "https://ee.nolcool.com/a/"
  */
 function buildCanonical(base, path) {
   const cleanBase = base.replace(/\/+$/, "");

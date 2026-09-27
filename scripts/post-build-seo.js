@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const DEPLOY = 'https://week3-2og.pages.dev';
+const DEPLOY = 'https://ee.nolcool.com';
 const ROOT = path.join(__dirname, '..');
 
 const urlMap = {

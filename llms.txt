@@ -3,22 +3,22 @@
 > 놀쿨는 전국 103곳의 나이트, 클럽, 라운지, 룸, 요정, 호빠 정보를 제공합니다.
 
 ## 우선 URL
-- 메인: https://week3-2og.pages.dev/
-- 나이트: https://week3-2og.pages.dev/c/나이트/
-- 클럽: https://week3-2og.pages.dev/c/클럽/
-- 라운지: https://week3-2og.pages.dev/c/라운지/
-- 룸: https://week3-2og.pages.dev/c/룸/
-- 요정: https://week3-2og.pages.dev/c/요정/
-- 호빠: https://week3-2og.pages.dev/c/호빠/
-- 지도: https://week3-2og.pages.dev/map/
-- 랭킹: https://week3-2og.pages.dev/ranking/
-- 매거진: https://week3-2og.pages.dev/magazine/
-- 이벤트: https://week3-2og.pages.dev/events/
-- 커뮤니티: https://week3-2og.pages.dev/community/
-- 취향 테스트: https://week3-2og.pages.dev/interactive/quiz.html
-- 드레스코드 체커: https://week3-2og.pages.dev/interactive/dresscode.html
-- 안전 도구: https://week3-2og.pages.dev/interactive/safety.html
-- N빵 계산기: https://week3-2og.pages.dev/community/calculator.html
+- 메인: https://ee.nolcool.com/
+- 나이트: https://ee.nolcool.com/c/나이트/
+- 클럽: https://ee.nolcool.com/c/클럽/
+- 라운지: https://ee.nolcool.com/c/라운지/
+- 룸: https://ee.nolcool.com/c/룸/
+- 요정: https://ee.nolcool.com/c/요정/
+- 호빠: https://ee.nolcool.com/c/호빠/
+- 지도: https://ee.nolcool.com/map/
+- 랭킹: https://ee.nolcool.com/ranking/
+- 매거진: https://ee.nolcool.com/magazine/
+- 이벤트: https://ee.nolcool.com/events/
+- 커뮤니티: https://ee.nolcool.com/community/
+- 취향 테스트: https://ee.nolcool.com/interactive/quiz.html
+- 드레스코드 체커: https://ee.nolcool.com/interactive/dresscode.html
+- 안전 도구: https://ee.nolcool.com/interactive/safety.html
+- N빵 계산기: https://ee.nolcool.com/community/calculator.html
 
 ## 전체 업소 목록 (103곳)
 - 일산룸 | 룸 | 일산 | /v/ilsan-room/

@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 const { URL } = require("url");
 
-const SITE = process.argv[2] || "https://week3-2og.pages.dev";
+const SITE = process.argv[2] || "https://ee.nolcool.com";
 const ROOT = path.join(__dirname, "..");
 
 const UAS = {
