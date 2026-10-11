@@ -236,10 +236,10 @@ const HT_HOPPA = [
 // ══════════ ALL VENUES DATA ══════════
 const raw = [
   // 룸 (2)
-  {name:"일산룸",type:"룸",region:"일산",nickname:"일산룸 총책임자",phone:"010-4117-5556"},
+  {name:"일산룸",type:"룸",region:"일산",nickname:"",phone:""},
   {name:"해운대고구려",type:"룸",region:"부산해운대",nickname:"",phone:""},
   // 요정 (1)
-  {name:"일산명월관요정",type:"요정",region:"일산",nickname:"일산룸 총책임자",phone:"010-4117-5556"},
+  {name:"일산명월관요정",type:"요정",region:"일산",nickname:"신실장",phone:"010-3695-4929"},
   // 나이트 서울 (12)
   {name:"청담H2O나이트",type:"나이트",region:"청담",nickname:"펩시맨",phone:"010-5655-4866"},
   {name:"강남줄리아나나이트",type:"나이트",region:"강남",nickname:"",phone:""},
