@@ -24,7 +24,7 @@
 - 일산룸 | 룸 | 일산 | /v/ilsan-room/
 - 해운대고구려 | 룸 | 해운대 | /v/haeundae-goguryeo/
 - 일산명월관요정 | 요정 | 일산 | /v/ilsan-myeongwolgwan-yojeong/
-- 청담H2O나이트 | 나이트 | 청담 | /v/cheongdam-h2o-night/
+- 청담H2O나이트 | 나이트 | 청담 | /v/cheongdam-h2o-night-2/
 - 강남줄리아나나이트 | 나이트 | 강남 | /v/gangnam-juliana-night/
 - 신림그랑프리나이트 | 나이트 | 신림 | /v/sinlim-grandprix-night/
 - 상봉동한국관나이트 | 나이트 | 상봉동 | /v/sangbongdong-hangukgwan-night/
@@ -58,7 +58,7 @@
 - 안산히트나이트 | 나이트 | 안산 | /v/ansan-hit-night-2/
 - 안산돈텔마마나이트 | 나이트 | 안산 | /v/ansan-dontellmama-night/
 - 천안스타돔나이트 | 나이트 | 천안 | /v/cheonan-stardom-night/
-- 천안코리아나이트 | 나이트 | 천안 | /v/cheonan-korea-night/
+- 천안코리아나이트 | 나이트 | 천안 | /v/cheonan-korea-night-2/
 - 대전세븐나이트 | 나이트 | 대전 | /v/daejeon-seven-night/
 - 대전원나이트 | 나이트 | 대전 | /v/daejeon-won-night/
 - 대전봉명나이트 | 나이트 | 대전 | /v/daejeon-bongmyeong-night/
