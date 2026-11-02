@@ -49,7 +49,7 @@
 - 오산호박나이트 | 나이트 | 오산 | /v/osan-hobak-night/
 - 성남국빈관나이트 | 나이트 | 성남 | /v/seongnam-gukbingwan-night/
 - 인덕원국빈관나이트 | 나이트 | 인덕원 | /v/indeogwon-gukbingwan-night/
-- 성남샴푸나이트 | 나이트 | 성남 | /v/seongnam-shampoo-night/
+- 성남샴푸나이트 | 나이트 | 성남 | /v/seongnam-shampoo-night-2/
 - 분당퐁퐁나이트 | 나이트 | 분당 | /v/bundang-pongpong-night/
 - 평택호박나이트 | 나이트 | 평택 | /v/pyeongtaek-hobak-night/
 - 인천아라비안나이트 | 나이트 | 인천 | /v/incheon-arabian-night/
@@ -75,7 +75,7 @@
 - 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night-2/
 - 부산물나이트 | 나이트 | 부산 | /v/busan-mul-night/
 - 울산뉴월드나이트 | 나이트 | 울산 | /v/ulsan-newworld-night/
-- 울산챔피언나이트 | 나이트 | 울산 | /v/ulsan-champion-night/
+- 울산챔피언나이트 | 나이트 | 울산 | /v/ulsan-champion-night-2/
 - 광주상무나이트 | 나이트 | 광주 | /v/gwangju-sangmu-night/
 - 광주토토밤나이트 | 나이트 | 광주 | /v/gwangju-totobam-night/
 - 광주첨단엠파나이트 | 나이트 | 광주 | /v/gwangju-chemdan-empa-night/
