@@ -55,7 +55,7 @@
 - 인천아라비안나이트 | 나이트 | 인천 | /v/incheon-arabian-night/
 - 부천메리트나이트 | 나이트 | 부천 | /v/bucheon-merit-night/
 - 부천고래나이트 | 나이트 | 부천 | /v/bucheon-gorae-night/
-- 안산히트나이트 | 나이트 | 안산 | /v/ansan-hit-night/
+- 안산히트나이트 | 나이트 | 안산 | /v/ansan-hit-night-2/
 - 안산돈텔마마나이트 | 나이트 | 안산 | /v/ansan-dontellmama-night/
 - 천안스타돔나이트 | 나이트 | 천안 | /v/cheonan-stardom-night/
 - 천안코리아나이트 | 나이트 | 천안 | /v/cheonan-korea-night/
@@ -72,7 +72,7 @@
 - 대구토토가나이트 | 나이트 | 대구 | /v/daegu-totoga-night/
 - 구미호박나이트 | 나이트 | 구미 | /v/gumi-hobak-night/
 - 부산연산동물나이트 | 나이트 | 부산 | /v/busan-yeonsandong-mul-night/
-- 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night/
+- 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night-2/
 - 부산물나이트 | 나이트 | 부산 | /v/busan-mul-night/
 - 울산뉴월드나이트 | 나이트 | 울산 | /v/ulsan-newworld-night/
 - 울산챔피언나이트 | 나이트 | 울산 | /v/ulsan-champion-night/
