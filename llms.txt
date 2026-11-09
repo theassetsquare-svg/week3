@@ -98,7 +98,7 @@
 - 압구정클럽 디브릿지 | 클럽 | 압구정 | /v/apgujeong-club-dbridge/
 - 압구정클럽 캔디맨 | 클럽 | 압구정 | /v/apgujeong-club-candyman/
 - 압구정클럽 무인 | 클럽 | 압구정 | /v/apgujeong-club-muin/
-- 청담클럽 아르쥬 | 클럽 | 청담 | /v/cheongdam-club-arjeu/
+- 청담클럽 아르쥬 | 클럽 | 청담 | /v/cheongdam-club-arjeu-2/
 - 이태원클럽 유토피아 | 클럽 | 이태원 | /v/itaewon-club-utopia/
 - 이태원클럽 메이드 | 클럽 | 이태원 | /v/itaewon-club-maid/
 - 이태원클럽 프리즘 | 클럽 | 이태원 | /v/itaewon-club-prism/
