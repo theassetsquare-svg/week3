@@ -29,7 +29,7 @@
 - 신림그랑프리나이트 | 나이트 | 신림 | /v/sinlim-grandprix-night/
 - 상봉동한국관나이트 | 나이트 | 상봉동 | /v/sangbongdong-hangukgwan-night/
 - 수유샴푸나이트 | 나이트 | 수유 | /v/suyu-shampoo-night/
-- 독산국빈관나이트 | 나이트 | 독산 | /v/doksan-gukbingwan-night/
+- 독산국빈관나이트 | 나이트 | 독산 | /v/doksan-gukbingwan-night-2/
 - 답십리돈텔마마나이트 | 나이트 | 답십리 | /v/dapsimni-dontellmama-night/
 - 강서나이트 | 나이트 | 강서 | /v/gangseo-night/
 - 영등포터미널나이트 | 나이트 | 영등포 | /v/yeongdeungpo-terminal-night/
