@@ -72,7 +72,7 @@
 - 대구토토가나이트 | 나이트 | 대구 | /v/daegu-totoga-night/
 - 구미호박나이트 | 나이트 | 구미 | /v/gumi-hobak-night/
 - 부산연산동물나이트 | 나이트 | 부산 | /v/busan-yeonsandong-mul-night/
-- 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night-2/
+- 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night-11/
 - 부산물나이트 | 나이트 | 부산 | /v/busan-mul-night/
 - 울산뉴월드나이트 | 나이트 | 울산 | /v/ulsan-newworld-night/
 - 울산챔피언나이트 | 나이트 | 울산 | /v/ulsan-champion-night-2/
