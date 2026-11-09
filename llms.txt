@@ -70,7 +70,7 @@
 - 대구호박나이트 | 나이트 | 대구 | /v/daegu-hobak-night-2/
 - 대구바밤바나이트 | 나이트 | 대구 | /v/daegu-babamba-night/
 - 대구토토가나이트 | 나이트 | 대구 | /v/daegu-totoga-night/
-- 구미호박나이트 | 나이트 | 구미 | /v/gumi-hobak-night/
+- 구미호박나이트 | 나이트 | 구미 | /v/gumi-hobak-night-2/
 - 부산연산동물나이트 | 나이트 | 부산 | /v/busan-yeonsandong-mul-night/
 - 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night-11/
 - 부산물나이트 | 나이트 | 부산 | /v/busan-mul-night/
