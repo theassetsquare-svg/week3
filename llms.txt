@@ -35,7 +35,7 @@
 - 영등포터미널나이트 | 나이트 | 영등포 | /v/yeongdeungpo-terminal-night/
 - 노원호박나이트 | 나이트 | 노원 | /v/nowon-hobak-night/
 - 노원스타나이트 | 나이트 | 노원 | /v/nowon-star-night/
-- 길동찬스나이트 | 나이트 | 길동 | /v/gildong-chance-night/
+- 길동찬스나이트 | 나이트 | 길동 | /v/gildong-chance-night-2/
 - 일산샴푸나이트 | 나이트 | 일산 | /v/ilsan-shampoo-night/
 - 일산물나이트 | 나이트 | 일산 | /v/ilsan-mul-night/
 - 파주야당스카이돔나이트 | 나이트 | 파주 | /v/paju-yadang-skydome-night/
