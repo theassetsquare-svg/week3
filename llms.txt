@@ -48,7 +48,7 @@
 - 수원코리아나이트 | 나이트 | 수원 | /v/suwon-korea-night/
 - 오산호박나이트 | 나이트 | 오산 | /v/osan-hobak-night/
 - 성남국빈관나이트 | 나이트 | 성남 | /v/seongnam-gukbingwan-night/
-- 인덕원국빈관나이트 | 나이트 | 인덕원 | /v/indeogwon-gukbingwan-night/
+- 인덕원국빈관나이트 | 나이트 | 인덕원 | /v/indeogwon-gukbingwan-night-2/
 - 성남샴푸나이트 | 나이트 | 성남 | /v/seongnam-shampoo-night-2/
 - 분당퐁퐁나이트 | 나이트 | 분당 | /v/bundang-pongpong-night/
 - 평택호박나이트 | 나이트 | 평택 | /v/pyeongtaek-hobak-night/
