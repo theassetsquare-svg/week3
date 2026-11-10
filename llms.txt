@@ -52,7 +52,7 @@
 - 성남샴푸나이트 | 나이트 | 성남 | /v/seongnam-shampoo-night-2/
 - 분당퐁퐁나이트 | 나이트 | 분당 | /v/bundang-pongpong-night/
 - 평택호박나이트 | 나이트 | 평택 | /v/pyeongtaek-hobak-night/
-- 인천아라비안나이트 | 나이트 | 인천 | /v/incheon-arabian-night/
+- 인천아라비안나이트 | 나이트 | 인천 | /v/incheon-arabian-night-2/
 - 부천메리트나이트 | 나이트 | 부천 | /v/bucheon-merit-night/
 - 부천고래나이트 | 나이트 | 부천 | /v/bucheon-gorae-night/
 - 안산히트나이트 | 나이트 | 안산 | /v/ansan-hit-night-2/
