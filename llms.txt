@@ -32,7 +32,7 @@
 - 독산국빈관나이트 | 나이트 | 독산 | /v/doksan-gukbingwan-night-2/
 - 답십리돈텔마마나이트 | 나이트 | 답십리 | /v/dapsimni-dontellmama-night/
 - 강서나이트 | 나이트 | 강서 | /v/gangseo-night/
-- 영등포터미널나이트 | 나이트 | 영등포 | /v/yeongdeungpo-terminal-night/
+- 영등포터미널나이트 | 나이트 | 영등포 | /v/yeongdeungpo-terminal-night-2/
 - 노원호박나이트 | 나이트 | 노원 | /v/nowon-hobak-night-2/
 - 노원스타나이트 | 나이트 | 노원 | /v/nowon-star-night/
 - 길동찬스나이트 | 나이트 | 길동 | /v/gildong-chance-night-2/
@@ -43,7 +43,7 @@
 - 김포호박나이트 | 나이트 | 김포 | /v/gimpo-hobak-night/
 - 김포썸나이트 | 나이트 | 김포 | /v/gimpo-sseom-night/
 - 구리호박나이트 | 나이트 | 구리 | /v/guri-hobak-night-2/
-- 의정부한국관나이트 | 나이트 | 의정부 | /v/uijeongbu-hangukgwan-night/
+- 의정부한국관나이트 | 나이트 | 의정부 | /v/uijeongbu-hangukgwan-night-2/
 - 수원찬스돔나이트 | 나이트 | 수원 | /v/suwon-chancesdom-night/
 - 수원코리아나이트 | 나이트 | 수원 | /v/suwon-korea-night-2/
 - 오산호박나이트 | 나이트 | 오산 | /v/osan-hobak-night-2/
@@ -74,7 +74,7 @@
 - 부산연산동물나이트 | 나이트 | 부산 | /v/busan-yeonsandong-mul-night/
 - 부산아시아드나이트 | 나이트 | 부산 | /v/busan-asiad-night-11/
 - 부산물나이트 | 나이트 | 부산 | /v/busan-mul-night/
-- 울산뉴월드나이트 | 나이트 | 울산 | /v/ulsan-newworld-night/
+- 울산뉴월드나이트 | 나이트 | 울산 | /v/ulsan-newworld-night-2/
 - 울산챔피언나이트 | 나이트 | 울산 | /v/ulsan-champion-night-2/
 - 광주상무나이트 | 나이트 | 광주 | /v/gwangju-sangmu-night-2/
 - 광주토토밤나이트 | 나이트 | 광주 | /v/gwangju-totobam-night/
