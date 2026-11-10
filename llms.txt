@@ -28,12 +28,12 @@
 - 강남줄리아나나이트 | 나이트 | 강남 | /v/gangnam-juliana-night/
 - 신림그랑프리나이트 | 나이트 | 신림 | /v/sinlim-grandprix-night/
 - 상봉동한국관나이트 | 나이트 | 상봉동 | /v/sangbongdong-hangukgwan-night/
-- 수유샴푸나이트 | 나이트 | 수유 | /v/suyu-shampoo-night/
+- 수유샴푸나이트 | 나이트 | 수유 | /v/suyu-shampoo-night-2/
 - 독산국빈관나이트 | 나이트 | 독산 | /v/doksan-gukbingwan-night-2/
 - 답십리돈텔마마나이트 | 나이트 | 답십리 | /v/dapsimni-dontellmama-night/
 - 강서나이트 | 나이트 | 강서 | /v/gangseo-night/
 - 영등포터미널나이트 | 나이트 | 영등포 | /v/yeongdeungpo-terminal-night/
-- 노원호박나이트 | 나이트 | 노원 | /v/nowon-hobak-night/
+- 노원호박나이트 | 나이트 | 노원 | /v/nowon-hobak-night-2/
 - 노원스타나이트 | 나이트 | 노원 | /v/nowon-star-night/
 - 길동찬스나이트 | 나이트 | 길동 | /v/gildong-chance-night-2/
 - 일산샴푸나이트 | 나이트 | 일산 | /v/ilsan-shampoo-night-2/
@@ -45,8 +45,8 @@
 - 구리호박나이트 | 나이트 | 구리 | /v/guri-hobak-night-2/
 - 의정부한국관나이트 | 나이트 | 의정부 | /v/uijeongbu-hangukgwan-night/
 - 수원찬스돔나이트 | 나이트 | 수원 | /v/suwon-chancesdom-night/
-- 수원코리아나이트 | 나이트 | 수원 | /v/suwon-korea-night/
-- 오산호박나이트 | 나이트 | 오산 | /v/osan-hobak-night/
+- 수원코리아나이트 | 나이트 | 수원 | /v/suwon-korea-night-2/
+- 오산호박나이트 | 나이트 | 오산 | /v/osan-hobak-night-2/
 - 성남국빈관나이트 | 나이트 | 성남 | /v/seongnam-gukbingwan-night/
 - 인덕원국빈관나이트 | 나이트 | 인덕원 | /v/indeogwon-gukbingwan-night-2/
 - 성남샴푸나이트 | 나이트 | 성남 | /v/seongnam-shampoo-night-2/
@@ -65,7 +65,7 @@
 - 대전한국관나이트 | 나이트 | 대전 | /v/daejeon-hangukgwan-night/
 - 청주돈텔마마나이트 | 나이트 | 청주 | /v/cheongju-dontellmama-night/
 - 청주호박나이트 | 나이트 | 청주 | /v/cheongju-hobak-night-2/
-- 서산호박나이트 | 나이트 | 서산 | /v/seosan-hobak-night/
+- 서산호박나이트 | 나이트 | 서산 | /v/seosan-hobak-night-2/
 - 대구한국관나이트 | 나이트 | 대구 | /v/daegu-hangukgwan-night/
 - 대구호박나이트 | 나이트 | 대구 | /v/daegu-hobak-night-2/
 - 대구바밤바나이트 | 나이트 | 대구 | /v/daegu-babamba-night/
@@ -81,7 +81,7 @@
 - 광주첨단엠파나이트 | 나이트 | 광주 | /v/gwangju-chemdan-empa-night/
 - 광주MGM나이트 | 나이트 | 광주 | /v/gwangju-mgm-night/
 - 광주올나이트 | 나이트 | 광주 | /v/gwangju-ol-night/
-- 제주나이트 | 나이트 | 제주 | /v/jeju-night/
+- 제주나이트 | 나이트 | 제주 | /v/jeju-night-2/
 - 강남클럽 레이스 | 클럽 | 강남 | /v/gangnam-club-race/
 - 강남클럽 사운드 | 클럽 | 강남 | /v/gangnam-club-sound/
 - 강남클럽 Jack | 클럽 | 강남 | /v/gangnam-club-jack/
