@@ -297,7 +297,7 @@ const raw = [
   {name:"부산아시아드나이트",type:"나이트",region:"부산",nickname:"",phone:""},
   {name:"부산물나이트",type:"나이트",region:"부산",nickname:"",phone:""},
   {name:"울산뉴월드나이트",type:"나이트",region:"울산",nickname:"",phone:""},
-  {name:"울산챔피언나이트",type:"나이트",region:"울산",nickname:"춘자",phone:"010-5653-0069"},
+  {name:"울산챔피언나이트",type:"나이트",region:"울산",nickname:"",phone:""},
   // 나이트 광주/전라/제주 (6)
   {name:"광주상무나이트",type:"나이트",region:"광주",nickname:"",phone:""},
   {name:"광주토토밤나이트",type:"나이트",region:"광주",nickname:"",phone:""},
